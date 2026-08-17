@@ -71,9 +71,28 @@ export default function ServicesPage() {
               display: 'flex', 
               flexDirection: 'column',
               background: 'rgba(14, 17, 24, 0.88)',
-              borderTop: '4px solid #d4af37'
+              borderTop: srv.popularBadge ? '4px solid #f5d77f' : '4px solid rgba(212, 175, 55, 0.5)',
+              position: 'relative'
             }}
           >
+            {srv.popularBadge && (
+              <div style={{
+                position: 'absolute',
+                top: '-12px',
+                right: '18px',
+                background: 'linear-gradient(135deg, #d4af37, #b8860b)',
+                color: '#070a10',
+                padding: '0.2rem 0.65rem',
+                borderRadius: '6px',
+                fontSize: '0.72rem',
+                fontWeight: 800,
+                textTransform: 'uppercase',
+                letterSpacing: '0.04em',
+                boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)'
+              }}>
+                {srv.popularBadge}
+              </div>
+            )}
             
             {/* Header: Icon + Service Name */}
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', marginBottom: '1.25rem' }}>

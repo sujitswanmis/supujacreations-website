@@ -302,7 +302,25 @@ export default function Home() {
             gap: '1.75rem'
           }}>
             {services.slice(0, 8).map((srv) => (
-              <div key={srv.id} className="glass-card" style={{ padding: '2.2rem 2rem', display: 'flex', flexDirection: 'column' }}>
+              <div key={srv.id} className="glass-card" style={{ padding: '2.2rem 2rem', display: 'flex', flexDirection: 'column', position: 'relative', borderTop: srv.popularBadge ? '3px solid #f5d77f' : '1px solid rgba(212, 175, 55, 0.2)' }}>
+                {srv.popularBadge && (
+                  <div style={{
+                    position: 'absolute',
+                    top: '-12px',
+                    right: '16px',
+                    background: 'linear-gradient(135deg, #d4af37, #b8860b)',
+                    color: '#070a10',
+                    padding: '0.2rem 0.6rem',
+                    borderRadius: '6px',
+                    fontSize: '0.7rem',
+                    fontWeight: 800,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.04em',
+                    boxShadow: '0 4px 12px rgba(212, 175, 55, 0.4)'
+                  }}>
+                    {srv.popularBadge}
+                  </div>
+                )}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
                   <div style={{
                     width: '46px',

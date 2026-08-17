@@ -321,7 +321,7 @@ export default function Home() {
                     {srv.popularBadge}
                   </div>
                 )}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
                   <div style={{
                     width: '46px',
                     height: '46px',
@@ -334,9 +334,18 @@ export default function Home() {
                   }}>
                     {getIcon(srv.iconName)}
                   </div>
-                  <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#f5d77f' }}>
-                    {srv.cost}
-                  </div>
+                  <span style={{ 
+                    fontSize: '0.74rem', 
+                    color: '#f5d77f', 
+                    background: 'rgba(212, 175, 55, 0.12)', 
+                    border: '1px solid rgba(212, 175, 55, 0.3)', 
+                    padding: '0.2rem 0.55rem', 
+                    borderRadius: '4px',
+                    fontWeight: 700,
+                    letterSpacing: '0.02em'
+                  }}>
+                    {srv.billingType || 'Enterprise Module'}
+                  </span>
                 </div>
 
                 <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
@@ -351,7 +360,7 @@ export default function Home() {
                   ))}
                 </div>
                 <Link href={`/services#${srv.id}`} style={{ color: '#f5d77f', textDecoration: 'none', fontSize: '0.88rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.4rem', marginTop: 'auto' }}>
-                  Explore details & Book <ArrowRight size={14} />
+                  Explore Capabilities & Pricing <ArrowRight size={14} />
                 </Link>
               </div>
             ))}

@@ -128,14 +128,31 @@ export default function ServicesPage() {
               marginBottom: '1.5rem',
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'center'
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: '0.75rem'
             }}>
               <div>
                 <div style={{ fontSize: '0.75rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem', letterSpacing: '0.04em' }}>
                   <Tag size={13} color="#f5d77f" />
                   Service Cost
+                  {srv.billingType && (
+                    <span style={{
+                      fontSize: '0.66rem',
+                      fontWeight: 800,
+                      textTransform: 'uppercase',
+                      background: srv.billingType.includes('Monthly') ? 'rgba(56, 189, 248, 0.2)' : 'rgba(212, 175, 55, 0.2)',
+                      color: srv.billingType.includes('Monthly') ? '#7dd3fc' : '#fef3c7',
+                      border: srv.billingType.includes('Monthly') ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid rgba(212, 175, 55, 0.4)',
+                      padding: '0.1rem 0.45rem',
+                      borderRadius: '4px',
+                      marginLeft: '0.4rem'
+                    }}>
+                      {srv.billingType}
+                    </span>
+                  )}
                 </div>
-                <div style={{ fontSize: '0.78rem', color: '#71717a', marginTop: '0.15rem' }}>
+                <div style={{ fontSize: '0.78rem', color: '#a1a1aa', marginTop: '0.15rem' }}>
                   {srv.costNote}
                 </div>
               </div>

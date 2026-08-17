@@ -7,7 +7,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { name, phone, email, company, service, message } = body;
+    const { name, phone, email, company, service, services, message } = body;
 
     if (!name || !phone) {
       return NextResponse.json(
@@ -16,12 +16,16 @@ export async function POST(req) {
       );
     }
 
+    const serviceDisplay = Array.isArray(services) && services.length > 0 
+      ? services.join(', ') 
+      : (service || 'Google Sheets & MIS Automation');
+
     const inquiryRecord = {
       name: name.trim(),
       phone: phone.trim(),
       email: (email || '').trim(),
       company: (company || '').trim(),
-      service: service || 'Google Sheets & MIS Automation',
+      service: serviceDisplay,
       message: (message || '').trim(),
       created_at: new Date().toISOString(),
       status: 'new'

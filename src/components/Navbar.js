@@ -123,14 +123,6 @@ export default function Navbar() {
             <Building2 size={15} color="#f5d77f" />
             CRM Workplace
           </a>
-          <Link 
-            href="/contact" 
-            className="btn-primary desktop-cta" 
-            style={{ padding: '0.52rem 1.25rem', fontSize: '0.86rem' }}
-          >
-            <Sparkles size={14} />
-            Hire / Consult
-          </Link>
 
           {/* Mobile Menu Toggle Button */}
           <button 
@@ -215,15 +207,6 @@ export default function Navbar() {
               <Building2 size={16} color="#f5d77f" />
               CRM Workplace Portal
             </a>
-            <Link 
-              href="/contact" 
-              className="btn-primary" 
-              onClick={() => setMobileMenuOpen(false)}
-              style={{ width: '100%', justifyContent: 'center' }}
-            >
-              <Sparkles size={16} />
-              Start Consultation
-            </Link>
             
             <div style={{ fontSize: '0.7rem', color: '#71717a', textAlign: 'center', marginTop: '0.4rem', fontFamily: 'JetBrains Mono, monospace' }}>
               SuPuja Automation Platform • <span style={{ color: '#f5d77f' }}>v2.5.0</span>

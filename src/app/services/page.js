@@ -162,22 +162,38 @@ export default function ServicesPage() {
             </div>
 
             {/* Action Buttons */}
-            <div style={{ display: 'flex', gap: '0.75rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', width: '100%', marginTop: 'auto' }}>
               <a 
                 href={`https://wa.me/919988119276?text=${encodeURIComponent(`Hello SuPuja Creations, I want to book/discuss the "${srv.title}" service.`)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary"
-                style={{ flex: 1, justifyContent: 'center', fontSize: '0.86rem', padding: '0.65rem 1rem' }}
+                style={{ 
+                  flex: 1, 
+                  justifyContent: 'center', 
+                  fontSize: '0.86rem', 
+                  padding: '0.65rem 0.85rem',
+                  whiteSpace: 'nowrap',
+                  gap: '0.45rem'
+                }}
               >
                 <MessageCircle size={16} />
-                Book via WhatsApp
+                <span>Book via WhatsApp</span>
               </a>
               <Link 
                 href={`/contact?service=${encodeURIComponent(srv.title)}`}
                 className="btn-secondary"
-                style={{ fontSize: '0.86rem', padding: '0.65rem 1rem' }}
+                style={{ 
+                  width: '44px', 
+                  minWidth: '44px', 
+                  height: '40px',
+                  padding: 0, 
+                  justifyContent: 'center', 
+                  alignItems: 'center',
+                  flexShrink: 0 
+                }}
                 title="Send Inquiry"
+                aria-label="Send Inquiry"
               >
                 <Send size={15} color="#f5d77f" />
               </Link>

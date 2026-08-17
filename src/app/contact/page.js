@@ -6,6 +6,7 @@ import {
   Mail, MessageSquare, MapPin, Building2, 
   ExternalLink, Clock, ShieldCheck, CheckCircle2, Send, Sparkles
 } from 'lucide-react';
+import { FacebookIcon, InstagramIcon } from '../../components/SocialIcons';
 import ContactForm from '../../components/ContactForm';
 
 function ContactContent() {
@@ -15,7 +16,7 @@ function ContactContent() {
   const faqs = [
     {
       q: 'Do we need to replace our existing software (like Tally, ERP, or TrackOlap)?',
-      a: 'Not at all. My systems are designed to integrate seamlessly alongside your current software via REST APIs, webhooks, or scheduled spreadsheet bridges.'
+      a: 'Not at all. Our systems are designed to integrate seamlessly alongside your current software via REST APIs, webhooks, or scheduled spreadsheet bridges.'
     },
     {
       q: 'How long does a typical FMS or automation project take to implement?',
@@ -45,7 +46,7 @@ function ContactContent() {
           <span>Get in Touch</span>
         </div>
         <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1.25rem 0' }}>
-          Let's Digitize & <span className="gold-gradient-text">Automate Your Business</span>
+          Let's Digitize & Automate <span className="gold-gradient-text">Your Business</span>
         </h1>
         <p style={{ fontSize: '1.15rem', color: '#e4e4e7', lineHeight: 1.7, margin: 0 }}>
           Have a manual process, spreadsheet mess, or workflow bottleneck? Fill out the inquiry below or connect directly on WhatsApp to schedule a consultation.
@@ -58,7 +59,7 @@ function ContactContent() {
         {/* Left Column: Direct Contacts */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
           
-          <div className="glass-card" style={{ padding: '2.5rem 2rem', background: 'rgba(16, 18, 25, 0.88)' }}>
+          <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
             <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1.5rem 0' }}>
               Direct Contact Information
             </h2>
@@ -66,11 +67,11 @@ function ContactContent() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
                   <Mail size={22} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>Official Email</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>Official Email</div>
                   <a href="mailto:sales@supujacreations.com" style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 600, fontSize: '1rem' }}>
                     sales@supujacreations.com
                   </a>
@@ -78,11 +79,11 @@ function ContactContent() {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
                   <MessageSquare size={22} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>Phone / WhatsApp</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>Phone / WhatsApp</div>
                   <a href="tel:+919988119276" style={{ color: '#ffffff', textDecoration: 'none', fontWeight: 600, fontSize: '1rem' }}>
                     +91 99881 19276
                   </a>
@@ -90,28 +91,28 @@ function ContactContent() {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
                   <MapPin size={22} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>Operating Location</div>
-                  <div style={{ color: '#ffffff', fontWeight: 600, fontSize: '0.96rem' }}>India (Remote & On-Site Projects)</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>Operating Location</div>
+                  <div style={{ color: '#ffffff', fontWeight: 500, fontSize: '0.96rem' }}>India (Remote & On-Site Projects)</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
+                <div style={{ width: '44px', height: '44px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f', flexShrink: 0 }}>
                   <Clock size={22} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>Response Commitment</div>
-                  <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '0.96rem' }}>Within 4 business hours</div>
+                  <div style={{ fontSize: '0.78rem', color: '#a1a1aa', textTransform: 'uppercase', fontWeight: 600 }}>Response Commitment</div>
+                  <div style={{ color: '#ffffff', fontWeight: 500, fontSize: '0.96rem' }}>Within 4 business hours</div>
                 </div>
               </div>
 
             </div>
 
-            <div style={{ marginTop: '2.5rem' }}>
+            <div style={{ marginTop: '2.5rem', display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
               <a 
                 href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20I%20am%20interested%20in%20your%20MIS%20and%20Business%20Automation%20services." 
                 target="_blank" 
@@ -122,12 +123,35 @@ function ContactContent() {
                 <MessageSquare size={18} />
                 Chat on WhatsApp (+91 99881 19276)
               </a>
+
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem', marginTop: '0.25rem' }}>
+                <a 
+                  href="https://www.facebook.com/supujacreations" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="btn-secondary"
+                  style={{ justifyContent: 'center', fontSize: '0.86rem', padding: '0.65rem 0.75rem' }}
+                >
+                  <FacebookIcon size={16} color="#f5d77f" />
+                  Facebook
+                </a>
+                <a 
+                  href="https://www.instagram.com/supujacreations/" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="btn-secondary"
+                  style={{ justifyContent: 'center', fontSize: '0.86rem', padding: '0.65rem 0.75rem' }}
+                >
+                  <InstagramIcon size={16} color="#f5d77f" />
+                  Instagram
+                </a>
+              </div>
             </div>
 
           </div>
 
           {/* CRM Portal Access */}
-          <div className="glass-card" style={{ padding: '2rem', background: 'rgba(16, 18, 25, 0.88)' }}>
+          <div className="glass-card" style={{ padding: '2rem', background: 'rgba(20, 24, 34, 0.6)' }}>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0' }}>
               Existing Client or Employee?
             </h3>
@@ -136,10 +160,10 @@ function ContactContent() {
             </p>
             <a 
               href="https://app.supujacreations.com" 
-              target="_blank"
+              target="_blank" 
               rel="noreferrer"
               className="btn-secondary" 
-              style={{ padding: '0.65rem 1.2rem', fontSize: '0.88rem' }}
+              style={{ padding: '0.6rem 1.2rem', fontSize: '0.88rem' }}
             >
               <Building2 size={16} color="#f5d77f" />
               Open CRM Workplace
@@ -157,7 +181,10 @@ function ContactContent() {
       {/* FREQUENTLY ASKED QUESTIONS */}
       <div style={{ marginTop: '2rem' }}>
         <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3.5rem auto' }}>
-          <div className="page-badge">Common Questions</div>
+          <div className="page-badge">
+            <Sparkles size={14} color="#f5d77f" />
+            <span>Common Questions</span>
+          </div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>
             Frequently Asked Questions
           </h2>

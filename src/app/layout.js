@@ -63,6 +63,10 @@ export default function RootLayout({ children }) {
     'url': 'https://supujacreations.com',
     'telephone': '+91-9988119276',
     'email': 'sales@supujacreations.com',
+    'sameAs': [
+      'https://www.facebook.com/supujacreations',
+      'https://www.instagram.com/supujacreations'
+    ],
     'address': {
       '@type': 'PostalAddress',
       'addressCountry': 'IN'

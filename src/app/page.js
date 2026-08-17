@@ -13,19 +13,19 @@ import { projects } from '../data/projectsData';
 import ContactForm from '../components/ContactForm';
 
 export default function Home() {
-  const getIcon = (iconName, color) => {
+  const getIcon = (iconName) => {
     switch (iconName) {
-      case 'Megaphone': return <Megaphone size={26} color={color || '#f5d77f'} />;
-      case 'FileSpreadsheet': return <FileSpreadsheet size={26} color={color || '#f5d77f'} />;
-      case 'Cpu': return <Cpu size={26} color={color || '#f5d77f'} />;
-      case 'Globe': return <Globe size={26} color={color || '#f5d77f'} />;
-      case 'Link2': return <Link2 size={26} color={color || '#f5d77f'} />;
-      case 'GitBranch': return <GitBranch size={26} color={color || '#f5d77f'} />;
-      case 'Factory': return <Factory size={26} color={color || '#f5d77f'} />;
-      case 'MapPin': return <MapPin size={26} color={color || '#f5d77f'} />;
-      case 'MessageSquare': return <MessageSquare size={26} color={color || '#f5d77f'} />;
-      case 'BarChart3': return <BarChart3 size={26} color={color || '#f5d77f'} />;
-      default: return <Zap size={26} color={color || '#f5d77f'} />;
+      case 'Megaphone': return <Megaphone size={26} color="#f5d77f" />;
+      case 'FileSpreadsheet': return <FileSpreadsheet size={26} color="#f5d77f" />;
+      case 'Cpu': return <Cpu size={26} color="#f5d77f" />;
+      case 'Globe': return <Globe size={26} color="#f5d77f" />;
+      case 'Link2': return <Link2 size={26} color="#f5d77f" />;
+      case 'GitBranch': return <GitBranch size={26} color="#f5d77f" />;
+      case 'Factory': return <Factory size={26} color="#f5d77f" />;
+      case 'MapPin': return <MapPin size={26} color="#f5d77f" />;
+      case 'MessageSquare': return <MessageSquare size={26} color="#f5d77f" />;
+      case 'BarChart3': return <BarChart3 size={26} color="#f5d77f" />;
+      default: return <Zap size={26} color="#f5d77f" />;
     }
   };
 
@@ -33,13 +33,13 @@ export default function Home() {
     <div style={{ position: 'relative' }}>
       
       {/* AMBIENT GOLD GLOWS */}
-      <div className="ambient-glow" style={{ top: '3%', left: '15%', width: '480px', height: '480px', background: 'rgba(212, 175, 55, 0.12)' }} />
-      <div className="ambient-glow" style={{ top: '35%', right: '8%', width: '450px', height: '450px', background: 'rgba(245, 215, 127, 0.09)' }} />
-      <div className="ambient-glow" style={{ bottom: '15%', left: '10%', width: '520px', height: '520px', background: 'rgba(184, 134, 11, 0.1)' }} />
+      <div className="ambient-glow" style={{ top: '4%', left: '8%', width: '450px', height: '450px', background: 'rgba(212, 175, 55, 0.12)' }} />
+      <div className="ambient-glow" style={{ top: '32%', right: '5%', width: '450px', height: '450px', background: 'rgba(245, 215, 127, 0.08)' }} />
+      <div className="ambient-glow" style={{ bottom: '15%', left: '15%', width: '500px', height: '500px', background: 'rgba(184, 134, 11, 0.09)' }} />
 
       {/* HERO SECTION */}
       <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem 4rem 1.5rem', maxWidth: '1240px', margin: '0 auto' }}>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', maxWidth: '940px', margin: '0 auto' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', maxWidth: '920px', margin: '0 auto' }}>
           
           {/* Status Badge */}
           <div className="page-badge">
@@ -47,33 +47,38 @@ export default function Home() {
             <span>Available for Enterprise Automation, FMS & MIS Architecture</span>
           </div>
 
-          {/* Brand Name & Logo */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '0.85rem' }}>
+          {/* Brand Name & Logo: SIDE BY SIDE */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'nowrap', gap: '1.1rem', marginBottom: '0.85rem' }}>
             <img 
               src="/supuja-logo.png" 
               alt="SuPuja Creations Logo" 
               style={{
-                height: '72px',
+                height: '66px',
                 width: 'auto',
                 objectFit: 'contain',
                 flexShrink: 0,
-                filter: 'drop-shadow(0 4px 22px rgba(212, 175, 55, 0.55))'
+                filter: 'drop-shadow(0 4px 18px rgba(212, 175, 55, 0.5))'
               }} 
             />
             <h1 style={{
-              fontSize: 'clamp(2.6rem, 5.8vw, 4.2rem)',
-              fontWeight: 900,
+              fontSize: 'clamp(2.2rem, 5.5vw, 4rem)',
+              fontWeight: 800,
               lineHeight: 1.1,
-              letterSpacing: '-0.03em',
+              letterSpacing: '-0.02em',
               margin: 0,
-              color: '#ffffff'
+              color: '#ffffff',
+              display: 'inline-flex',
+              alignItems: 'center',
+              whiteSpace: 'nowrap',
+              gap: '0.55rem'
             }}>
-              SuPuja <span className="gold-gradient-text">Creations</span>
+              <span>SuPuja</span>
+              <span className="gold-gradient-text">Creations</span>
             </h1>
           </div>
 
           <div style={{
-            fontSize: 'clamp(1.2rem, 2.8vw, 1.75rem)',
+            fontSize: 'clamp(1.25rem, 2.8vw, 1.8rem)',
             fontWeight: 700,
             color: '#f5d77f',
             marginBottom: '1.5rem',
@@ -86,9 +91,9 @@ export default function Home() {
           <p style={{
             fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
             color: '#e4e4e7',
-            lineHeight: 1.7,
+            lineHeight: 1.65,
             margin: '0 0 1rem 0',
-            maxWidth: '840px',
+            maxWidth: '820px',
             fontWeight: 400
           }}>
             We engineer practical business automation systems using <strong style={{ color: '#f5d77f' }}>Google Sheets</strong>, <strong style={{ color: '#f5d77f' }}>Google Apps Script</strong>, <strong style={{ color: '#f5d77f' }}>REST APIs</strong>, <strong style={{ color: '#f5d77f' }}>Looker Dashboards</strong>, and custom web applications.
@@ -98,7 +103,7 @@ export default function Home() {
             fontSize: '0.98rem',
             color: '#a1a1aa',
             margin: '0 0 2.5rem 0',
-            maxWidth: '740px'
+            maxWidth: '720px'
           }}>
             Helping organizations digitize sales, purchase, manufacturing lines, attendance, reporting, and multi-department operational workflows without disruption.
           </p>
@@ -110,11 +115,11 @@ export default function Home() {
               Explore Services & Pricing
             </Link>
             <Link href="/fms" className="btn-secondary">
-              <Layers size={18} />
+              <Layers size={18} color="#f5d77f" />
               85-Step FMS Workflows
             </Link>
             <Link href="/contact" className="btn-secondary">
-              <MessageSquare size={18} />
+              <MessageSquare size={18} color="#f5d77f" />
               Discuss a Project
             </Link>
           </div>
@@ -125,26 +130,26 @@ export default function Home() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
             gap: '1.25rem',
             width: '100%',
-            maxWidth: '1040px'
+            maxWidth: '1020px'
           }}>
-            <div className="stat-box">
-              <div className="gold-gradient-text" style={{ fontSize: '2.5rem', fontWeight: 900, lineHeight: 1 }}>10+</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 600 }}>Years of Practical MIS & Operations Track Record</div>
+            <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>10+</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Years of Practical MIS & Operations Track Record</div>
             </div>
 
-            <div className="stat-box">
-              <div className="gold-gradient-text" style={{ fontSize: '2.5rem', fontWeight: 900, lineHeight: 1 }}>85-Step</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 600 }}>Complex Manufacturing FMS Workflows Digitized</div>
+            <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>85-Step</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Complex Manufacturing FMS Workflows Digitized</div>
             </div>
 
-            <div className="stat-box">
-              <div className="gold-gradient-text" style={{ fontSize: '2.5rem', fontWeight: 900, lineHeight: 1 }}>6,500+</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 600 }}>Govt Skill Portal Candidate Data Operations</div>
+            <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>6,500+</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Govt Skill Portal Candidate Data Operations</div>
             </div>
 
-            <div className="stat-box">
-              <div className="gold-gradient-text" style={{ fontSize: '2.5rem', fontWeight: 900, lineHeight: 1 }}>50+</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 600 }}>Custom Automations, APIs & Web Applications</div>
+            <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>50+</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Custom Automations, APIs & Web Applications</div>
             </div>
           </div>
 
@@ -152,44 +157,37 @@ export default function Home() {
       </section>
 
       {/* CORE PHILOSOPHY / STRONG POSITIONING BANNER */}
-      <section style={{ 
-        position: 'relative', 
-        zIndex: 1, 
-        padding: '3.5rem 1.5rem', 
-        background: 'linear-gradient(90deg, rgba(212, 175, 55, 0.08) 0%, rgba(14, 16, 22, 0.95) 50%, rgba(212, 175, 55, 0.08) 100%)', 
-        borderTop: '1px solid rgba(212, 175, 55, 0.18)', 
-        borderBottom: '1px solid rgba(212, 175, 55, 0.18)' 
-      }}>
+      <section style={{ position: 'relative', zIndex: 1, padding: '3.8rem 1.5rem', background: 'linear-gradient(90deg, rgba(212, 175, 55, 0.08) 0%, rgba(14, 17, 24, 0.95) 50%, rgba(184, 134, 11, 0.08) 100%)', borderTop: '1px solid rgba(212, 175, 55, 0.2)', borderBottom: '1px solid rgba(212, 175, 55, 0.2)' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto', textAlign: 'center' }}>
           
-          <div style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#f5d77f', fontWeight: 700, marginBottom: '0.75rem' }}>
+          <div style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: '#f5d77f', fontWeight: 700, marginBottom: '0.75rem' }}>
             Core Philosophy & Differentiator
           </div>
 
           <blockquote style={{
-            fontSize: 'clamp(1.35rem, 3.2vw, 2.1rem)',
+            fontSize: 'clamp(1.35rem, 3.2vw, 2rem)',
             fontWeight: 800,
-            color: '#f8fafc',
+            color: '#ffffff',
             margin: '0 0 1rem 0',
             lineHeight: 1.35
           }}>
             &ldquo;We do not just prepare MIS reports. We engineer and automate complete business processes.&rdquo;
           </blockquote>
 
-          <p style={{ fontSize: '1.05rem', color: '#d4af37', margin: '0 0 2rem 0', fontStyle: 'italic', fontWeight: 500 }}>
+          <p style={{ fontSize: '1.05rem', color: '#f5d77f', margin: '0 0 2rem 0', fontStyle: 'italic', opacity: 0.9 }}>
             (Main sirf reports nahi banata; main manual business processes ko structured digital systems mein convert karta hoon.)
           </p>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2.5rem', justifyContent: 'center' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: '#f5d77f', fontSize: '0.95rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: '#f8fafc', fontSize: '0.95rem' }}>
               <CheckCircle2 size={19} color="#d4af37" />
               <span>Zero Fluff, 100% Practical</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: '#f5d77f', fontSize: '0.95rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: '#f8fafc', fontSize: '0.95rem' }}>
               <CheckCircle2 size={19} color="#d4af37" />
               <span>Scalable Architecture</span>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: '#f5d77f', fontSize: '0.95rem', fontWeight: 600 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', color: '#f8fafc', fontSize: '0.95rem' }}>
               <CheckCircle2 size={19} color="#d4af37" />
               <span>Non-Disruptive Upgrades</span>
             </div>
@@ -204,8 +202,8 @@ export default function Home() {
           
           <div>
             <div className="page-badge">About SuPuja Creations</div>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1.5rem 0', lineHeight: 1.25 }}>
-              10+ Years of Turning Manual Chaos into Automated Flow
+            <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ffffff', margin: '0 0 1.5rem 0', lineHeight: 1.25 }}>
+              10+ Years of Turning Messy Operations into Automated Flow
             </h2>
 
             <p style={{ color: '#e4e4e7', fontSize: '1.02rem', lineHeight: 1.7, marginBottom: '1.25rem' }}>
@@ -217,55 +215,55 @@ export default function Home() {
             </p>
 
             <Link href="/about" className="btn-primary">
-              Read Full Agency Story
+              Read Full Background & Journey
               <ArrowRight size={16} />
             </Link>
           </div>
 
           {/* Quick Competencies Box */}
-          <div className="glass-card" style={{ padding: '2.2rem 2rem', background: 'rgba(16, 18, 26, 0.88)' }}>
-            <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#f8fafc', margin: '0 0 1.25rem 0', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-              <ShieldCheck size={20} color="#f5d77f" />
+          <div className="glass-card" style={{ padding: '2.2rem 2rem' }}>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', margin: '0 0 1.25rem 0', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
+              <ShieldCheck size={20} color="#d4af37" />
               Core Competencies Snapshot
             </h3>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
               <div style={{ display: 'flex', gap: '0.85rem' }}>
-                <div style={{ background: 'rgba(212, 175, 55, 0.12)', width: '38px', height: '38px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.25)' }}>
+                <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '36px', height: '36px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                   <FileSpreadsheet size={18} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, color: '#ffffff', fontSize: '0.95rem' }}>Master Data Architecture</div>
+                  <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '0.95rem' }}>Master Data Architecture</div>
                   <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Unified single-source-of-truth structures for items, dealers, and BOMs.</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '0.85rem' }}>
-                <div style={{ background: 'rgba(212, 175, 55, 0.12)', width: '38px', height: '38px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.25)' }}>
+                <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '36px', height: '36px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                   <Clock size={18} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, color: '#ffffff', fontSize: '0.95rem' }}>Turnaround Time (TAT) & Escalations</div>
+                  <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '0.95rem' }}>Turnaround Time (TAT) & Escalations</div>
                   <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Dynamic delay identification and automated managerial escalation alerts.</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '0.85rem' }}>
-                <div style={{ background: 'rgba(212, 175, 55, 0.12)', width: '38px', height: '38px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.25)' }}>
+                <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '36px', height: '36px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                   <Factory size={18} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, color: '#ffffff', fontSize: '0.95rem' }}>Manufacturing & Job-Work Tracking</div>
+                  <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '0.95rem' }}>Manufacturing & Job-Work Tracking</div>
                   <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Multi-stage machine shop workflows (Laser, CNC, Welding, Paint, Assembly).</div>
                 </div>
               </div>
 
               <div style={{ display: 'flex', gap: '0.85rem' }}>
-                <div style={{ background: 'rgba(212, 175, 55, 0.12)', width: '38px', height: '38px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.25)' }}>
+                <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '36px', height: '36px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                   <Award size={18} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 700, color: '#ffffff', fontSize: '0.95rem' }}>6,500+ Candidate Govt Portals MIS</div>
+                  <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '0.95rem' }}>6,500+ Candidate Govt Portals MIS</div>
                   <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Skill India, HPKVN, Kaushal Bharat, Pragati & Panjee MIS operations.</div>
                 </div>
               </div>
@@ -276,13 +274,13 @@ export default function Home() {
       </section>
 
       {/* SERVICES PREVIEW */}
-      <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', background: 'rgba(12, 14, 20, 0.65)', borderTop: '1px solid rgba(212, 175, 55, 0.12)' }}>
+      <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', background: 'rgba(10, 12, 18, 0.6)', borderTop: '1px solid rgba(212, 175, 55, 0.15)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '3.5rem' }}>
             <div>
               <div className="page-badge">What We Deliver</div>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>
+              <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>
                 Specialized Automation Services & Pricing
               </h2>
             </div>
@@ -304,15 +302,15 @@ export default function Home() {
                     width: '46px',
                     height: '46px',
                     borderRadius: '10px',
-                    background: 'rgba(212, 175, 55, 0.12)',
-                    border: '1px solid rgba(212, 175, 55, 0.3)',
+                    background: 'rgba(212, 175, 55, 0.14)',
+                    border: '1px solid rgba(212, 175, 55, 0.35)',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center'
                   }}>
-                    {getIcon(srv.iconName, '#f5d77f')}
+                    {getIcon(srv.iconName)}
                   </div>
-                  <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f5d77f' }}>
+                  <div style={{ fontSize: '1.45rem', fontWeight: 800, color: '#f5d77f' }}>
                     {srv.cost}
                   </div>
                 </div>
@@ -342,7 +340,7 @@ export default function Home() {
       <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', maxWidth: '1240px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3.5rem auto' }}>
           <div className="page-badge">Engineering Flow Control</div>
-          <h2 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1rem 0' }}>
+          <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ffffff', margin: '0 0 1rem 0' }}>
             85-Step Manufacturing Process Digitization (FMS)
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '1rem', lineHeight: 1.6 }}>
@@ -357,32 +355,32 @@ export default function Home() {
           marginBottom: '2.5rem'
         }}>
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', padding: '0.2rem 0.55rem', borderRadius: '4px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>STAGE S01-S10</span>
-            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem', fontWeight: 700 }}>Requisition & Material Issue</h4>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S01-S10</span>
+            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Requisition & Material Issue</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
               BOM verification, raw steel allocation, store issue slips, and stock reservation.
             </p>
           </div>
 
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', padding: '0.2rem 0.55rem', borderRadius: '4px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>STAGE S11-S35</span>
-            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem', fontWeight: 700 }}>Machining & Fabrication</h4>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S11-S35</span>
+            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Machining & Fabrication</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
               Laser cutting, CNC bending, side plate welding, rotor shaft machining, and flange fitment.
             </p>
           </div>
 
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', padding: '0.2rem 0.55rem', borderRadius: '4px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>STAGE S36-S60</span>
-            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem', fontWeight: 700 }}>Vendor Job-Work & Heat Treat</h4>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S36-S60</span>
+            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Vendor Job-Work & Heat Treat</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
               Outward challan, external heat treatment, gear hardening, vendor TAT, and inward QC.
             </p>
           </div>
 
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', padding: '0.2rem 0.55rem', borderRadius: '4px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>STAGE S61-S85</span>
-            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem', fontWeight: 700 }}>Assembly, Paint & Dispatch</h4>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S61-S85</span>
+            <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Assembly, Paint & Dispatch</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
               Gearbox fitment, blade mounting, powder coating, final QC testing, and serial dispatch.
             </p>
@@ -398,13 +396,13 @@ export default function Home() {
       </section>
 
       {/* FEATURED PROJECTS PREVIEW */}
-      <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', background: 'rgba(12, 14, 20, 0.65)', borderTop: '1px solid rgba(212, 175, 55, 0.12)' }}>
+      <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', background: 'rgba(10, 12, 18, 0.6)', borderTop: '1px solid rgba(212, 175, 55, 0.15)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
           
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-end', gap: '1.5rem', marginBottom: '3.5rem' }}>
             <div>
               <div className="page-badge">Case Studies</div>
-              <h2 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>
+              <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>
                 Featured Automation Projects
               </h2>
             </div>
@@ -427,15 +425,15 @@ export default function Home() {
                 <h3 style={{ fontSize: '1.3rem', fontWeight: 700, color: '#ffffff', margin: '0 0 0.35rem 0' }}>
                   {p.title}
                 </h3>
-                <div style={{ fontSize: '0.86rem', color: '#f5d77f', fontWeight: 600, marginBottom: '1.25rem' }}>
+                <div style={{ fontSize: '0.86rem', color: '#f5d77f', fontWeight: 500, marginBottom: '1.25rem' }}>
                   {p.subtitle}
                 </div>
                 <p style={{ fontSize: '0.88rem', color: '#a1a1aa', lineHeight: 1.6, marginBottom: '1.5rem', flexGrow: 1 }}>
                   {p.solution}
                 </p>
-                <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '0.75rem 1rem', borderRadius: '10px', marginBottom: '1.25rem' }}>
+                <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '0.75rem 1rem', borderRadius: '8px', marginBottom: '1.25rem' }}>
                   <div style={{ fontSize: '0.75rem', color: '#f5d77f', fontWeight: 700, textTransform: 'uppercase' }}>Measurable Impact</div>
-                  <div style={{ fontSize: '0.85rem', color: '#fef3c7', fontWeight: 600 }}>{p.impact}</div>
+                  <div style={{ fontSize: '0.85rem', color: '#fef3c7', fontWeight: 500 }}>{p.impact}</div>
                 </div>
                 <Link href="/projects" style={{ color: '#f5d77f', textDecoration: 'none', fontSize: '0.88rem', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
                   Read full case study <ArrowRight size={14} />
@@ -451,7 +449,7 @@ export default function Home() {
       <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', maxWidth: '1100px', margin: '0 auto' }}>
         <div style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 3.5rem auto' }}>
           <div className="page-badge">Direct Collaboration</div>
-          <h2 style={{ fontSize: '2.4rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1rem 0' }}>
+          <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ffffff', margin: '0 0 1rem 0' }}>
             Have a Process to Automate?
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '1rem' }}>
@@ -470,7 +468,7 @@ export default function Home() {
 
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f' }}>
+                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f' }}>
                     <Mail size={20} />
                   </div>
                   <div>
@@ -482,7 +480,7 @@ export default function Home() {
                 </div>
 
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f' }}>
+                  <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#f5d77f' }}>
                     <MessageSquare size={20} />
                   </div>
                   <div>

@@ -3,12 +3,13 @@ import Link from 'next/link';
 import { 
   MapPin, MessageSquare, Mail, Building2, ArrowUpRight, ShieldCheck, Sparkles
 } from 'lucide-react';
+import { FacebookIcon, InstagramIcon } from './SocialIcons';
 
 export default function Footer() {
   return (
     <footer style={{
-      background: '#050608',
-      borderTop: '1px solid rgba(212, 175, 55, 0.16)',
+      background: '#040508',
+      borderTop: '1px solid rgba(212, 175, 55, 0.2)',
       padding: '4.5rem 1.5rem 2.5rem 1.5rem',
       color: '#a1a1aa',
       fontSize: '0.88rem',
@@ -24,19 +25,19 @@ export default function Footer() {
           gap: '2.5rem'
         }}>
           
-          {/* Col 1: Brand Info */}
+          {/* Col 1: Brand Info & Socials */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
               <img 
                 src="/supuja-logo.png" 
                 alt="SuPuja Creations Logo" 
                 style={{
-                  height: '46px',
+                  height: '44px',
                   width: 'auto',
-                  maxHeight: '46px',
+                  maxHeight: '44px',
                   objectFit: 'contain',
                   flexShrink: 0,
-                  filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.4))'
+                  filter: 'drop-shadow(0 2px 8px rgba(212, 175, 55, 0.45))'
                 }} 
               />
               <div>
@@ -50,6 +51,57 @@ export default function Footer() {
             <p style={{ fontSize: '0.86rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0 }}>
               Practical business automation systems, Google Workspace architecture, REST API pipelines, and multi-step manufacturing flow systems (FMS).
             </p>
+
+            {/* Social Media Links */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <a 
+                href="https://www.facebook.com/supujacreations" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  color: '#f5d77f',
+                  textDecoration: 'none',
+                  background: 'rgba(212, 175, 55, 0.1)',
+                  border: '1px solid rgba(212, 175, 55, 0.3)',
+                  padding: '0.45rem 0.85rem',
+                  borderRadius: '8px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  transition: 'all 0.2s'
+                }}
+                title="Follow on Facebook"
+              >
+                <FacebookIcon size={16} color="#f5d77f" />
+                <span>Facebook</span>
+              </a>
+
+              <a 
+                href="https://www.instagram.com/supujacreations/" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  color: '#f5d77f',
+                  textDecoration: 'none',
+                  background: 'rgba(212, 175, 55, 0.1)',
+                  border: '1px solid rgba(212, 175, 55, 0.3)',
+                  padding: '0.45rem 0.85rem',
+                  borderRadius: '8px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  transition: 'all 0.2s'
+                }}
+                title="Follow on Instagram"
+              >
+                <InstagramIcon size={16} color="#f5d77f" />
+                <span>Instagram</span>
+              </a>
+            </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: '#f5d77f', fontSize: '0.82rem', fontWeight: 600 }}>
               <ShieldCheck size={16} color="#d4af37" />
@@ -114,7 +166,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/services#whatsapp-marketing" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
-                  WhatsApp Marketing & Business API
+                  WhatsApp Marketing & Client Notification
                 </Link>
               </li>
               <li>

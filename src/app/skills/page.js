@@ -23,7 +23,7 @@ export default function SkillsPage() {
           <span>Technical Mastery</span>
         </div>
         <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1.25rem 0' }}>
-          Skills Matrix & <span className="gold-gradient-text">Formula Encyclopedia</span>
+          Honest Skills Matrix & <span className="gold-gradient-text">Formula Encyclopedia</span>
         </h1>
         <p style={{ fontSize: '1.15rem', color: '#e4e4e7', lineHeight: 1.7, margin: 0 }}>
           A transparent, production-verified breakdown of our technical proficiencies, everyday Google Sheets formulas, script architectures, and modern web integrations.
@@ -38,12 +38,11 @@ export default function SkillsPage() {
             className="glass-card" 
             style={{ 
               padding: '2.5rem 2.2rem', 
-              background: 'rgba(16, 18, 25, 0.88)',
               borderTop: '4px solid #d4af37'
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.5rem' }}>
-              <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f5d77f', display: 'inline-block', boxShadow: '0 0 10px rgba(212, 175, 55, 0.6)' }} />
+              <span style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#f5d77f', display: 'inline-block' }} />
               <h2 style={{ fontSize: '1.45rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>
                 {cat.title}
               </h2>
@@ -62,16 +61,15 @@ export default function SkillsPage() {
                 <div 
                   key={idx} 
                   style={{ 
-                    background: 'rgba(22, 25, 36, 0.75)', 
-                    border: '1px solid rgba(212, 175, 55, 0.15)',
-                    borderRadius: '12px',
-                    padding: '1.25rem',
-                    transition: 'all 0.2s ease'
+                    background: 'rgba(20, 24, 34, 0.55)', 
+                    border: '1px solid rgba(212, 175, 55, 0.18)',
+                    borderRadius: '10px',
+                    padding: '1.25rem'
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.45rem' }}>
                     <span style={{ fontWeight: 700, color: '#ffffff', fontSize: '0.98rem' }}>{s.name}</span>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', padding: '0.15rem 0.55rem', borderRadius: '4px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.15rem 0.5rem', borderRadius: '4px' }}>
                       {s.level}
                     </span>
                   </div>
@@ -114,11 +112,11 @@ export default function SkillsPage() {
                 {f.description}
               </p>
 
-              <div style={{ background: 'rgba(10, 11, 15, 0.85)', border: '1px solid rgba(212, 175, 55, 0.15)', borderRadius: '10px', padding: '0.85rem 1rem' }}>
+              <div style={{ background: 'rgba(0, 0, 0, 0.5)', border: '1px solid rgba(212, 175, 55, 0.2)', borderRadius: '8px', padding: '0.85rem 1rem' }}>
                 <div style={{ fontSize: '0.72rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.35rem' }}>
                   Enterprise Production Example:
                 </div>
-                <code style={{ fontSize: '0.78rem', color: '#fde68a', fontFamily: 'JetBrains Mono, monospace', wordBreak: 'break-all', display: 'block', lineHeight: 1.4 }}>
+                <code style={{ fontSize: '0.78rem', color: '#f5d77f', fontFamily: 'JetBrains Mono, monospace', wordBreak: 'break-all', display: 'block', lineHeight: 1.4 }}>
                   {f.example}
                 </code>
               </div>
@@ -128,9 +126,9 @@ export default function SkillsPage() {
       </div>
 
       {/* SPREADSHEET ARCHITECTURE PHILOSOPHY */}
-      <div className="glass-card" style={{ padding: '3rem 2.5rem', background: 'rgba(16, 18, 25, 0.92)', marginBottom: '5rem' }}>
+      <div className="glass-card" style={{ padding: '3rem 2.5rem', marginBottom: '5rem' }}>
         <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1.25rem 0', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-          <ShieldCheck size={22} color="#f5d77f" />
+          <ShieldCheck size={22} color="#d4af37" />
           The 3 Golden Rules of Sheet Architecture
         </h3>
 
@@ -170,7 +168,7 @@ export default function SkillsPage() {
           Explore Services <ArrowRight size={16} />
         </Link>
         <Link href="/projects" className="btn-secondary">
-          View Projects <Layers size={16} />
+          View Projects <Layers size={16} color="#f5d77f" />
         </Link>
         <Link href="/contact" className="btn-primary">
           Inquire for Automation <Terminal size={16} />

@@ -36,7 +36,7 @@ export default function AboutPage() {
     <div style={{ position: 'relative', padding: '4.5rem 1.5rem 6.5rem 1.5rem', maxWidth: '1240px', margin: '0 auto' }}>
       
       {/* AMBIENT GOLD GLOWS */}
-      <div className="ambient-glow" style={{ top: '5%', left: '10%', width: '450px', height: '450px', background: 'rgba(212, 175, 55, 0.12)' }} />
+      <div className="ambient-glow" style={{ top: '5%', left: '10%', width: '420px', height: '420px', background: 'rgba(212, 175, 55, 0.12)' }} />
       <div className="ambient-glow" style={{ top: '40%', right: '8%', width: '450px', height: '450px', background: 'rgba(245, 215, 127, 0.08)' }} />
 
       {/* HEADER SECTION */}
@@ -45,20 +45,21 @@ export default function AboutPage() {
           <Sparkles size={14} color="#f5d77f" />
           <span>About SuPuja Creations</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '0.75rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: '1.25rem', marginBottom: '0.75rem' }}>
           <img 
             src="/supuja-logo.png" 
             alt="SuPuja Creations Logo" 
             style={{
-              height: '60px',
+              height: '56px',
               width: 'auto',
               objectFit: 'contain',
               flexShrink: 0,
-              filter: 'drop-shadow(0 4px 18px rgba(212, 175, 55, 0.5))'
+              filter: 'drop-shadow(0 4px 16px rgba(212, 175, 55, 0.45))'
             }} 
           />
-          <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.1, margin: 0 }}>
-            SuPuja <span className="gold-gradient-text">Creations</span>
+          <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.1, margin: 0, whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.55rem' }}>
+            <span>SuPuja</span>
+            <span className="gold-gradient-text">Creations</span>
           </h1>
         </div>
         <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#f5d77f', marginBottom: '1.5rem' }}>
@@ -90,12 +91,12 @@ export default function AboutPage() {
           </p>
 
           {/* Govt Skill Portal Experience Callout */}
-          <div className="glass-card" style={{ padding: '1.85rem', borderLeft: '4px solid #d4af37' }}>
-            <div style={{ fontWeight: 800, color: '#f5d77f', fontSize: '1.1rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <div className="glass-card" style={{ padding: '1.75rem', borderLeft: '4px solid #d4af37' }}>
+            <div style={{ fontWeight: 700, color: '#f5d77f', fontSize: '1.05rem', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <Award size={20} color="#f5d77f" />
               6,500+ Candidates Govt Portals Data Operations
             </div>
-            <p style={{ fontSize: '0.92rem', color: '#a1a1aa', lineHeight: 1.65, margin: 0 }}>
+            <p style={{ fontSize: '0.9rem', color: '#a1a1aa', lineHeight: 1.65, margin: 0 }}>
               Headed large-scale MIS operations for vocational and skill development initiatives under government portals including <strong>Skill India, HPKVN, Kaushal Bharat, Pragati, and Panjee</strong>. Managed candidate enrollments, batch tracking, On-Job-Training (OJT) records, assessments, placement verifications, and financial invoice audit reconciliations.
             </p>
           </div>
@@ -103,16 +104,16 @@ export default function AboutPage() {
         </div>
 
         {/* Operational Competencies Card */}
-        <div className="glass-card" style={{ padding: '2.5rem 2rem', background: 'rgba(16, 18, 25, 0.9)' }}>
+        <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
           <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1.5rem 0', display: 'flex', alignItems: 'center', gap: '0.6rem' }}>
-            <ShieldCheck size={22} color="#f5d77f" />
+            <ShieldCheck size={22} color="#d4af37" />
             Core Operational Competencies
           </h3>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
             
             <div style={{ display: 'flex', gap: '1rem' }}>
-              <div style={{ background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
+              <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                 <FileSpreadsheet size={20} />
               </div>
               <div>
@@ -122,7 +123,7 @@ export default function AboutPage() {
             </div>
 
             <div style={{ display: 'flex', gap: '1rem' }}>
-              <div style={{ background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
+              <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                 <Clock size={20} />
               </div>
               <div>
@@ -132,7 +133,7 @@ export default function AboutPage() {
             </div>
 
             <div style={{ display: 'flex', gap: '1rem' }}>
-              <div style={{ background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
+              <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                 <Factory size={20} />
               </div>
               <div>
@@ -142,7 +143,7 @@ export default function AboutPage() {
             </div>
 
             <div style={{ display: 'flex', gap: '1rem' }}>
-              <div style={{ background: 'rgba(212, 175, 55, 0.12)', border: '1px solid rgba(212, 175, 55, 0.25)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
+              <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '42px', height: '42px', borderRadius: '10px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
                 <FileText size={20} />
               </div>
               <div>
@@ -168,13 +169,13 @@ export default function AboutPage() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
           {milestones.map((m, idx) => (
             <div key={idx} className="glass-card" style={{ padding: '2.2rem 2rem' }}>
-              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#f5d77f', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.5rem' }}>
+              <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#f5d77f', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>
                 {m.period}
               </div>
-              <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#ffffff', margin: '0 0 0.25rem 0' }}>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.25rem 0' }}>
                 {m.role}
               </h3>
-              <div style={{ fontSize: '0.9rem', color: '#d4af37', fontWeight: 600, marginBottom: '1rem' }}>
+              <div style={{ fontSize: '0.9rem', color: '#f5d77f', fontWeight: 600, marginBottom: '1rem' }}>
                 {m.org}
               </div>
               <p style={{ color: '#a1a1aa', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>
@@ -186,35 +187,35 @@ export default function AboutPage() {
       </div>
 
       {/* GUIDING PRINCIPLES */}
-      <div className="glass-card" style={{ padding: '3rem 2.5rem', background: 'rgba(16, 18, 25, 0.9)', marginBottom: '5rem' }}>
+      <div className="glass-card" style={{ padding: '3rem 2.5rem', marginBottom: '5rem' }}>
         <h3 style={{ fontSize: '1.5rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1.75rem 0', textAlign: 'center' }}>
           How We Work: The 4 Rules of Practical Automation
         </h3>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '2rem' }}>
           <div>
-            <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.5rem' }}>1. Gemba First</div>
+            <div style={{ color: '#f5d77f', fontWeight: 800, fontSize: '1.05rem', marginBottom: '0.5rem' }}>1. Gemba First</div>
             <p style={{ fontSize: '0.88rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0 }}>
               Never build a system in isolation. Understand the actual ground-level behavior of operators, clerks, and field staff first.
             </p>
           </div>
 
           <div>
-            <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.5rem' }}>2. Single Owner Steps</div>
+            <div style={{ color: '#f5d77f', fontWeight: 800, fontSize: '1.05rem', marginBottom: '0.5rem' }}>2. Single Owner Steps</div>
             <p style={{ fontSize: '0.88rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0 }}>
               Every workflow step must belong to exactly one designated individual so accountability is never diluted.
             </p>
           </div>
 
           <div>
-            <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.5rem' }}>3. Non-Disruptive Transition</div>
+            <div style={{ color: '#f5d77f', fontWeight: 800, fontSize: '1.05rem', marginBottom: '0.5rem' }}>3. Non-Disruptive Transition</div>
             <p style={{ fontSize: '0.88rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0 }}>
               Upgrade systems progressively without halting daily operations or confusing employees with steep learning curves.
             </p>
           </div>
 
           <div>
-            <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '1.05rem', marginBottom: '0.5rem' }}>4. Automated Escalations</div>
+            <div style={{ color: '#f5d77f', fontWeight: 800, fontSize: '1.05rem', marginBottom: '0.5rem' }}>4. Automated Escalations</div>
             <p style={{ fontSize: '0.88rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0 }}>
               Management should only be alerted when SLAs are breached, eliminating the need to micromanage every task.
             </p>
@@ -228,10 +229,10 @@ export default function AboutPage() {
           Explore Services Offered <ArrowRight size={16} />
         </Link>
         <Link href="/projects" className="btn-secondary">
-          View Case Studies <Layers size={16} />
+          View Case Studies <Layers size={16} color="#f5d77f" />
         </Link>
         <Link href="/contact" className="btn-secondary">
-          Get in Touch <Briefcase size={16} />
+          Get in Touch <Briefcase size={16} color="#f5d77f" />
         </Link>
       </div>
 

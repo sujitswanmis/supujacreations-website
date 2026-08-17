@@ -29,7 +29,7 @@ export default function ProjectsPage() {
           <span>Track Record & Case Studies</span>
         </div>
         <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1.25rem 0' }}>
-          Production Case Studies & <span className="gold-gradient-text">Systems Delivered</span>
+          Production Case Studies & Systems <span className="gold-gradient-text">Delivered</span>
         </h1>
         <p style={{ fontSize: '1.15rem', color: '#e4e4e7', lineHeight: 1.7, margin: 0 }}>
           Explore real-world business automation architectures engineered to eliminate operational friction, stop revenue leakages, and enforce real-time accountability.
@@ -97,14 +97,13 @@ export default function ProjectsPage() {
               padding: '2.5rem 2.2rem', 
               display: 'flex', 
               flexDirection: 'column', 
-              background: 'rgba(16, 18, 25, 0.88)',
               position: 'relative'
             }}
           >
             
             {/* Top Row */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
-              <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', textTransform: 'uppercase', letterSpacing: '0.06em' }}>
+              <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                 Case Study • {p.category.toUpperCase()}
               </span>
               <ArrowUpRight size={18} color="#d4af37" />
@@ -124,15 +123,15 @@ export default function ProjectsPage() {
                 display: 'grid',
                 gridTemplateColumns: `repeat(${p.metrics.length}, 1fr)`,
                 gap: '0.65rem',
-                background: 'rgba(212, 175, 55, 0.05)',
+                background: 'rgba(212, 175, 55, 0.06)',
                 padding: '0.85rem',
                 borderRadius: '10px',
                 marginBottom: '1.5rem',
-                border: '1px solid rgba(212, 175, 55, 0.15)'
+                border: '1px solid rgba(212, 175, 55, 0.2)'
               }}>
                 {p.metrics.map((m, mIdx) => (
                   <div key={mIdx} style={{ textAlign: 'center' }}>
-                    <div className="gold-gradient-text" style={{ fontSize: '1.2rem', fontWeight: 900 }}>{m.value}</div>
+                    <div style={{ fontSize: '1.2rem', fontWeight: 900, color: '#f5d77f' }}>{m.value}</div>
                     <div style={{ fontSize: '0.72rem', color: '#a1a1aa', marginTop: '0.15rem' }}>{m.label}</div>
                   </div>
                 ))}
@@ -160,7 +159,7 @@ export default function ProjectsPage() {
                 </div>
                 <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
                   {p.highlights.map((hl, hlIdx) => (
-                    <li key={hlIdx} style={{ fontSize: '0.82rem', color: '#d4d4d8', display: 'flex', alignItems: 'flex-start', gap: '0.45rem', lineHeight: 1.45 }}>
+                    <li key={hlIdx} style={{ fontSize: '0.82rem', color: '#e4e4e7', display: 'flex', alignItems: 'flex-start', gap: '0.45rem', lineHeight: 1.45 }}>
                       <span style={{ color: '#d4af37', marginTop: '-1px' }}>•</span>
                       <span>{hl}</span>
                     </li>
@@ -170,13 +169,13 @@ export default function ProjectsPage() {
             )}
 
             {/* Measurable Impact */}
-            <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '0.85rem 1rem', borderRadius: '10px', marginBottom: '1.35rem' }}>
+            <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '0.85rem 1rem', borderRadius: '8px', marginBottom: '1.35rem' }}>
               <div style={{ fontSize: '0.75rem', color: '#f5d77f', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Verified Business ROI</div>
               <div style={{ fontSize: '0.86rem', color: '#fef3c7', fontWeight: 600 }}>{p.impact}</div>
             </div>
 
             {/* Tech Stack Tags */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.75rem', borderTop: '1px solid rgba(212, 175, 55, 0.12)' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginTop: 'auto', paddingTop: '0.75rem', borderTop: '1px solid rgba(212, 175, 55, 0.15)' }}>
               {p.stack.map((tech, idx) => (
                 <span key={idx} className="code-tag">{tech}</span>
               ))}
@@ -187,12 +186,12 @@ export default function ProjectsPage() {
       </div>
 
       {/* BOTTOM CTA */}
-      <div className="glass-card" style={{ padding: '3.5rem 2rem', textAlign: 'center', background: 'rgba(16, 18, 25, 0.92)' }}>
+      <div className="glass-card" style={{ padding: '3.5rem 2rem', textAlign: 'center' }}>
         <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
           Have a Similar System You Want to Build?
         </h3>
         <p style={{ color: '#a1a1aa', fontSize: '1rem', maxWidth: '650px', margin: '0 auto 2rem auto' }}>
-          Whether it is biometric attendance sync, automated dealer WhatsApp campaigns, or an 85-step manufacturing flow — let us engineer it for you.
+          Whether it is biometric attendance sync, automated client & customer WhatsApp campaigns, or an 85-step manufacturing flow — let us engineer it for you.
         </p>
         <Link href="/contact" className="btn-primary">
           Discuss Your Project with SuPuja Creations <Send size={16} />

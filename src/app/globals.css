@@ -1,21 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-dark: #06070a;
-  --bg-card: rgba(16, 18, 24, 0.82);
-  --bg-card-hover: rgba(26, 29, 40, 0.95);
-  --border-glass: rgba(212, 175, 55, 0.16);
-  --border-focus: rgba(245, 215, 127, 0.6);
+  --bg-surface: #0b0d13;
+  --bg-card: rgba(14, 17, 24, 0.85);
+  --bg-card-hover: rgba(22, 26, 38, 0.95);
+  
   --gold-primary: #d4af37;
   --gold-light: #f5d77f;
-  --gold-vibrant: #e5b842;
-  --gold-dark: #9a741e;
-  --gold-glow: rgba(212, 175, 55, 0.25);
-  --amber-accent: #f59e0b;
-  --emerald-accent: #10b981;
+  --gold-rich: #e5b842;
+  --gold-dark: #997a15;
+  --gold-border: rgba(212, 175, 55, 0.2);
+  --gold-glow: rgba(212, 175, 55, 0.12);
+  
   --text-main: #f8fafc;
+  --text-gold: #f5d77f;
+  --text-body: #e4e4e7;
   --text-muted: #a1a1aa;
-  --text-light: #e4e4e7;
+  --text-dim: #71717a;
 }
 
 * {
@@ -36,8 +38,9 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   background-image: 
-    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 85% 65%, rgba(229, 184, 66, 0.03) 0%, transparent 40%);
+    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 85% 35%, rgba(245, 215, 127, 0.05) 0%, transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(184, 134, 11, 0.05) 0%, transparent 45%);
   background-attachment: fixed;
 }
 
@@ -47,41 +50,42 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: var(--gold-primary);
-  color: #06070a;
+  background: #d4af37;
+  color: #000000;
 }
 
-/* Gold Gradient Text Utility */
+/* Gold Gradient Text */
 .gold-gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 25%, #f5d77f 50%, #d4af37 80%, #b48518 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #f5d77f 40%, #d4af37 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
-/* Glassmorphism Luxury Card */
+/* Luxury Glassmorphism Card Utility */
 .glass-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-glass);
-  border-radius: 18px;
+  border: 1px solid var(--gold-border);
+  border-radius: 16px;
   backdrop-filter: blur(16px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
 
 .glass-card:hover {
   border-color: rgba(212, 175, 55, 0.45);
   transform: translateY(-4px);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.12);
 }
 
-/* Luxury Gold Button Utilities */
+/* Gold Buttons */
 .btn-primary {
-  background: linear-gradient(135deg, #fce99f 0%, #f5d77f 30%, #d4af37 70%, #a87915 100%);
-  color: #090a0f !important;
+  background: linear-gradient(135deg, #f5d77f 0%, #d4af37 50%, #b8860b 100%);
+  color: #000000 !important;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  padding: 0.8rem 1.85rem;
-  border-radius: 12px;
-  font-weight: 700;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  font-weight: 800;
   font-size: 0.95rem;
   cursor: pointer;
   display: inline-flex;
@@ -96,17 +100,17 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.65), 0 0 15px rgba(255, 255, 255, 0.3);
-  background: linear-gradient(135deg, #ffffff 0%, #fce99f 35%, #d4af37 80%, #9a741e 100%);
+  box-shadow: 0 8px 28px rgba(212, 175, 55, 0.65);
+  background: linear-gradient(135deg, #ffffff 0%, #f5d77f 50%, #d4af37 100%);
   color: #000000 !important;
 }
 
 .btn-secondary {
-  background: rgba(24, 27, 36, 0.85);
-  color: #f5d77f;
-  border: 1px solid rgba(212, 175, 55, 0.28);
-  padding: 0.8rem 1.85rem;
-  border-radius: 12px;
+  background: rgba(20, 24, 34, 0.75);
+  color: #f1f5f9;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
@@ -114,17 +118,17 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   gap: 0.55rem;
   text-decoration: none;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   transition: all 0.25s ease;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .btn-secondary:hover {
-  background: rgba(35, 40, 52, 0.95);
-  border-color: rgba(245, 215, 127, 0.6);
-  color: #ffffff;
+  background: rgba(30, 36, 50, 0.9);
+  border-color: rgba(212, 175, 55, 0.5);
+  color: #f5d77f;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.1);
 }
 
 /* Nav Link */
@@ -139,9 +143,9 @@ h1, h2, h3, h4, h5, h6 {
   white-space: nowrap;
 }
 
-.nav-link:hover {
-  color: #f5d77f;
-  background: rgba(212, 175, 55, 0.08);
+.nav-link:hover, .nav-link.active {
+  color: #f5d77f !important;
+  background: rgba(212, 175, 55, 0.12);
 }
 
 .footer-link {
@@ -150,47 +154,48 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-link:hover {
   color: #f5d77f !important;
-  padding-left: 5px;
+  padding-left: 4px;
 }
 
 /* Filter Tag Buttons */
 .filter-btn {
-  background: rgba(20, 23, 31, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: rgba(20, 24, 34, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   color: var(--text-muted);
-  padding: 0.55rem 1.3rem;
+  padding: 0.55rem 1.25rem;
   border-radius: 24px;
   font-size: 0.88rem;
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .filter-btn:hover, .filter-btn.active {
-  background: linear-gradient(135deg, #f5d77f 0%, #d4af37 100%);
-  color: #06070a;
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #000000;
   border-color: #f5d77f;
-  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
 }
 
 /* Code & Formula Badges */
 .code-tag {
   background: rgba(212, 175, 55, 0.08);
-  border: 1px solid rgba(212, 175, 55, 0.22);
+  border: 1px solid rgba(212, 175, 55, 0.25);
   color: #f5d77f;
-  padding: 0.25rem 0.65rem;
+  padding: 0.25rem 0.6rem;
   border-radius: 6px;
   font-size: 0.78rem;
   font-family: 'JetBrains Mono', monospace;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .formula-pill {
-  background: rgba(16, 18, 25, 0.95);
-  border: 1px solid rgba(212, 175, 55, 0.3);
-  color: #fde68a;
-  padding: 0.45rem 1rem;
+  background: rgba(14, 17, 24, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  color: #f5d77f;
+  padding: 0.45rem 0.95rem;
   border-radius: 8px;
   font-size: 0.84rem;
   font-family: 'JetBrains Mono', monospace;
@@ -205,16 +210,15 @@ h1, h2, h3, h4, h5, h6 {
   background: rgba(212, 175, 55, 0.15);
   border-color: #f5d77f;
   transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
 }
 
 /* Form Inputs */
 .form-input {
   width: 100%;
-  background: rgba(14, 16, 22, 0.9);
-  border: 1px solid rgba(212, 175, 55, 0.2);
-  border-radius: 12px;
-  padding: 0.9rem 1.2rem;
+  background: rgba(10, 12, 18, 0.9);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 10px;
+  padding: 0.85rem 1.15rem;
   color: #ffffff;
   font-size: 0.92rem;
   outline: none;
@@ -225,26 +229,26 @@ h1, h2, h3, h4, h5, h6 {
 .form-input:focus {
   border-color: #f5d77f;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.25);
-  background: rgba(18, 21, 30, 0.98);
+  background: rgba(16, 20, 30, 0.98);
 }
 
 /* FMS Step Card */
 .fms-step {
   padding: 1.6rem;
   border-radius: 14px;
-  background: rgba(18, 20, 28, 0.6);
-  border: 1px solid rgba(212, 175, 55, 0.15);
+  background: rgba(20, 24, 34, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.18);
   transition: all 0.2s;
 }
 
 .fms-step:hover {
-  background: rgba(26, 30, 42, 0.95);
+  background: rgba(26, 32, 46, 0.9);
   border-color: #f5d77f;
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.1);
 }
 
-/* Ambient Glow Blobs with Warm Gold & Amber */
+/* Ambient Glow Blobs */
 .ambient-glow {
   position: absolute;
   border-radius: 50%;
@@ -266,25 +270,24 @@ h1, h2, h3, h4, h5, h6 {
   color: #f5d77f;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   margin-bottom: 1.25rem;
-  box-shadow: 0 2px 10px rgba(212, 175, 55, 0.12);
 }
 
-/* Metric / Stat Card */
+/* Stat Box */
 .stat-box {
-  background: rgba(16, 18, 25, 0.7);
-  border: 1px solid rgba(212, 175, 55, 0.18);
+  background: rgba(14, 17, 24, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.2);
   border-radius: 14px;
-  padding: 1.35rem 1.6rem;
+  padding: 1.6rem 1.25rem;
   text-align: center;
   transition: all 0.25s ease;
 }
 
 .stat-box:hover {
-  border-color: rgba(245, 215, 127, 0.5);
+  border-color: rgba(212, 175, 55, 0.5);
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5), 0 0 15px rgba(212, 175, 55, 0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 175, 55, 0.12);
 }
 
 /* Responsive Media Queries */

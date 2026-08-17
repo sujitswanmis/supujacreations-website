@@ -4,25 +4,25 @@ import React from 'react';
 import Link from 'next/link';
 import { 
   FileSpreadsheet, Cpu, Globe, Link2, GitBranch, Factory, 
-  MapPin, MessageSquare, BarChart3, MessageCircle, Send, ArrowRight, Zap, Tag, Megaphone, Share2, Target, Sparkles
+  MapPin, MessageSquare, BarChart3, MessageCircle, Send, ArrowRight, Zap, Tag, Megaphone, Target, Sparkles
 } from 'lucide-react';
 import { services } from '../../data/servicesData';
 
 export default function ServicesPage() {
   const getIcon = (iconName) => {
     switch (iconName) {
-      case 'Megaphone': return <Megaphone size={26} color="#f5d77f" />;
-      case 'Target': return <Target size={26} color="#f5d77f" />;
-      case 'FileSpreadsheet': return <FileSpreadsheet size={26} color="#f5d77f" />;
-      case 'Cpu': return <Cpu size={26} color="#f5d77f" />;
-      case 'Globe': return <Globe size={26} color="#f5d77f" />;
-      case 'Link2': return <Link2 size={26} color="#f5d77f" />;
-      case 'GitBranch': return <GitBranch size={26} color="#f5d77f" />;
-      case 'Factory': return <Factory size={26} color="#f5d77f" />;
-      case 'MapPin': return <MapPin size={26} color="#f5d77f" />;
-      case 'MessageSquare': return <MessageSquare size={26} color="#f5d77f" />;
-      case 'BarChart3': return <BarChart3 size={26} color="#f5d77f" />;
-      default: return <Zap size={26} color="#f5d77f" />;
+      case 'Megaphone': return <Megaphone size={28} color="#f5d77f" />;
+      case 'Target': return <Target size={28} color="#f5d77f" />;
+      case 'FileSpreadsheet': return <FileSpreadsheet size={28} color="#f5d77f" />;
+      case 'Cpu': return <Cpu size={28} color="#f5d77f" />;
+      case 'Globe': return <Globe size={28} color="#f5d77f" />;
+      case 'Link2': return <Link2 size={28} color="#f5d77f" />;
+      case 'GitBranch': return <GitBranch size={28} color="#f5d77f" />;
+      case 'Factory': return <Factory size={28} color="#f5d77f" />;
+      case 'MapPin': return <MapPin size={28} color="#f5d77f" />;
+      case 'MessageSquare': return <MessageSquare size={28} color="#f5d77f" />;
+      case 'BarChart3': return <BarChart3 size={28} color="#f5d77f" />;
+      default: return <Zap size={28} color="#f5d77f" />;
     }
   };
 
@@ -31,7 +31,7 @@ export default function ServicesPage() {
       
       {/* AMBIENT GOLD GLOWS */}
       <div className="ambient-glow" style={{ top: '8%', right: '10%', width: '420px', height: '420px', background: 'rgba(212, 175, 55, 0.12)' }} />
-      <div className="ambient-glow" style={{ top: '45%', left: '5%', width: '450px', height: '450px', background: 'rgba(245, 215, 127, 0.09)' }} />
+      <div className="ambient-glow" style={{ top: '45%', left: '5%', width: '450px', height: '450px', background: 'rgba(245, 215, 127, 0.08)' }} />
 
       {/* HEADER SECTION */}
       <div style={{ maxWidth: '850px', marginBottom: '3.5rem' }}>
@@ -47,7 +47,7 @@ export default function ServicesPage() {
         </p>
       </div>
 
-      {/* SERVICES CARDS GRID: NAME, DESCRIPTION & COST ONLY */}
+      {/* SERVICES CARDS GRID */}
       <div style={{
         display: 'grid',
         gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
@@ -63,7 +63,7 @@ export default function ServicesPage() {
               padding: '2.2rem 2rem', 
               display: 'flex', 
               flexDirection: 'column',
-              background: 'rgba(16, 18, 25, 0.88)',
+              background: 'rgba(14, 17, 24, 0.88)',
               borderTop: '4px solid #d4af37'
             }}
           >
@@ -95,8 +95,8 @@ export default function ServicesPage() {
 
             {/* Cost Box */}
             <div style={{
-              background: 'rgba(212, 175, 55, 0.07)',
-              border: '1px solid rgba(212, 175, 55, 0.22)',
+              background: 'rgba(212, 175, 55, 0.08)',
+              border: '1px solid rgba(212, 175, 55, 0.25)',
               borderRadius: '12px',
               padding: '1.1rem 1.25rem',
               marginBottom: '1.5rem',
@@ -145,7 +145,7 @@ export default function ServicesPage() {
       </div>
 
       {/* BOTTOM ACTION */}
-      <div className="glass-card" style={{ padding: '3.2rem 2rem', textAlign: 'center', background: 'rgba(16, 18, 25, 0.92)' }}>
+      <div className="glass-card" style={{ padding: '3.2rem 2rem', textAlign: 'center' }}>
         <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
           Need a Custom Multi-Department Automation Package?
         </h3>

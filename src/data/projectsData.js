@@ -65,19 +65,19 @@ export const projects = [
   {
     id: 'proj-4',
     category: 'automation',
-    title: 'WhatsApp Marketing & Dealer Notification Engine',
+    title: 'WhatsApp Marketing & Client / Customer Notification Engine',
     subtitle: 'Personalized Batch Broadcast with Duplicate Prevention & Retry',
-    challenge: 'Broadcasting operational notices, payment reminders, and marketing updates to 500+ dealers manually on WhatsApp was error-prone and time-consuming.',
+    challenge: 'Broadcasting operational notices, payment reminders, and marketing updates to 500+ clients and customers manually on WhatsApp was error-prone and time-consuming.',
     solution: 'Built a custom WhatsApp automation engine utilizing AiSensy / Meta Webhook APIs. Features include personalized contact variables, short URL tracking, duplicate message guards, failed delivery auto-retry queues, and detailed transmission status logging.',
     stack: ['AiSensy API', 'Google Apps Script', 'Insprl URL Shortener', 'JSON Webhooks', 'Batch Queue Manager'],
-    impact: 'Enabled 1-click personalized dispatches to 500+ dealers with complete delivery and click verification.',
+    impact: 'Enabled 1-click personalized dispatches to 500+ clients and customers with complete delivery and click verification.',
     metrics: [
       { label: 'Broadcast Speed', value: '500+ / 10 min' },
       { label: 'Duplicate Rate', value: '0%' },
       { label: 'Click Tracking', value: 'Enabled' }
     ],
     highlights: [
-      'Dynamic variable replacement for customized dealer notices',
+      'Dynamic variable replacement for customized client & customer notices',
       'Short URL generator attached to track user engagement',
       'Automated anti-spam queue control preventing WhatsApp blocks',
       'Live transmission audit log with delivery callbacks'

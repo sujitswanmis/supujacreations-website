@@ -26,7 +26,7 @@ export default function FMSWorkflowsPage() {
     {
       range: 'S11 - S35',
       title: 'In-House Machining, CNC & Fabrication',
-      color: '#e5b842',
+      color: '#f5d77f',
       desc: 'Precision laser cutting, CNC plate bending, rotor pipe lathe turning, side frame robotic/manual welding, and flange alignment.',
       steps: [
         'S12: Fiber Laser Cutting of Side End Plates',
@@ -40,7 +40,7 @@ export default function FMSWorkflowsPage() {
     {
       range: 'S36 - S60',
       title: 'Vendor Job-Work, Heat Treatment & Machining',
-      color: '#d4af37',
+      color: '#f5d77f',
       desc: 'Outward Delivery Challan generation, sending gears and shafts for external hardening, vendor turnaround time (TAT) tracking, and inward QC.',
       steps: [
         'S37: Vendor Job-Work Outward Delivery Challan',
@@ -54,7 +54,7 @@ export default function FMSWorkflowsPage() {
     {
       range: 'S61 - S75',
       title: 'Sub-Assembly, Paint Shop & Final Assembly',
-      color: '#fce99f',
+      color: '#f5d77f',
       desc: 'Bevel gearbox assembly with oil seal testing, rotavator blade mounting, 7-tank anti-rust pretreatment, and automated powder coating.',
       steps: [
         'S62: Gearbox Sub-Assembly & Bearing Fitment',
@@ -95,7 +95,7 @@ export default function FMSWorkflowsPage() {
           <span>Workflow Engineering</span>
         </div>
         <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1.25rem 0' }}>
-          85-Step Manufacturing <span className="gold-gradient-text">Flow Control (FMS)</span>
+          85-Step Manufacturing Process Digitization & Flow Control (<span className="gold-gradient-text">FMS</span>)
         </h1>
         <p style={{ fontSize: '1.15rem', color: '#e4e4e7', lineHeight: 1.7, margin: 0 }}>
           How we take chaotic multi-department production operations and turn them into a transparent, self-escalating digital flow from raw material requisition to final delivery dispatch.
@@ -103,7 +103,7 @@ export default function FMSWorkflowsPage() {
       </div>
 
       {/* WHY FMS MATTERS BANNER */}
-      <div className="glass-card" style={{ padding: '2.5rem 2rem', background: 'rgba(16, 18, 26, 0.92)', marginBottom: '4.5rem', borderLeft: '4px solid #d4af37' }}>
+      <div className="glass-card" style={{ padding: '2.5rem 2rem', background: 'linear-gradient(135deg, rgba(14, 17, 24, 0.95) 0%, rgba(20, 24, 34, 0.8) 100%)', marginBottom: '4.5rem', borderLeft: '4px solid #d4af37' }}>
         <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1rem 0' }}>
           What is FMS (Flow Management System)?
         </h3>
@@ -111,15 +111,15 @@ export default function FMSWorkflowsPage() {
           In traditional manufacturing units, delays happen because nobody knows who is holding the job card. A department finishes work, leaves the material in a corner, and forgets to notify the next person.
         </p>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem' }}>
-          <div style={{ background: 'rgba(212, 175, 55, 0.06)', border: '1px solid rgba(212, 175, 55, 0.18)', padding: '1.25rem', borderRadius: '12px' }}>
+          <div style={{ background: 'rgba(212, 175, 55, 0.06)', border: '1px solid rgba(212, 175, 55, 0.18)', padding: '1.25rem', borderRadius: '10px' }}>
             <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.35rem' }}>1. Granular Step Ownership</div>
             <div style={{ fontSize: '0.86rem', color: '#a1a1aa' }}>Every single step (e.g. S18) is assigned to one individual with strict checklist criteria.</div>
           </div>
-          <div style={{ background: 'rgba(212, 175, 55, 0.06)', border: '1px solid rgba(212, 175, 55, 0.18)', padding: '1.25rem', borderRadius: '12px' }}>
+          <div style={{ background: 'rgba(212, 175, 55, 0.06)', border: '1px solid rgba(212, 175, 55, 0.18)', padding: '1.25rem', borderRadius: '10px' }}>
             <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.35rem' }}>2. Planned vs Actual TAT</div>
             <div style={{ fontSize: '0.86rem', color: '#a1a1aa' }}>Turnaround time is computed down to the minute. Delays trigger automatic color flags.</div>
           </div>
-          <div style={{ background: 'rgba(212, 175, 55, 0.06)', border: '1px solid rgba(212, 175, 55, 0.18)', padding: '1.25rem', borderRadius: '12px' }}>
+          <div style={{ background: 'rgba(212, 175, 55, 0.06)', border: '1px solid rgba(212, 175, 55, 0.18)', padding: '1.25rem', borderRadius: '10px' }}>
             <div style={{ color: '#f5d77f', fontWeight: 700, fontSize: '0.95rem', marginBottom: '0.35rem' }}>3. Self-Escalating Alerts</div>
             <div style={{ fontSize: '0.86rem', color: '#a1a1aa' }}>If a stage breaches SLA threshold, alerts are dispatched directly to plant managers and directors.</div>
           </div>
@@ -145,15 +145,14 @@ export default function FMSWorkflowsPage() {
               className="glass-card" 
               style={{ 
                 padding: '2.2rem 2rem', 
-                background: 'rgba(16, 18, 25, 0.88)',
                 borderTop: `4px solid ${stg.color}`
               }}
             >
               <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.14)', padding: '0.3rem 0.85rem', borderRadius: '6px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', padding: '0.3rem 0.8rem', borderRadius: '6px', border: '1px solid rgba(212, 175, 55, 0.35)' }}>
                   {stg.range}
                 </span>
-                <span style={{ fontSize: '0.85rem', color: '#71717a', fontWeight: 600 }}>
+                <span style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>
                   Stage Category #{idx + 1}
                 </span>
               </div>
@@ -165,13 +164,13 @@ export default function FMSWorkflowsPage() {
                 {stg.desc}
               </p>
 
-              <div style={{ background: 'rgba(22, 25, 36, 0.85)', padding: '1.35rem', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.15)' }}>
-                <div style={{ fontSize: '0.82rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.75rem', letterSpacing: '0.04em' }}>
+              <div style={{ background: 'rgba(20, 24, 34, 0.5)', padding: '1.25rem', borderRadius: '10px', border: '1px solid rgba(212, 175, 55, 0.15)' }}>
+                <div style={{ fontSize: '0.82rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.75rem' }}>
                   Representative Workstation Sub-Steps:
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.65rem' }}>
                   {stg.steps.map((stp, sIdx) => (
-                    <div key={sIdx} style={{ fontSize: '0.86rem', color: '#d4d4d8', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+                    <div key={sIdx} style={{ fontSize: '0.86rem', color: '#e4e4e7', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
                       <CheckCircle2 size={15} color="#d4af37" style={{ flexShrink: 0 }} />
                       <span>{stp}</span>
                     </div>
@@ -223,7 +222,7 @@ export default function FMSWorkflowsPage() {
               Customer Complaint & Service FMS
             </h3>
             <p style={{ color: '#a1a1aa', fontSize: '0.9rem', lineHeight: 1.6, margin: '0 0 1rem 0' }}>
-              Logs dealer/farmer complaints, assigns service engineers, tracks spare part dispatches, computes resolution TAT, and captures OTP-verified closure.
+              Logs client/farmer complaints, assigns service engineers, tracks spare part dispatches, computes resolution TAT, and captures OTP-verified closure.
             </p>
             <span className="code-tag">Service FMS</span> <span className="code-tag">OTP Closure</span>
           </div>
@@ -232,7 +231,7 @@ export default function FMSWorkflowsPage() {
       </div>
 
       {/* BOTTOM ACTION */}
-      <div className="glass-card" style={{ padding: '3.2rem 2rem', textAlign: 'center', background: 'rgba(16, 18, 25, 0.92)' }}>
+      <div className="glass-card" style={{ padding: '3rem 2rem', textAlign: 'center' }}>
         <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
           Ready to Digitize Your Plant or Departmental Flow?
         </h3>
@@ -244,7 +243,7 @@ export default function FMSWorkflowsPage() {
             Request an FMS Consultation <Send size={16} />
           </Link>
           <Link href="/projects" className="btn-secondary">
-            View FMS Case Studies <Layers size={16} />
+            View FMS Case Studies <Layers size={16} color="#f5d77f" />
           </Link>
         </div>
       </div>

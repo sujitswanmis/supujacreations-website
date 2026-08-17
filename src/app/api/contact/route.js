@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import { supabase } from '../../../lib/supabase';
+import { sendLeadEmailNotification } from '../../../lib/mailer';
 
 export async function POST(req) {
   try {
@@ -12,17 +14,38 @@ export async function POST(req) {
       );
     }
 
-    const inquiry = {
+    const inquiryRecord = {
       name: name.trim(),
       phone: phone.trim(),
       email: (email || '').trim(),
-      company: (company || 'Direct Client').trim(),
+      company: (company || '').trim(),
       service: service || 'Google Sheets & MIS Automation',
-      message: message || '',
-      receivedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      message: (message || '').trim(),
+      created_at: new Date().toISOString(),
+      status: 'new'
     };
 
-    console.log('✅ New Website Lead / Project Inquiry received:', inquiry);
+    console.log('📝 Received Website Inquiry for supujacreationleads:', inquiryRecord);
+
+    // 1. Save into dedicated 'supujacreationleads' Supabase table
+    if (supabase) {
+      const { error } = await supabase
+        .from('supujacreationleads')
+        .insert([inquiryRecord]);
+
+      if (error) {
+        console.error('❌ Supabase supujacreationleads Insertion Error:', error.message);
+      } else {
+        console.log('✅ Inquiry successfully saved into supujacreationleads table!');
+      }
+    } else {
+      console.warn('⚠️ Supabase client not initialized.');
+    }
+
+    // 2. Trigger Email Notification to sales@supujacreations.com & supujacreations@gmail.com
+    sendLeadEmailNotification(inquiryRecord).catch((mailErr) => {
+      console.error('Non-blocking Email Error:', mailErr);
+    });
 
     return NextResponse.json({
       success: true,

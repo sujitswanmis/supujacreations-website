@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
 
 export default function ContactForm({ defaultService = 'Google Sheets & MIS Automation' }) {
   const [formData, setFormData] = useState({
@@ -50,12 +50,12 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
   };
 
   return (
-    <div className="glass-card" style={{ padding: '2.5rem 2rem', background: 'rgba(16, 18, 25, 0.9)' }}>
+    <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
       <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0' }}>
         Send a Project Inquiry
       </h3>
       <p style={{ fontSize: '0.88rem', color: '#a1a1aa', margin: '0 0 1.75rem 0' }}>
-        Fill in your requirement details below. Your inquiry is recorded directly in our system.
+        Fill in your requirement details below. Your inquiry is recorded directly in our system and alerted immediately.
       </p>
 
       {formSuccess && (

@@ -24,7 +24,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on page transition
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
@@ -46,15 +45,15 @@ export default function Navbar() {
       zIndex: 100,
       background: scrolled ? 'rgba(6, 7, 10, 0.96)' : 'rgba(8, 9, 13, 0.88)',
       backdropFilter: 'blur(20px)',
-      borderBottom: '1px solid rgba(212, 175, 55, 0.16)',
+      borderBottom: '1px solid rgba(212, 175, 55, 0.18)',
       transition: 'all 0.3s ease',
-      padding: '0.9rem 1.5rem',
-      boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.08)' : 'none'
+      padding: '0.85rem 1.5rem',
+      boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.08)' : 'none'
     }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
         
         {/* Brand Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.85rem', whiteSpace: 'nowrap' }}>
           <img 
             src="/supuja-logo.png" 
             alt="SuPuja Creations Logo" 
@@ -67,14 +66,15 @@ export default function Navbar() {
               filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.5))'
             }} 
           />
-          <div>
-            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              SuPuja <span className="gold-gradient-text">Creations</span>
-              <span style={{ fontSize: '0.65rem', background: 'rgba(212, 175, 55, 0.14)', color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.35)', padding: '0.1rem 0.45rem', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
+              <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>SuPuja</span>
+              <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f5d77f', letterSpacing: '-0.02em' }}>Creations</span>
+              <span style={{ fontSize: '0.65rem', background: 'rgba(212, 175, 55, 0.15)', color: '#fde68a', border: '1px solid rgba(212, 175, 55, 0.35)', padding: '0.1rem 0.45rem', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 700, marginLeft: '0.2rem' }}>
                 Automation
               </span>
             </div>
-            <div style={{ fontSize: '0.74rem', color: '#a1a1aa', letterSpacing: '0.01em' }}>
+            <div style={{ fontSize: '0.74rem', color: '#a1a1aa', whiteSpace: 'nowrap' }}>
               Business Automation & MIS Solutions
             </div>
           </div>
@@ -91,9 +91,9 @@ export default function Navbar() {
                 className={`nav-link ${isActive ? 'active' : ''}`}
                 style={{
                   color: isActive ? '#f5d77f' : undefined,
-                  background: isActive ? 'rgba(212, 175, 55, 0.12)' : undefined,
+                  background: isActive ? 'rgba(212, 175, 55, 0.14)' : undefined,
                   fontWeight: isActive ? 700 : 500,
-                  border: isActive ? '1px solid rgba(212, 175, 55, 0.25)' : '1px solid transparent'
+                  border: isActive ? '1px solid rgba(212, 175, 55, 0.3)' : '1px solid transparent'
                 }}
               >
                 {link.name}
@@ -117,7 +117,7 @@ export default function Navbar() {
           <Link 
             href="/contact" 
             className="btn-primary desktop-cta" 
-            style={{ padding: '0.52rem 1.2rem', fontSize: '0.86rem' }}
+            style={{ padding: '0.52rem 1.25rem', fontSize: '0.86rem' }}
           >
             <Sparkles size={14} />
             Hire / Consult
@@ -130,8 +130,8 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             style={{
-              background: 'rgba(20, 23, 31, 0.9)',
-              border: '1px solid rgba(212, 175, 55, 0.3)',
+              background: 'rgba(20, 24, 34, 0.9)',
+              border: '1px solid rgba(212, 175, 55, 0.35)',
               borderRadius: '8px',
               padding: '0.5rem',
               color: '#f5d77f',
@@ -154,15 +154,15 @@ export default function Navbar() {
           top: '70px',
           left: 0,
           right: 0,
-          background: 'rgba(8, 10, 15, 0.98)',
-          backdropFilter: 'blur(22px)',
+          background: 'rgba(6, 7, 10, 0.98)',
+          backdropFilter: 'blur(20px)',
           borderBottom: '1px solid rgba(212, 175, 55, 0.25)',
           padding: '1.5rem',
           display: 'flex',
           flexDirection: 'column',
           gap: '0.75rem',
           zIndex: 99,
-          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.8)'
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.9)'
         }}>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -175,13 +175,13 @@ export default function Navbar() {
                   textDecoration: 'none',
                   color: isActive ? '#f5d77f' : '#e4e4e7',
                   background: isActive ? 'rgba(212, 175, 55, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+                  border: isActive ? '1px solid rgba(212, 175, 55, 0.35)' : '1px solid transparent',
                   padding: '0.8rem 1rem',
                   borderRadius: '10px',
                   fontWeight: isActive ? 700 : 500,
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'space-between',
-                  border: isActive ? '1px solid rgba(212, 175, 55, 0.35)' : '1px solid transparent'
+                  justifyContent: 'space-between'
                 }}
               >
                 <span>{link.name}</span>
@@ -198,7 +198,7 @@ export default function Navbar() {
               className="btn-secondary" 
               style={{ width: '100%', justifyContent: 'center' }}
             >
-              <Building2 size={16} />
+              <Building2 size={16} color="#f5d77f" />
               CRM Workplace Portal
             </a>
             <Link 
@@ -207,7 +207,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               style={{ width: '100%', justifyContent: 'center' }}
             >
-              <Send size={16} />
+              <Sparkles size={16} />
               Start Consultation
             </Link>
           </div>

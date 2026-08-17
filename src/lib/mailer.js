@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
-// Notification recipients
-const NOTIFICATION_RECIPIENTS = 'sales@supujacreations.com, supujacreations@gmail.com';
+// Admin notification recipients
+const ADMIN_RECIPIENTS = 'sales@supujacreations.com, supujacreations@gmail.com';
 
 export async function sendLeadEmailNotification(lead) {
   const smtpUser = process.env.SMTP_USER || process.env.GMAIL_USER;
@@ -27,8 +27,9 @@ export async function sendLeadEmailNotification(lead) {
       }
     });
 
-    const emailHtml = `
-      <div style="font-family: Arial, sans-serif; background-color: #0c0e14; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #d4af37;">
+    // 1. HTML Email for Admin (SuPuja Team)
+    const adminEmailHtml = `
+      <div style="font-family: Arial, sans-serif; background-color: #06070a; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #d4af37;">
         
         <!-- Header -->
         <div style="text-align: center; margin-bottom: 25px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 15px;">
@@ -51,7 +52,7 @@ export async function sendLeadEmailNotification(lead) {
           <tr>
             <td style="padding: 10px 0; color: #f5d77f; font-weight: bold; border-bottom: 1px solid #1e2230;">Email:</td>
             <td style="padding: 10px 0; color: #cbd5e1; border-bottom: 1px solid #1e2230;">
-              ${lead.email ? `<a href="mailto:${lead.email}" style="color: #38bdf8; text-decoration: none;">${lead.email}</a>` : 'Not provided'}
+              ${lead.email ? `<a href="mailto:${lead.email}" style="color: #f5d77f; text-decoration: none;">${lead.email}</a>` : 'Not provided'}
             </td>
           </tr>
           <tr>
@@ -73,29 +74,77 @@ export async function sendLeadEmailNotification(lead) {
         <!-- Quick Actions -->
         <div style="text-align: center; margin-top: 25px;">
           <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(lead.name)},%20thank%20you%20for%20contacting%20SuPuja%20Creations.%20Regarding%20your%20inquiry%20for%20${encodeURIComponent(lead.service)}:" 
-             style="background: #22c55e; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 14px; margin-right: 10px;">
+             style="background: #22c55e; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 14px;">
             Reply on WhatsApp
           </a>
         </div>
 
         <!-- Footer -->
         <div style="margin-top: 30px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 15px; font-size: 11px; color: #71717a;">
-          Lead automatically stored in Supabase CRM database (<code>supujacreationleads</code>).<br />
+          Lead stored in Supabase CRM (<code>supujacreationleads</code>).<br />
           Timestamp: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })} IST
         </div>
 
       </div>
     `;
 
-    const info = await transporter.sendMail({
+    // Send Alert to Admins
+    const adminInfo = await transporter.sendMail({
       from: `"SuPuja Creations Leads" <${smtpUser}>`,
-      to: NOTIFICATION_RECIPIENTS,
+      to: ADMIN_RECIPIENTS,
       subject: `🔥 New Lead: ${lead.name} (${lead.service})`,
-      html: emailHtml
+      html: adminEmailHtml
     });
 
-    console.log('📧 Lead email notification sent successfully to:', NOTIFICATION_RECIPIENTS, 'MessageId:', info.messageId);
-    return { success: true, messageId: info.messageId };
+    console.log('📧 Admin email notification sent successfully. MessageId:', adminInfo.messageId);
+
+    // 2. Send Auto-Confirmation to Client (if email provided)
+    if (lead.email && lead.email.includes('@')) {
+      try {
+        const clientEmailHtml = `
+          <div style="font-family: Arial, sans-serif; background-color: #06070a; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #d4af37;">
+            <div style="text-align: center; margin-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 15px;">
+              <h2 style="color: #f5d77f; margin: 0 0 5px 0;">Thank You for Contacting SuPuja Creations</h2>
+              <p style="color: #a1a1aa; margin: 0; font-size: 13px;">Business Automation & MIS Solutions</p>
+            </div>
+            <p style="color: #e4e4e7; font-size: 14px; line-height: 1.6;">
+              Hello <strong>${lead.name}</strong>,
+            </p>
+            <p style="color: #cbd5e1; font-size: 14px; line-height: 1.6;">
+              We have successfully received your inquiry regarding <strong>${lead.service}</strong>. Our senior technical consultant will review your requirement and reach out to you within 4 business hours.
+            </p>
+            <div style="background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 8px; padding: 15px; margin: 20px 0;">
+              <div style="color: #f5d77f; font-weight: bold; font-size: 12px; text-transform: uppercase;">Your Submitted Requirement:</div>
+              <div style="color: #ffffff; font-size: 13px; margin-top: 6px; white-space: pre-wrap;">${lead.message || 'No additional details.'}</div>
+            </div>
+            <p style="color: #a1a1aa; font-size: 13px; line-height: 1.5;">
+              If you need immediate assistance, feel free to chat with us directly on WhatsApp:
+            </p>
+            <div style="text-align: center; margin: 20px 0;">
+              <a href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20following%20up%20on%20my%20inquiry%20for%20${encodeURIComponent(lead.service)}" 
+                 style="background: #d4af37; color: #000000; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 13px;">
+                Chat on WhatsApp (+91 99881 19276)
+              </a>
+            </div>
+            <div style="margin-top: 25px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; font-size: 11px; color: #71717a;">
+              SuPuja Creations • <a href="https://supujacreations.com" style="color: #f5d77f; text-decoration: none;">supujacreations.com</a> • sales@supujacreations.com
+            </div>
+          </div>
+        `;
+
+        await transporter.sendMail({
+          from: `"SuPuja Creations" <${smtpUser}>`,
+          to: lead.email,
+          subject: `We Received Your Inquiry - SuPuja Creations (${lead.service})`,
+          html: clientEmailHtml
+        });
+        console.log('📧 Client auto-confirmation email sent to:', lead.email);
+      } catch (clientErr) {
+        console.warn('⚠️ Could not send client auto-confirmation:', clientErr.message);
+      }
+    }
+
+    return { success: true, messageId: adminInfo.messageId };
 
   } catch (error) {
     console.error('❌ Failed to send lead email notification:', error);

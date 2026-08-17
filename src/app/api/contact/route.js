@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import { supabase } from '../../../lib/supabase';
 import { sendLeadEmailNotification } from '../../../lib/mailer';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(req) {
   try {
     const body = await req.json();
@@ -25,27 +27,37 @@ export async function POST(req) {
       status: 'new'
     };
 
-    console.log('📝 Received Website Inquiry for supujacreationleads:', inquiryRecord);
+    console.log('📝 Processing Website Inquiry for supujacreationleads:', inquiryRecord);
 
     // 1. Save into dedicated 'supujacreationleads' Supabase table
+    let dbSuccess = false;
     if (supabase) {
-      const { error } = await supabase
-        .from('supujacreationleads')
-        .insert([inquiryRecord]);
+      try {
+        const { data, error } = await supabase
+          .from('supujacreationleads')
+          .insert([inquiryRecord])
+          .select();
 
-      if (error) {
-        console.error('❌ Supabase supujacreationleads Insertion Error:', error.message);
-      } else {
-        console.log('✅ Inquiry successfully saved into supujacreationleads table!');
+        if (error) {
+          console.error('❌ Supabase supujacreationleads Insertion Error:', error.message);
+        } else {
+          console.log('✅ Inquiry successfully saved into supujacreationleads table!', data);
+          dbSuccess = true;
+        }
+      } catch (dbErr) {
+        console.error('❌ Supabase Exception:', dbErr);
       }
     } else {
-      console.warn('⚠️ Supabase client not initialized.');
+      console.warn('⚠️ Supabase client not initialized. Check NEXT_PUBLIC_SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY.');
     }
 
-    // 2. Trigger Email Notification to sales@supujacreations.com & supujacreations@gmail.com
-    sendLeadEmailNotification(inquiryRecord).catch((mailErr) => {
-      console.error('Non-blocking Email Error:', mailErr);
-    });
+    // 2. Await Email Notification to sales@supujacreations.com & supujacreations@gmail.com
+    try {
+      const mailResult = await sendLeadEmailNotification(inquiryRecord);
+      console.log('📧 Mail dispatch result:', mailResult);
+    } catch (mailErr) {
+      console.error('❌ Mail dispatch failed:', mailErr);
+    }
 
     return NextResponse.json({
       success: true,

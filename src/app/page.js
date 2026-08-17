@@ -13,15 +13,15 @@ import { projects } from '../data/projectsData';
 import ContactForm from '../components/ContactForm';
 
 export default function Home() {
-  const [happyClientsCount, setHappyClientsCount] = React.useState('180+');
+  const [happyClientsCount, setHappyClientsCount] = React.useState('31+');
 
   React.useEffect(() => {
-    // Dynamic progressive counter: Naturally increments over time (every 3-5 days)
-    const baseDate = new Date('2025-01-01T00:00:00Z').getTime();
+    // Dynamic progressive counter: Starts at 31+ and naturally increments (+1 every ~4-5 days)
+    const baseDate = new Date('2026-08-15T00:00:00Z').getTime();
     const now = new Date().getTime();
     const daysPassed = Math.max(0, Math.floor((now - baseDate) / (1000 * 60 * 60 * 24)));
-    const dynamicAddon = Math.floor(daysPassed / 4) + Math.floor(daysPassed / 14);
-    const totalCount = 120 + dynamicAddon;
+    const dynamicAddon = Math.floor(daysPassed / 4);
+    const totalCount = 31 + dynamicAddon;
     setHappyClientsCount(`${totalCount}+`);
   }, []);
 

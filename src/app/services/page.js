@@ -4,13 +4,20 @@ import React from 'react';
 import Link from 'next/link';
 import { 
   FileSpreadsheet, Cpu, Globe, Link2, GitBranch, Factory, 
-  MapPin, MessageSquare, BarChart3, MessageCircle, Send, ArrowRight, Zap, Tag, Megaphone, Target, Sparkles
+  MapPin, MessageSquare, BarChart3, MessageCircle, Send, ArrowRight, Zap, Tag, Megaphone, Target, Sparkles,
+  Users, FileText, Layers, ShieldCheck, Award, Terminal
 } from 'lucide-react';
 import { services } from '../../data/servicesData';
 
 export default function ServicesPage() {
   const getIcon = (iconName) => {
     switch (iconName) {
+      case 'Users': return <Users size={28} color="#f5d77f" />;
+      case 'FileText': return <FileText size={28} color="#f5d77f" />;
+      case 'Layers': return <Layers size={28} color="#f5d77f" />;
+      case 'ShieldCheck': return <ShieldCheck size={28} color="#f5d77f" />;
+      case 'Award': return <Award size={28} color="#f5d77f" />;
+      case 'Terminal': return <Terminal size={28} color="#f5d77f" />;
       case 'Megaphone': return <Megaphone size={28} color="#f5d77f" />;
       case 'Target': return <Target size={28} color="#f5d77f" />;
       case 'FileSpreadsheet': return <FileSpreadsheet size={28} color="#f5d77f" />;

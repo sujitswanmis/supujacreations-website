@@ -15,6 +15,12 @@ import ContactForm from '../components/ContactForm';
 export default function Home() {
   const getIcon = (iconName) => {
     switch (iconName) {
+      case 'Users': return <Users size={26} color="#f5d77f" />;
+      case 'FileText': return <FileText size={26} color="#f5d77f" />;
+      case 'Layers': return <Layers size={26} color="#f5d77f" />;
+      case 'ShieldCheck': return <ShieldCheck size={26} color="#f5d77f" />;
+      case 'Award': return <Award size={26} color="#f5d77f" />;
+      case 'Terminal': return <Terminal size={26} color="#f5d77f" />;
       case 'Megaphone': return <Megaphone size={26} color="#f5d77f" />;
       case 'FileSpreadsheet': return <FileSpreadsheet size={26} color="#f5d77f" />;
       case 'Cpu': return <Cpu size={26} color="#f5d77f" />;
@@ -105,7 +111,7 @@ export default function Home() {
             margin: '0 0 2.5rem 0',
             maxWidth: '720px'
           }}>
-            Helping organizations digitize sales, purchase, manufacturing lines, attendance, reporting, and multi-department operational workflows without disruption.
+            Helping organizations digitize CRM, leads, sales orders, manufacturing lines, client accounts, vendor procurement, service tickets, attendance, and executive reporting.
           </p>
 
           {/* Hero CTAs */}
@@ -143,8 +149,8 @@ export default function Home() {
             </div>
 
             <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>6,500+</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Govt Skill Portal Candidate Data Operations</div>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>8+</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Core Enterprise Management Systems (CRM, S-Orders, Vendors, Production)</div>
             </div>
 
             <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
@@ -260,11 +266,11 @@ export default function Home() {
 
               <div style={{ display: 'flex', gap: '0.85rem' }}>
                 <div style={{ background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', width: '36px', height: '36px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#f5d77f' }}>
-                  <Award size={18} />
+                  <Users size={18} />
                 </div>
                 <div>
-                  <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '0.95rem' }}>6,500+ Candidate Govt Portals MIS</div>
-                  <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>Skill India, HPKVN, Kaushal Bharat, Pragati & Panjee MIS operations.</div>
+                  <div style={{ fontWeight: 600, color: '#ffffff', fontSize: '0.95rem' }}>8+ Core Enterprise Systems</div>
+                  <div style={{ fontSize: '0.84rem', color: '#a1a1aa' }}>CRM, Lead Management, S-Orders, Vendors, Production, Service & Feedback.</div>
                 </div>
               </div>
             </div>
@@ -281,7 +287,7 @@ export default function Home() {
             <div>
               <div className="page-badge">What We Deliver</div>
               <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ffffff', margin: 0 }}>
-                Specialized Automation Services & Pricing
+                Enterprise Systems & Specialized Services
               </h2>
             </div>
             <Link href="/services" className="btn-secondary" style={{ padding: '0.65rem 1.3rem', fontSize: '0.9rem' }}>
@@ -295,7 +301,7 @@ export default function Home() {
             gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
             gap: '1.75rem'
           }}>
-            {services.slice(0, 6).map((srv) => (
+            {services.slice(0, 8).map((srv) => (
               <div key={srv.id} className="glass-card" style={{ padding: '2.2rem 2rem', display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.25rem' }}>
                   <div style={{

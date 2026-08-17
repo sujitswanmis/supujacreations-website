@@ -209,7 +209,7 @@ export default function Navbar() {
             </a>
             
             <div style={{ fontSize: '0.7rem', color: '#71717a', textAlign: 'center', marginTop: '0.4rem', fontFamily: 'JetBrains Mono, monospace' }}>
-              SuPuja Automation Platform • <span style={{ color: '#f5d77f' }}>v2.5.0</span>
+              SuPuja Automation Platform • <span style={{ color: '#f5d77f' }}>v2.6.0</span>
             </div>
           </div>
         </div>

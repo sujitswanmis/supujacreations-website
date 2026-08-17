@@ -1,13 +1,15 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Send, CheckCircle2, AlertCircle, X, ChevronDown, Check, Plus } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, X, ChevronDown, Check, Plus, MessageCircle, Sparkles } from 'lucide-react';
 
 const AVAILABLE_SERVICES = [
   'CRM & Lead Management System',
   'Sales & Order (S-Order) Management',
   'WhatsApp Marketing & Business API Automation',
   'Google Sheets & MIS Automation',
+  'Standard Business Website (5-Page)',
+  'Custom Web Applications & Portals',
   'Meta Ads (Facebook & Instagram Marketing)',
   'Production Management System (FMS & Shop Floor)',
   'Vendor & Purchase Management System',
@@ -17,8 +19,9 @@ const AVAILABLE_SERVICES = [
   'Smart Attendance & GPS Tracking',
   'Executive Dashboards & KPI Reporting',
   'Google Apps Script Development',
-  'Custom Web Forms & Apps',
-  'API & Webhook Integration'
+  'Custom Web Forms & Data Entry Apps',
+  'API & Webhook Integration',
+  'Recruitment & HR Talent Pipeline (RMS)'
 ];
 
 export default function ContactForm({ defaultService = 'Google Sheets & MIS Automation' }) {
@@ -44,6 +47,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState('');
+  const [submittedData, setSubmittedData] = useState(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -99,6 +103,12 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
       });
       const data = await res.json();
       if (res.ok && data.success) {
+        setSubmittedData({
+          name: formData.name,
+          phone: formData.phone,
+          services: selectedServices.join(', '),
+          timestamp: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
+        });
         setFormSuccess(true);
         setFormData({
           name: '',
@@ -118,22 +128,163 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
   };
 
   return (
-    <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
+    <div className="glass-card" style={{ padding: '2.5rem 2rem', position: 'relative' }}>
+      
+      {/* 5D Centered Luxury Success Pop-up Modal */}
+      {formSuccess && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100vw',
+          height: '100vh',
+          background: 'rgba(0, 0, 0, 0.86)',
+          backdropFilter: 'blur(14px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          padding: '1.5rem',
+          zIndex: 999999
+        }}>
+          <div style={{
+            background: 'linear-gradient(145deg, #0e121b 0%, #151a27 100%)',
+            border: '2px solid #f5d77f',
+            borderRadius: '24px',
+            padding: '2.8rem 2rem',
+            maxWidth: '520px',
+            width: '100%',
+            boxShadow: '0 30px 90px rgba(0, 0, 0, 0.98), 0 0 50px rgba(212, 175, 55, 0.35)',
+            textAlign: 'center',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            
+            {/* Top Gold Shimmer Wave */}
+            <div style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '4px',
+              background: 'linear-gradient(90deg, #d4af37, #ffffff, #f5d77f, #d4af37)'
+            }} />
+
+            {/* Close (X) Button */}
+            <button 
+              type="button"
+              onClick={() => setFormSuccess(false)}
+              style={{
+                position: 'absolute',
+                top: '1.1rem',
+                right: '1.1rem',
+                background: 'rgba(255, 255, 255, 0.08)',
+                border: '1px solid rgba(255, 255, 255, 0.18)',
+                color: '#ffffff',
+                borderRadius: '50%',
+                width: '36px',
+                height: '36px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                transition: 'all 0.2s'
+              }}
+              title="Close Pop-up"
+            >
+              <X size={18} />
+            </button>
+
+            {/* 5D Glowing Green Checkmark */}
+            <div style={{
+              width: '80px',
+              height: '80px',
+              borderRadius: '50%',
+              background: 'rgba(34, 197, 94, 0.15)',
+              border: '2.5px solid #22c55e',
+              boxShadow: '0 0 35px rgba(34, 197, 94, 0.55)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              margin: '0 auto 1.5rem auto'
+            }}>
+              <CheckCircle2 size={46} color="#22c55e" />
+            </div>
+
+            {/* Badge & Headline */}
+            <div style={{ fontSize: '0.78rem', color: '#86efac', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
+              ✓ 100% Submission Confirmed
+            </div>
+
+            <h3 style={{ fontSize: '1.65rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.65rem 0', lineHeight: 1.25 }}>
+              Inquiry Received Successfully!
+            </h3>
+
+            <p style={{ fontSize: '0.92rem', color: '#e4e4e7', lineHeight: 1.6, margin: '0 0 1.5rem 0' }}>
+              Thank you, <strong style={{ color: '#f5d77f' }}>{submittedData?.name || 'Customer'}</strong>! Sujit Kumar Gupta and the SuPuja Creations team will review your requirements and reach out within <strong>15 minutes</strong>.
+            </p>
+
+            {/* Inquiry Summary Box */}
+            <div style={{
+              background: 'rgba(5, 7, 12, 0.85)',
+              border: '1px solid rgba(212, 175, 55, 0.25)',
+              borderRadius: '12px',
+              padding: '1.1rem',
+              textAlign: 'left',
+              marginBottom: '1.75rem',
+              fontSize: '0.82rem',
+              color: '#a1a1aa'
+            }}>
+              <div style={{ marginBottom: '0.45rem' }}>
+                <span style={{ color: '#71717a' }}>Required Services: </span>
+                <span style={{ color: '#f5d77f', fontWeight: 700 }}>{submittedData?.services || 'Selected Automations'}</span>
+              </div>
+              {submittedData?.phone && (
+                <div style={{ marginBottom: '0.45rem' }}>
+                  <span style={{ color: '#71717a' }}>Contact Number: </span>
+                  <span style={{ color: '#ffffff', fontWeight: 600 }}>{submittedData?.phone}</span>
+                </div>
+              )}
+              <div>
+                <span style={{ color: '#71717a' }}>Response SLA: </span>
+                <span style={{ color: '#86efac', fontWeight: 700 }}>⚡ Under 15 Minutes (Active)</span>
+              </div>
+            </div>
+
+            {/* 2 CTA Buttons */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+              <a 
+                href={`https://wa.me/919988119276?text=${encodeURIComponent(
+                  `Hi Sujit, I just submitted an inquiry on SuPuja Creations for: ${submittedData?.services || 'Automation Services'}. Name: ${submittedData?.name || ''}, Phone: ${submittedData?.phone || ''}. Please connect.`
+                )}`}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-primary"
+                style={{ width: '100%', padding: '0.9rem', fontSize: '0.95rem' }}
+              >
+                <MessageCircle size={19} />
+                <span>Chat Instantly on WhatsApp</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setFormSuccess(false)}
+                className="btn-secondary"
+                style={{ width: '100%', padding: '0.75rem', fontSize: '0.88rem' }}
+              >
+                Close & Continue Browsing
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
       <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0' }}>
         Send a Project Inquiry
       </h3>
       <p style={{ fontSize: '0.88rem', color: '#a1a1aa', margin: '0 0 1.75rem 0' }}>
         Select your required services and enter your project details. We will respond promptly.
       </p>
-
-      {formSuccess && (
-        <div style={{ background: 'rgba(212, 175, 55, 0.15)', border: '1px solid #d4af37', color: '#fef3c7', padding: '1rem 1.25rem', borderRadius: '12px', marginBottom: '1.5rem', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-          <CheckCircle2 size={22} color="#f5d77f" style={{ flexShrink: 0 }} />
-          <div>
-            <strong>Inquiry Received!</strong> The SuPuja Creations team will review your selected services and connect with you shortly.
-          </div>
-        </div>
-      )}
 
       {formError && (
         <div style={{ background: 'rgba(239, 68, 68, 0.15)', border: '1px solid #ef4444', color: '#fca5a5', padding: '1rem 1.25rem', borderRadius: '12px', marginBottom: '1.5rem', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>

@@ -150,14 +150,14 @@ export const services = [
   },
   {
     id: 'forms',
-    title: 'Custom Web Forms & Apps',
-    cost: '₹7,999',
+    title: 'Custom Web Forms & Data Entry Apps',
+    cost: '₹6,999',
     billingType: 'One-Time Setup',
-    costNote: 'Starting from • Per custom web app',
-    desc: 'Mobile-responsive HTML/JS web forms with dynamic row additions, dependent dropdowns, autocomplete, LocalStorage draft recovery, instant PDF generation, and live backend submission.',
-    iconName: 'Globe',
+    costNote: 'Starting from • Per custom form system',
+    desc: 'Mobile-responsive HTML/JS entry forms with dynamic multi-row additions, dependent dropdowns, autocomplete search, LocalStorage draft auto-recovery, instant PDF export, and backend database submission.',
+    iconName: 'FileSpreadsheet',
     accentColor: '#60a5fa',
-    tags: ['Web Forms', 'Mobile App', 'Dynamic Rows', 'Live Sync']
+    tags: ['Web Forms', 'Dynamic Rows', 'Draft Recovery', 'Instant PDF', 'Live Backend']
   },
   {
     id: 'api',
@@ -180,5 +180,29 @@ export const services = [
     iconName: 'Users',
     accentColor: '#38bdf8',
     tags: ['HR & Hiring', 'ATS Pipeline', 'Offer Letters', 'Candidate MIS']
+  },
+  {
+    id: 'business-website',
+    title: 'Standard Business Website (5-Page)',
+    cost: '₹9,999',
+    billingType: 'One-Time Setup',
+    costNote: 'One-Time Implementation • 5-Page Corporate Brand Site',
+    popularBadge: '🌐 Brand Presence',
+    desc: 'Complete 5-page responsive corporate website (Home, About Us, Services/Products, Projects/Gallery, Contact Us). Features modern mobile-first UI, 1-click WhatsApp chat button, Google SEO optimization, SSL security, and interactive contact inquiry form.',
+    iconName: 'Globe',
+    accentColor: '#38bdf8',
+    tags: ['5-Page Website', 'Home & About', 'Services & Gallery', 'WhatsApp Leads', 'Google SEO']
+  },
+  {
+    id: 'web-app-development',
+    title: 'Custom Web Applications & Portals',
+    cost: '₹17,999',
+    billingType: 'One-Time Setup',
+    costNote: 'One-Time Implementation • Full-Stack Dynamic Software',
+    popularBadge: '💻 Custom Software',
+    desc: 'Full-stack custom business web applications and client/employee portals (Next.js, React, Supabase database, REST APIs). Includes secure user login/authentication, role-based dashboards, multi-row dynamic entry forms, live database CRUD operations, and automated operational workflows.',
+    iconName: 'Cpu',
+    accentColor: '#a855f7',
+    tags: ['Web App', 'User Login/Auth', 'Client Portal', 'Supabase Database', 'Database CRUD', 'Next.js']
   }
 ];

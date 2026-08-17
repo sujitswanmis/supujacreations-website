@@ -12,6 +12,7 @@ import { services } from '../data/servicesData';
 import { projects } from '../data/projectsData';
 import ContactForm from '../components/ContactForm';
 import RoiCalculator from '../components/RoiCalculator';
+import InteractiveFlowHub from '../components/InteractiveFlowHub';
 
 export default function Home() {
   const [happyClientsCount, setHappyClientsCount] = React.useState('31+');
@@ -170,6 +171,11 @@ export default function Home() {
               <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>500+</div>
               <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Custom Automations, APIs & Web Workflows</div>
             </div>
+          </div>
+
+          {/* 5D Interactive Live Flow Hub Simulation */}
+          <div style={{ width: '100%', marginTop: '3.5rem' }}>
+            <InteractiveFlowHub />
           </div>
 
         </div>

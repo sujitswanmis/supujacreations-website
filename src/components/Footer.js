@@ -5,21 +5,35 @@ import Link from 'next/link';
 import { 
   MapPin, MessageSquare, Mail, Building2, ArrowUpRight, ShieldCheck, Sparkles
 } from 'lucide-react';
-import { FacebookIcon, InstagramIcon } from './SocialIcons';
+import { FacebookIcon, InstagramIcon, WhatsAppIcon } from './SocialIcons';
 import LanguageSelector from './LanguageSelector';
 
 export default function Footer() {
   return (
     <footer style={{
       background: '#040508',
-      borderTop: '1px solid rgba(212, 175, 55, 0.2)',
+      borderTop: '1px solid rgba(212, 175, 55, 0.25)',
       padding: '4.5rem 1.5rem 2.5rem 1.5rem',
       color: '#a1a1aa',
       fontSize: '0.88rem',
       position: 'relative',
-      zIndex: 10
+      zIndex: 10,
+      overflow: 'hidden'
     }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+      {/* 5D Footer Ambient Glow */}
+      <div style={{
+        position: 'absolute',
+        bottom: '-20%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        width: '600px',
+        height: '250px',
+        background: 'radial-gradient(circle, rgba(212, 175, 55, 0.09) 0%, transparent 70%)',
+        pointerEvents: 'none',
+        zIndex: 0
+      }} />
+
+      <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '3rem', position: 'relative', zIndex: 1 }}>
         
         {/* Top Grid */}
         <div style={{
@@ -40,7 +54,7 @@ export default function Footer() {
                   maxHeight: '44px',
                   objectFit: 'contain',
                   flexShrink: 0,
-                  filter: 'drop-shadow(0 2px 8px rgba(212, 175, 55, 0.45))'
+                  filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.5))'
                 }} 
               />
               <div>
@@ -55,55 +69,51 @@ export default function Footer() {
               Practical business automation systems, Google Workspace architecture, REST API pipelines, and multi-step manufacturing flow systems (FMS).
             </p>
 
-            {/* Social Media Links */}
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <a 
-                href="https://www.facebook.com/supujacreations" 
-                target="_blank" 
-                rel="noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  color: '#f5d77f',
-                  textDecoration: 'none',
-                  background: 'rgba(212, 175, 55, 0.1)',
-                  border: '1px solid rgba(212, 175, 55, 0.3)',
-                  padding: '0.45rem 0.85rem',
-                  borderRadius: '8px',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  transition: 'all 0.2s'
-                }}
-                title="Follow on Facebook"
-              >
-                <FacebookIcon size={16} color="#f5d77f" />
-                <span>Facebook</span>
-              </a>
+            {/* 5D Social Media & Instant Connect Channels */}
+            <div>
+              <div style={{ fontSize: '0.74rem', color: '#f5d77f', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.75rem' }}>
+                Connect on Social Networks
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+                
+                {/* WhatsApp */}
+                <a 
+                  href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20I%20want%20to%20discuss%20automation%20services." 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="social-icon-5d"
+                  title="Direct WhatsApp Chat"
+                  aria-label="Direct WhatsApp Chat"
+                  style={{ color: '#22c55e' }}
+                >
+                  <WhatsAppIcon size={19} />
+                </a>
 
-              <a 
-                href="https://www.instagram.com/supujacreations/" 
-                target="_blank" 
-                rel="noreferrer"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.45rem',
-                  color: '#f5d77f',
-                  textDecoration: 'none',
-                  background: 'rgba(212, 175, 55, 0.1)',
-                  border: '1px solid rgba(212, 175, 55, 0.3)',
-                  padding: '0.45rem 0.85rem',
-                  borderRadius: '8px',
-                  fontSize: '0.82rem',
-                  fontWeight: 600,
-                  transition: 'all 0.2s'
-                }}
-                title="Follow on Instagram"
-              >
-                <InstagramIcon size={16} color="#f5d77f" />
-                <span>Instagram</span>
-              </a>
+                {/* Facebook */}
+                <a 
+                  href="https://www.facebook.com/supujacreations" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="social-icon-5d"
+                  title="Follow on Facebook"
+                  aria-label="Follow on Facebook"
+                >
+                  <FacebookIcon size={18} />
+                </a>
+
+                {/* Instagram */}
+                <a 
+                  href="https://www.instagram.com/supujacreations/" 
+                  target="_blank" 
+                  rel="noreferrer"
+                  className="social-icon-5d"
+                  title="Follow on Instagram"
+                  aria-label="Follow on Instagram"
+                >
+                  <InstagramIcon size={18} />
+                </a>
+
+              </div>
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: '#f5d77f', fontSize: '0.82rem', fontWeight: 600 }}>
@@ -278,7 +288,7 @@ export default function Footer() {
               letterSpacing: '0.03em',
               fontFamily: 'JetBrains Mono, monospace'
             }}>
-              v2.7.0 • Live
+              v2.8.0 • Live
             </span>
           </div>
 

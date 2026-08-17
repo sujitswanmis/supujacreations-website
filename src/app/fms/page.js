@@ -6,10 +6,114 @@ import {
   GitBranch, Factory, Clock, ShieldCheck, CheckCircle2, 
   AlertTriangle, ArrowRight, Layers, FileText, Send, Zap, Cpu, Sparkles,
   AlertCircle, Users, BarChart3, TrendingDown, Eye, Bell, CheckSquare, ChevronRight,
-  UserCheck, DollarSign, Truck, MessageSquare, PhoneCall
+  UserCheck, DollarSign, Truck, MessageSquare, PhoneCall, Package, Check, ArrowDown
 } from 'lucide-react';
 
 export default function FMSWorkflowsPage() {
+  // Real-world 10-Step Sales Order (S-Order) Lifecycle requested by user
+  const salesOrderLifecycle = [
+    {
+      step: '01',
+      title: 'Order Entry & Inquiry Logging',
+      owner: 'Sales Executive (Rahul Mehta)',
+      tat: 'Target SLA: 15 Mins',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Customer requirements, item specs, custom configurations, and billing/shipping address logged into the central order master.',
+      action: 'Automatic lead conversion & Order ID generated'
+    },
+    {
+      step: '02',
+      title: 'Order Confirm & PI Generate',
+      owner: 'Sales Coordinator (Pooja Sharma)',
+      tat: 'Target SLA: 30 Mins',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: '1-Click Proforma Invoice (PI) generated with agreed item rates, GST calculations, and 30% advance deposit terms.',
+      action: 'PI PDF auto-sent to client on WhatsApp & Email'
+    },
+    {
+      step: '03',
+      title: 'Stock & Inventory Check',
+      owner: 'Warehouse / Store (Dinesh Kumar)',
+      tat: 'Target SLA: 45 Mins',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Finished goods inventory and raw material availability checked. Stock reserved immediately to prevent duplicate bookings.',
+      action: 'Stock allocated in MIS & Packing slip pre-generated'
+    },
+    {
+      step: '04',
+      title: 'Advance Deposited (30%)',
+      owner: 'Client / Buyer (Kisan Agro Equipment)',
+      tat: 'Target SLA: Within 24 Hrs',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Client transfers 30% token advance deposit (e.g. ₹1,50,000 via NEFT/UPI) and submits transaction bank UTR receipt.',
+      action: 'UTR payment slip uploaded via client web form'
+    },
+    {
+      step: '05',
+      title: 'Advance Received & Verified (30%)',
+      owner: 'Accounts Executive (Vikram Singh)',
+      tat: 'Target SLA: 1 Hour',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Bank credit verified in company account. Accounts locks "30% ADVANCE RECEIVED" and releases Green Light for packaging/production.',
+      action: 'Production & Packing Job Order released'
+    },
+    {
+      step: '06',
+      title: 'Order Packed & QC Inspected',
+      owner: 'QC & Packaging (Manoj Kumar)',
+      tat: 'Target SLA: 4 Hours',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Physical goods inspected against technical drawing, serial number tagged, barcode applied, and securely boxed for transit.',
+      action: 'Final weight & live packing photos uploaded'
+    },
+    {
+      step: '07',
+      title: 'Balance Amount Due (70%)',
+      owner: 'Accounts & Billing (Vikram Singh)',
+      tat: 'Target SLA: 30 Mins',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Final Tax Invoice generated for remaining 70% balance (₹3,50,000). Automated payment request intimation dispatched with packing photos.',
+      action: 'WhatsApp alert + Invoice PDF sent to client'
+    },
+    {
+      step: '08',
+      title: 'Balance Received & Clearance (70%)',
+      owner: 'Accounts Head (Vikram Singh)',
+      tat: 'Target SLA: 2 Hours',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Full 100% payment reconciled in bank ledger. Dispatch Pass automatically unlocked for logistics and loading bay.',
+      action: 'Zero-Balance Clearance Pass generated'
+    },
+    {
+      step: '09',
+      title: 'Order Dispatch & Transporter LR/Bilty',
+      owner: 'Logistics Dispatch (Amit Patil)',
+      tat: 'Target SLA: Same Day (2 Hrs)',
+      status: 'Completed',
+      statusColor: '#4ade80',
+      desc: 'Material loaded onto transport truck, Delivery Challan (DC) stamped, E-Way Bill linked, and Transporter LR/Bilty number logged.',
+      action: 'Live Transporter LR Bilty auto-shared on WhatsApp'
+    },
+    {
+      step: '10',
+      title: 'Delivery Status & Client Acknowledgment',
+      owner: 'Support & Delivery Desk',
+      tat: 'Target SLA: On Arrival',
+      status: 'Active / Delivered',
+      statusColor: '#f5d77f',
+      desc: 'Consignment arrives safely at client warehouse, Proof of Delivery (POD) verified, and automated 1-Click WhatsApp CSAT & Google Review triggered.',
+      action: 'Order Lifecycle Successfully Closed (O2D 100%)'
+    }
+  ];
+
   // Real-life problem flows where businesses suffer massive hidden losses
   const problemFlows = [
     {
@@ -29,148 +133,76 @@ export default function FMSWorkflowsPage() {
     {
       title: 'Problem Scenario 3: Sales Order to Store & Production Disconnect',
       dept: 'Sales ➡️ Factory / Warehouse',
-      realExample: 'A customer transferred a 50% advance deposit for 20 machinery units. However, the store and factory lines were never notified because the sales rep forgot to forward the bank slip to the accounts team.',
-      hiddenLoss: 'Production delayed by 8 days, leading to client disputes, penalty deductions, and emergency overtime labor costs.',
+      realExample: 'A customer transferred a 30% advance deposit for 20 machinery units. However, the store and packing lines were never notified because the sales rep forgot to forward the bank slip to the accounts team.',
+      hiddenLoss: 'Dispatch delayed by 8 days, leading to client disputes, penalty deductions, and emergency overtime labor costs.',
       solution: 'Automated Sales Order (S-Order) workflow locks the advance payment verification, instantly generates the digital Job Order, and reserves store materials automatically.'
     },
     {
-      title: 'Problem Scenario 4: Dispatch Black Hole & Delayed Payment Collection',
+      title: 'Problem Scenario 4: Dispatch Black Hole & Trapped 70% Balance Payments',
       dept: 'Logistics ➡️ Accounts & Client',
-      realExample: 'Material was loaded onto a transport truck, but the delivery challan and bilty (LR) number were not sent to the client. The client refused to release final balance payment claiming they had no proof of dispatch.',
+      realExample: 'Material was loaded onto a transport truck, but the delivery challan and bilty (LR) number were not sent to the client. The client refused to release final 70% balance payment claiming they had no proof of dispatch.',
       hiddenLoss: 'Tens of lakhs in trapped working capital, cash-flow crunches, and tense payment recovery arguments.',
       solution: 'As soon as the transporter LR is entered, the client receives an automated WhatsApp update with the Bilty copy and instant payment link for balance settlement.'
     }
   ];
 
-  // Lead Management & Sales Order (S-Order) Live Control Center Data
+  // Live Control Center Data matching the 10-step Sales Order flow
   const liveDashboardData = [
     {
-      id: 'LEAD-2026-412',
-      client: 'Kisan Agro Equipment (Punjab)',
-      flowType: 'Inbound Lead (Meta Ads / WhatsApp)',
-      currentStage: 'Lead Qualification & Tech Call',
-      responsiblePerson: 'Pooja Sharma (Lead Specialist)',
-      plannedTarget: 'Call within 15 Mins',
-      actualStatus: 'Connected in 4 Mins',
-      statusType: 'success',
-      actionTaken: '🟢 WhatsApp Catalog & Pricing Sent'
-    },
-    {
-      id: 'LEAD-2026-398',
-      client: 'Apex Industrial Toolings Pvt Ltd',
-      flowType: 'Formal Quotation Proposal',
-      currentStage: 'Custom Quotation Review',
-      responsiblePerson: 'Rahul Mehta (Sales Executive)',
-      plannedTarget: 'Follow-up within 24 Hrs',
-      actualStatus: 'Overdue (+18.5 Hrs)',
-      statusType: 'danger',
-      actionTaken: '🚨 Auto-Escalation Sent to Sales Manager'
-    },
-    {
       id: 'SO-2026-089',
-      client: 'Modern Agri Implements (Gujarat)',
-      flowType: 'Sales Order (₹4.8 Lakh Advance Verified)',
-      currentStage: 'SO Released to Production & Store',
-      responsiblePerson: 'Vikram Singh (Order Coordinator)',
-      plannedTarget: 'Order Lock in 2 Hrs',
-      actualStatus: 'Completed in 35 Mins',
+      client: 'Kisan Agro Equipment (Punjab)',
+      orderValue: '₹5,00,000 (10 Units)',
+      currentStep: 'Step 09: Order Dispatch (LR Entered)',
+      responsible: 'Amit Patil (Logistics)',
+      paymentStatus: '100% Cleared (30% Adv + 70% Bal)',
+      statusText: 'Dispatched with VRL Logistics',
       statusType: 'success',
-      actionTaken: '🟢 BOM & Job Cards Auto-Generated'
+      autoAction: '🟢 Bilty & Invoice Sent on WhatsApp'
     },
     {
-      id: 'SO-2026-074',
-      client: 'Bharat Tractors & Spares (MP)',
-      flowType: 'Sales Order (Batch of 10 Units)',
-      currentStage: 'Assembly QC & Packaging',
-      responsiblePerson: 'Manoj Kumar (Plant Supervisor)',
-      plannedTarget: 'Ready by 04:00 PM Today',
-      actualStatus: 'Approaching SLA (45 Mins Left)',
+      id: 'SO-2026-092',
+      client: 'Apex Industrial Toolings Pvt Ltd',
+      orderValue: '₹3,20,000 (Custom Batch)',
+      currentStep: 'Step 07: Balance Due 70% (₹2,24,000)',
+      responsible: 'Vikram Singh (Accounts)',
+      paymentStatus: '30% Received • 70% Pending',
+      statusText: 'Waiting Client Balance Transfer',
       statusType: 'warning',
-      actionTaken: '🟡 Priority Packing Alert to Team'
+      autoAction: '🟡 Auto WhatsApp Balance Reminder Sent'
     },
     {
-      id: 'SO-2026-068',
-      client: 'Shree Balaji Traders (Haryana)',
-      flowType: 'Dispatch & Payment Recovery',
-      currentStage: 'Transporter LR & Final Invoicing',
-      responsiblePerson: 'Amit Patil (Logistics & Accounts)',
-      plannedTarget: 'Dispatch by 06:00 PM',
-      actualStatus: 'Dispatched with VRL Logistics',
+      id: 'SO-2026-094',
+      client: 'Modern Agri Implements (Gujarat)',
+      orderValue: '₹7,50,000 (15 Heavy Rotavators)',
+      currentStep: 'Step 06: Order Packed & QC Passed',
+      responsible: 'Manoj Kumar (QC & Packing)',
+      paymentStatus: '30% Advance Verified (₹2.25L)',
+      statusText: 'Ready for Final 70% Invoicing',
       statusType: 'success',
-      actionTaken: '🟢 Bilty & Balance Invoice Shared on WhatsApp'
-    }
-  ];
-
-  const leadAndOrderStages = [
-    {
-      range: 'Flow Step 1: Lead Capture & Qualification',
-      title: 'Omni-Channel Lead Capture & 15-Minute Response SLA',
-      tat: 'Target SLA: Under 15 Minutes',
-      owner: 'Lead Specialist / Front Desk',
-      desc: 'Automatic lead capture from Meta Ads (Facebook & Instagram), IndiaMART, Website forms, and WhatsApp Business API. Auto-assigned to sales reps via smart round-robin distribution.',
-      steps: [
-        'Instant lead capture with UTM source tracking',
-        'Automatic round-robin assignment to active sales executive',
-        'Automated welcome WhatsApp message with digital company brochure',
-        '15-Minute first-call timer countdown on sales rep mobile',
-        'Lead qualification tagging (Hot, Warm, Cold, Enterprise)'
-      ]
+      autoAction: '🟢 Weight & Box Photos Uploaded'
     },
     {
-      range: 'Flow Step 2: Quotation & Proposal Management',
-      title: '1-Click PDF Quotation & Multi-Tier Approval',
-      tat: 'Target SLA: Within 2 Hours',
-      owner: 'Sales Executive & Sales Manager',
-      desc: 'Instant generation of professional, GST-compliant PDF quotations with custom line items, discount controls, manager sign-off hierarchy, and automatic client delivery.',
-      steps: [
-        'Dynamic item selection from centralized master price list',
-        'Managerial discount approval workflow for special rates',
-        '1-Click professional PDF quotation generation with company branding',
-        'Instant delivery via official WhatsApp API & Email',
-        'Automated follow-up reminders scheduled on calendar'
-      ]
+      id: 'SO-2026-097',
+      client: 'Bharat Tractors & Spares (MP)',
+      orderValue: '₹1,80,000 (Spares Lot)',
+      currentStep: 'Step 04: Advance Deposited (30%)',
+      responsible: 'Vikram Singh (Accounts)',
+      paymentStatus: '30% Advance Slip Uploaded',
+      statusText: 'Bank UTR Verification Pending',
+      statusType: 'warning',
+      autoAction: '🟡 Accounts Checking Bank Statement'
     },
     {
-      range: 'Flow Step 3: Sales Order (SO) Confirmation & Advance Verification',
-      title: 'Deposit Lock & Automated Work Order Release',
-      tat: 'Target SLA: Within 4 Hours',
-      owner: 'Accounts Executive & Production Coordinator',
-      desc: 'Client purchase order acceptance, advance token payment reconciliation, unique Sales Order (SO Number) generation, and zero-delay handoff to warehouse & production.',
-      steps: [
-        'Client PO verification & advance payment receipt posting',
-        'Unique Sales Order (SO-2026-XXX) number generation',
-        'Automated Bill of Materials (BOM) stock reservation',
-        'Digital Job Order released to plant floor with target dispatch date',
-        'Order confirmation WhatsApp notification sent to customer'
-      ]
-    },
-    {
-      range: 'Flow Step 4: Dispatch, Transporter LR & Live Tracking',
-      title: 'Delivery Challan, E-Way Bill & Bilty Handoff',
-      tat: 'Target SLA: Same-Day Dispatch',
-      owner: 'Logistics Head & Dispatch Team',
-      desc: 'Final quality inspection pass, packaging verification, Delivery Challan (DC) creation, E-Way bill generation, freight transporter loading, and LR entry.',
-      steps: [
-        'Final QC checklist pass & barcode packaging verification',
-        'Automated Delivery Challan (DC) & Tax Invoice creation',
-        'E-Way Bill integration with government portal',
-        'Transporter allocation, driver contact, and LR/Bilty entry',
-        'Instant WhatsApp dispatch update with live LR copy sent to client'
-      ]
-    },
-    {
-      range: 'Flow Step 5: Balance Payment Recovery & Customer NPS Feedback',
-      title: 'Automated Reminders, Ledger Sync & 5-Star Reviews',
-      tat: 'Target SLA: Within 48 Hours of Delivery',
-      owner: 'Accounts Receivable & Support Lead',
-      desc: 'Automated balance payment reminders, statement of accounts (SOA) ledger sync, 1-click WhatsApp customer feedback survey, and Google 5-Star review booster.',
-      steps: [
-        'Automated payment due date reminder alerts sent on WhatsApp',
-        'Instant payment receipt reconciliation & ledger closure',
-        '1-Click WhatsApp CSAT & Net Promoter Score (NPS) survey',
-        'Instant alert to Director on negative feedback for immediate resolution',
-        'Automated Google 5-Star review redirect for happy clients'
-      ]
+      id: 'SO-2026-099',
+      client: 'Shree Balaji Traders (Haryana)',
+      orderValue: '₹4,20,000 (Ploughs Batch)',
+      currentStep: 'Step 02: Order Confirm & PI Generate',
+      responsible: 'Rahul Mehta (Sales Exec)',
+      plannedTarget: 'SLA: 30 Mins',
+      paymentStatus: 'PI Sent • Awaiting 30% Deposit',
+      statusText: 'Overdue (+4.5 Hrs Follow-up)',
+      statusType: 'danger',
+      autoAction: '🚨 Sales Manager Overdue Alert'
     }
   ];
 
@@ -185,17 +217,228 @@ export default function FMSWorkflowsPage() {
       <div style={{ maxWidth: '920px', marginBottom: '4.5rem' }}>
         <div className="page-badge">
           <Sparkles size={14} color="#f5d77f" />
-          <span>Lead & Sales Order Workflow Engineering</span>
+          <span>Sales Order & Lead Workflow Engineering</span>
         </div>
         <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1.25rem 0' }}>
-          Lead Management & Sales Order Flow Control (<span className="gold-gradient-text">FMS</span>)
+          Sales Order & Lead Flow Control (<span className="gold-gradient-text">FMS</span>)
         </h1>
         <p style={{ fontSize: '1.15rem', color: '#e4e4e7', lineHeight: 1.7, margin: 0 }}>
-          Stop losing high-value sales deals to delayed follow-ups and uncoordinated order fulfillment. We engineer streamlined <strong>Lead-to-Cash & Sales Order FMS Workflows</strong> with real-time <strong>Planned vs. Actual SLA Tracking</strong> and instant Director-level control dashboards.
+          Eliminate delays, missed follow-ups, and payment leakage. We engineer complete <strong>Sales Order (S-Order) & Lead Lifecycle Automations</strong> with automated <strong>Planned vs. Actual SLA Tracking</strong>, 30%/70% payment locks, dispatch verification, and real-time Director dashboards.
         </p>
       </div>
 
-      {/* SECTION 1: REAL-LIFE SCENARIOS WHERE COMPANIES LOSE REVENUE */}
+      {/* FEATURED: THE 10-STEP REAL-WORLD SALES ORDER LIFECYCLE WALKTHROUGH */}
+      <div className="glass-card" style={{ padding: '3.5rem 2rem', background: 'linear-gradient(135deg, rgba(14, 17, 24, 0.98) 0%, rgba(20, 24, 34, 0.95) 100%)', marginBottom: '5.5rem', border: '1px solid rgba(212, 175, 55, 0.45)', borderRadius: '18px', boxShadow: '0 20px 45px rgba(0,0,0,0.7)' }}>
+        
+        <div style={{ textAlign: 'center', maxWidth: '850px', margin: '0 auto 3rem auto' }}>
+          <div className="page-badge">
+            <Package size={14} color="#f5d77f" />
+            <span>Complete Order-to-Delivery Blueprint</span>
+          </div>
+          <h2 style={{ fontSize: '2.3rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
+            Real-World <span className="gold-gradient-text">10-Step Sales Order (S-Order)</span> Lifecycle
+          </h2>
+          <p style={{ color: '#e4e4e7', fontSize: '0.98rem', lineHeight: 1.7 }}>
+            Here is the exact step-by-step digital flow that governs every sales order—ensuring 100% advance security, stock allocation, timely packing, 70% balance recovery, and tracked dispatch:
+          </p>
+        </div>
+
+        {/* 10-Step Visual Grid */}
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+          {salesOrderLifecycle.map((item, idx) => (
+            <div 
+              key={idx} 
+              style={{ 
+                background: 'rgba(255, 255, 255, 0.02)', 
+                border: '1px solid rgba(212, 175, 55, 0.25)', 
+                borderRadius: '12px', 
+                padding: '1.5rem',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                transition: 'all 0.3s ease'
+              }}
+            >
+              {/* Step Header */}
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.85rem' }}>
+                <span style={{ 
+                  fontSize: '0.82rem', 
+                  fontWeight: 900, 
+                  background: 'rgba(212, 175, 55, 0.18)', 
+                  color: '#f5d77f', 
+                  padding: '0.2rem 0.6rem', 
+                  borderRadius: '6px', 
+                  border: '1px solid rgba(212, 175, 55, 0.35)' 
+                }}>
+                  STEP {item.step}
+                </span>
+                <span style={{ fontSize: '0.74rem', color: '#38bdf8', fontWeight: 600, background: 'rgba(56, 189, 248, 0.1)', padding: '0.2rem 0.5rem', borderRadius: '4px', border: '1px solid rgba(56, 189, 248, 0.25)' }}>
+                  ⏱️ {item.tat}
+                </span>
+              </div>
+
+              {/* Step Title */}
+              <h3 style={{ fontSize: '1.12rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0', lineHeight: 1.3 }}>
+                {item.title}
+              </h3>
+
+              {/* Responsible Owner */}
+              <div style={{ fontSize: '0.78rem', color: '#a1a1aa', marginBottom: '0.75rem' }}>
+                👤 <strong>Owner:</strong> {item.owner}
+              </div>
+
+              {/* Description */}
+              <p style={{ fontSize: '0.84rem', color: '#d4d4d8', lineHeight: 1.55, margin: '0 0 1rem 0' }}>
+                {item.desc}
+              </p>
+
+              {/* Automated System Action */}
+              <div style={{ marginTop: 'auto', background: 'rgba(212, 175, 55, 0.08)', padding: '0.65rem 0.8rem', borderRadius: '8px', border: '1px solid rgba(212, 175, 55, 0.2)', fontSize: '0.78rem', color: '#fef3c7' }}>
+                ⚡ <strong>System Action:</strong> {item.action}
+              </div>
+
+            </div>
+          ))}
+        </div>
+
+        {/* Lifecycle Key Benefit Callout */}
+        <div style={{ background: 'rgba(20, 24, 34, 0.85)', padding: '1.5rem', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.25rem' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
+            <ShieldCheck size={26} color="#4ade80" />
+            <div>
+              <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.98rem' }}>100% Financial & Dispatch Security</div>
+              <div style={{ color: '#a1a1aa', fontSize: '0.85rem' }}>Orders cannot be packed without verified 30% advance, and cannot be loaded for dispatch without verified 70% balance clearance.</div>
+            </div>
+          </div>
+          <Link href="/contact" className="btn-primary" style={{ padding: '0.6rem 1.4rem', fontSize: '0.88rem' }}>
+            Implement S-Order FMS in Your Business <ArrowRight size={14} />
+          </Link>
+        </div>
+
+      </div>
+
+      {/* SECTION 2: LIVE EXECUTIVE LEAD & SALES ORDER CONTROL CENTER */}
+      <div style={{ marginBottom: '5.5rem' }}>
+        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
+          <div className="page-badge">
+            <Eye size={14} color="#f5d77f" />
+            <span>Executive Single-Screen Visibility</span>
+          </div>
+          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
+            SuPuja Executive Lead & Sales Order Live Control Center
+          </h2>
+          <p style={{ color: '#a1a1aa', fontSize: '0.96rem', lineHeight: 1.6 }}>
+            Company Owners and Directors see exactly <strong>WHERE</strong> every sales order is stationed, <strong>WHO</strong> is handling it, payment clearance status, and if any dispatch SLA is breaching:
+          </p>
+        </div>
+
+        {/* Mockup Dashboard Card */}
+        <div className="glass-card" style={{ padding: '2rem', background: '#0a0d14', border: '1px solid rgba(212, 175, 55, 0.4)', borderRadius: '16px', boxShadow: '0 25px 50px rgba(0, 0, 0, 0.8)' }}>
+          
+          {/* Dashboard Header Bar */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(212, 175, 55, 0.2)', marginBottom: '1.5rem' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 10px #22c55e' }} />
+              <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '1.1rem' }}>
+                Live Sales Order (S-Order) Pipeline Monitor
+              </div>
+              <span style={{ fontSize: '0.72rem', background: 'rgba(212, 175, 55, 0.15)', color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 700 }}>
+                ACTIVE REAL-TIME DATA
+              </span>
+            </div>
+            <div style={{ display: 'flex', gap: '1rem', fontSize: '0.82rem', color: '#a1a1aa', flexWrap: 'wrap' }}>
+              <span>Active S-Orders: <strong style={{ color: '#ffffff' }}>24 Orders</strong></span>
+              <span>Advance Locked: <strong style={{ color: '#4ade80' }}>100%</strong></span>
+              <span>Dispatched on Schedule: <strong style={{ color: '#4ade80' }}>96%</strong></span>
+            </div>
+          </div>
+
+          {/* Live Orders Flow Table */}
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.84rem' }}>
+              <thead>
+                <tr style={{ borderBottom: '1px solid rgba(212, 175, 55, 0.2)', color: '#f5d77f', textTransform: 'uppercase', fontSize: '0.74rem', letterSpacing: '0.04em' }}>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Sales Order ID</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Client & Order Value</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Current Lifecycle Step</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Payment Status</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Responsible Owner</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Live Order Status</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Automated System Trigger</th>
+                </tr>
+              </thead>
+              <tbody>
+                {liveDashboardData.map((row, rIdx) => (
+                  <tr 
+                    key={rIdx} 
+                    style={{ 
+                      borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
+                      background: row.statusType === 'danger' ? 'rgba(239, 68, 68, 0.06)' : row.statusType === 'warning' ? 'rgba(245, 158, 11, 0.04)' : 'transparent'
+                    }}
+                  >
+                    <td style={{ padding: '1rem 0.5rem', fontWeight: 800, color: '#f5d77f' }}>
+                      {row.id}
+                    </td>
+                    <td style={{ padding: '1rem 0.5rem' }}>
+                      <div style={{ fontWeight: 700, color: '#ffffff' }}>{row.client}</div>
+                      <div style={{ color: '#a1a1aa', fontSize: '0.76rem' }}>{row.orderValue}</div>
+                    </td>
+                    <td style={{ padding: '1rem 0.5rem', color: '#e4e4e7', fontWeight: 600 }}>
+                      {row.currentStep}
+                    </td>
+                    <td style={{ padding: '1rem 0.5rem', fontSize: '0.78rem', color: '#fde68a' }}>
+                      {row.paymentStatus}
+                    </td>
+                    <td style={{ padding: '1rem 0.5rem', color: '#ffffff', fontWeight: 500 }}>
+                      {row.responsible}
+                    </td>
+                    <td style={{ padding: '1rem 0.5rem' }}>
+                      <span style={{
+                        display: 'inline-block',
+                        padding: '0.25rem 0.6rem',
+                        borderRadius: '6px',
+                        fontWeight: 700,
+                        fontSize: '0.76rem',
+                        background: row.statusType === 'danger' ? 'rgba(239, 68, 68, 0.2)' : row.statusType === 'warning' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(34, 197, 94, 0.2)',
+                        color: row.statusType === 'danger' ? '#fca5a5' : row.statusType === 'warning' ? '#fde68a' : '#86efac',
+                        border: row.statusType === 'danger' ? '1px solid rgba(239, 68, 68, 0.4)' : row.statusType === 'warning' ? '1px solid rgba(245, 158, 11, 0.4)' : '1px solid rgba(34, 197, 94, 0.4)'
+                      }}>
+                        {row.statusText}
+                      </span>
+                    </td>
+                    <td style={{ padding: '1rem 0.5rem', fontSize: '0.78rem', color: '#e4e4e7' }}>
+                      {row.autoAction}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Department Summary Scorecard Bar */}
+          <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid rgba(212, 175, 55, 0.15)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+            <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>PI & Advance (30%)</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>100% Deposit Verified</div>
+            </div>
+            <div style={{ background: 'rgba(239, 68, 68, 0.08)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.25)' }}>
+              <div style={{ fontSize: '0.72rem', color: '#f87171', textTransform: 'uppercase', fontWeight: 700 }}>🚨 Balance Collection (70%)</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fca5a5' }}>1 Client Follow-up Overdue</div>
+            </div>
+            <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Packing & Dispatch</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>19 Orders Shipped This Week</div>
+            </div>
+            <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
+              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Customer Satisfaction (CSAT)</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>4.9/5.0 (48 Reviews)</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* SECTION 3: REAL-LIFE BOTTLENECKS WHERE COMPANIES LOSE REVENUE */}
       <div style={{ marginBottom: '5rem' }}>
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3rem auto' }}>
           <div className="page-badge">
@@ -203,7 +446,7 @@ export default function FMSWorkflowsPage() {
             <span>Sales & Operational Bottlenecks</span>
           </div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            Where Do Most Leads & Sales Orders Get Stuck?
+            Where Do Unmanaged Sales Orders Get Stuck?
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.96rem', lineHeight: 1.6 }}>
             Here are the 4 common operational leaks that cost enterprises millions in lost revenue, delayed cash flow, and damaged customer relationships:
@@ -264,223 +507,38 @@ export default function FMSWorkflowsPage() {
         </div>
       </div>
 
-      {/* SECTION 2: LIVE EXECUTIVE LEAD & SALES ORDER CONTROL CENTER */}
-      <div style={{ marginBottom: '5.5rem' }}>
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
-          <div className="page-badge">
-            <Eye size={14} color="#f5d77f" />
-            <span>Executive Single-Screen Visibility</span>
-          </div>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            SuPuja Executive Lead & Sales Order Live Control Center
-          </h2>
-          <p style={{ color: '#a1a1aa', fontSize: '0.96rem', lineHeight: 1.6 }}>
-            Company Owners and Sales Directors see exactly <strong>WHERE</strong> every lead and sales order is stationed, <strong>WHO</strong> is handling it, and if any follow-up or dispatch SLA is breaching:
-          </p>
-        </div>
-
-        {/* Mockup Dashboard Card */}
-        <div className="glass-card" style={{ padding: '2rem', background: '#0a0d14', border: '1px solid rgba(212, 175, 55, 0.4)', borderRadius: '16px', boxShadow: '0 25px 50px rgba(0, 0, 0, 0.8)' }}>
-          
-          {/* Dashboard Header Bar */}
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem', paddingBottom: '1.25rem', borderBottom: '1px solid rgba(212, 175, 55, 0.2)', marginBottom: '1.5rem' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#22c55e', boxShadow: '0 0 10px #22c55e' }} />
-              <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '1.1rem' }}>
-                Live Lead & Sales Order Pipeline Monitor
-              </div>
-              <span style={{ fontSize: '0.72rem', background: 'rgba(212, 175, 55, 0.15)', color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.15rem 0.5rem', borderRadius: '4px', fontWeight: 700 }}>
-                ACTIVE LIVE DATA
-              </span>
-            </div>
-            <div style={{ display: 'flex', gap: '1rem', fontSize: '0.82rem', color: '#a1a1aa', flexWrap: 'wrap' }}>
-              <span>Today’s Leads: <strong style={{ color: '#ffffff' }}>28 Captured</strong></span>
-              <span>Active Sales Orders: <strong style={{ color: '#ffffff' }}>19 Orders</strong></span>
-              <span>On-Time SLA: <strong style={{ color: '#4ade80' }}>94%</strong></span>
-            </div>
-          </div>
-
-          {/* Live Orders Flow Table */}
-          <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.84rem' }}>
-              <thead>
-                <tr style={{ borderBottom: '1px solid rgba(212, 175, 55, 0.2)', color: '#f5d77f', textTransform: 'uppercase', fontSize: '0.74rem', letterSpacing: '0.04em' }}>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Lead / Order ID</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Client / Opportunity</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Current Pipeline Stage</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Responsible Owner</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Planned SLA Target</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Live Status</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Automated Trigger</th>
-                </tr>
-              </thead>
-              <tbody>
-                {liveDashboardData.map((row, rIdx) => (
-                  <tr 
-                    key={rIdx} 
-                    style={{ 
-                      borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-                      background: row.statusType === 'danger' ? 'rgba(239, 68, 68, 0.06)' : row.statusType === 'warning' ? 'rgba(245, 158, 11, 0.04)' : 'transparent'
-                    }}
-                  >
-                    <td style={{ padding: '1rem 0.5rem', fontWeight: 800, color: '#f5d77f' }}>
-                      {row.id}
-                    </td>
-                    <td style={{ padding: '1rem 0.5rem' }}>
-                      <div style={{ fontWeight: 700, color: '#ffffff' }}>{row.client}</div>
-                      <div style={{ color: '#a1a1aa', fontSize: '0.76rem' }}>{row.flowType}</div>
-                    </td>
-                    <td style={{ padding: '1rem 0.5rem', color: '#e4e4e7', fontWeight: 600 }}>
-                      {row.currentStage}
-                    </td>
-                    <td style={{ padding: '1rem 0.5rem', color: '#ffffff', fontWeight: 500 }}>
-                      {row.responsiblePerson}
-                    </td>
-                    <td style={{ padding: '1rem 0.5rem', color: '#f5d77f', fontSize: '0.8rem' }}>
-                      {row.plannedTarget}
-                    </td>
-                    <td style={{ padding: '1rem 0.5rem' }}>
-                      <span style={{
-                        display: 'inline-block',
-                        padding: '0.25rem 0.6rem',
-                        borderRadius: '6px',
-                        fontWeight: 700,
-                        fontSize: '0.76rem',
-                        background: row.statusType === 'danger' ? 'rgba(239, 68, 68, 0.2)' : row.statusType === 'warning' ? 'rgba(245, 158, 11, 0.2)' : 'rgba(34, 197, 94, 0.2)',
-                        color: row.statusType === 'danger' ? '#fca5a5' : row.statusType === 'warning' ? '#fde68a' : '#86efac',
-                        border: row.statusType === 'danger' ? '1px solid rgba(239, 68, 68, 0.4)' : row.statusType === 'warning' ? '1px solid rgba(245, 158, 11, 0.4)' : '1px solid rgba(34, 197, 94, 0.4)'
-                      }}>
-                        {row.actualStatus}
-                      </span>
-                    </td>
-                    <td style={{ padding: '1rem 0.5rem', fontSize: '0.78rem', color: '#e4e4e7' }}>
-                      {row.actionTaken}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          {/* Department Summary Scorecard Bar */}
-          <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid rgba(212, 175, 55, 0.15)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
-            <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Inbound Leads Response</div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>Avg 6 Mins (96% Contacted)</div>
-            </div>
-            <div style={{ background: 'rgba(239, 68, 68, 0.08)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.25)' }}>
-              <div style={{ fontSize: '0.72rem', color: '#f87171', textTransform: 'uppercase', fontWeight: 700 }}>🚨 Quotation Follow-ups</div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fca5a5' }}>2 Escalations Pending</div>
-            </div>
-            <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Orders in Fulfillment</div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>19 Active (100% On-Schedule)</div>
-            </div>
-            <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Payment Collections</div>
-              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>₹14.2L Recovered this Week</div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      {/* SECTION 3: THE 5-STEP COMPLETE LEAD-TO-CASH & S-ORDER BLUEPRINT */}
-      <div style={{ marginBottom: '5.5rem' }}>
-        <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3.5rem auto' }}>
-          <div className="page-badge">End-to-End Blueprint</div>
-          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            The 5-Stage Lead & Sales Order Flow Architecture
-          </h2>
-          <p style={{ color: '#a1a1aa', fontSize: '0.96rem' }}>
-            From initial ad click to final invoice settlement and repeat referral generation:
-          </p>
-        </div>
-
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-          {leadAndOrderStages.map((stg, idx) => (
-            <div 
-              key={idx} 
-              className="glass-card" 
-              style={{ 
-                padding: '2.2rem 2rem', 
-                borderTop: '4px solid #f5d77f',
-                background: 'rgba(14, 17, 24, 0.92)'
-              }}
-            >
-              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', padding: '0.3rem 0.8rem', borderRadius: '6px', border: '1px solid rgba(212, 175, 55, 0.35)' }}>
-                  {stg.range}
-                </span>
-                <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
-                  <span style={{ fontSize: '0.8rem', color: '#38bdf8', background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.3)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontWeight: 600 }}>
-                    ⏱️ {stg.tat}
-                  </span>
-                  <span style={{ fontSize: '0.8rem', color: '#a1a1aa', background: 'rgba(255, 255, 255, 0.05)', padding: '0.2rem 0.6rem', borderRadius: '4px' }}>
-                    👤 {stg.owner}
-                  </span>
-                </div>
-              </div>
-
-              <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0' }}>
-                {stg.title}
-              </h3>
-              <p style={{ color: '#e4e4e7', fontSize: '0.94rem', lineHeight: 1.65, marginBottom: '1.5rem' }}>
-                {stg.desc}
-              </p>
-
-              <div style={{ background: 'rgba(20, 24, 34, 0.6)', padding: '1.25rem', borderRadius: '10px', border: '1px solid rgba(212, 175, 55, 0.15)' }}>
-                <div style={{ fontSize: '0.82rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                  <CheckSquare size={15} color="#f5d77f" />
-                  Key Automated Milestones:
-                </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.65rem' }}>
-                  {stg.steps.map((stp, sIdx) => (
-                    <div key={sIdx} style={{ fontSize: '0.86rem', color: '#e4e4e7', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-                      <CheckCircle2 size={15} color="#d4af37" style={{ flexShrink: 0 }} />
-                      <span>{stp}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* SECTION 4: MEASURABLE BUSINESS IMPACT */}
       <div className="glass-card" style={{ padding: '3.5rem 2rem', background: 'linear-gradient(135deg, rgba(20, 24, 34, 0.95) 0%, rgba(14, 17, 24, 0.95) 100%)', marginBottom: '5rem', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem auto' }}>
           <div className="page-badge">Proven Business ROI</div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            Measurable Revenue Growth with SuPuja Sales & Lead FMS
+            Measurable Operational Transformation with SuPuja S-Order FMS
           </h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', textAlign: 'center' }}>
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
-            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#4ade80' }}>3.4x 🚀</div>
-            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Faster Lead Conversion</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>15-minute rapid response SLAs triple customer closing rates.</div>
+            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#4ade80' }}>100% 🔒</div>
+            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Advance & Balance Security</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>No orders dispatched without verified 30% advance and 70% balance payments.</div>
           </div>
 
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
-            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#f5d77f' }}>100% 🎯</div>
-            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Zero Lead Leakage</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>No untracked spreadsheet entries or forgotten client follow-ups.</div>
+            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#f5d77f' }}>0 Errors 🎯</div>
+            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Stock & Packing Mismatches</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Barcoded packaging and live photo verification before loading.</div>
           </div>
 
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
-            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#38bdf8' }}>48 Hrs ⚡</div>
-            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Faster Payment Collection</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Automated Bilty dispatch & WhatsApp payment reminders prevent payment delays.</div>
+            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#38bdf8' }}>Real-Time ⚡</div>
+            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Transporter LR on WhatsApp</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Clients receive tracking details and bilty copy instantly.</div>
           </div>
 
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
             <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#c084fc' }}>1-Screen 📱</div>
             <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Owner Pipeline Clarity</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Real-time sales, order fulfillment, and collection visibility in your pocket.</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Monitor every order from entry to delivery in your pocket.</div>
           </div>
         </div>
       </div>
@@ -488,17 +546,17 @@ export default function FMSWorkflowsPage() {
       {/* BOTTOM ACTION CTA */}
       <div className="glass-card" style={{ padding: '3.5rem 2rem', textAlign: 'center', background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(14, 17, 24, 0.95) 100%)', border: '1px solid #d4af37' }}>
         <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-          Ready to Automate Your Lead & Sales Order Operations?
+          Ready to Automate Your Sales Order & Delivery Operations?
         </h3>
         <p style={{ color: '#e4e4e7', fontSize: '1.05rem', maxWidth: '700px', margin: '0 auto 2rem auto', lineHeight: 1.65 }}>
-          We will audit your existing sales pipelines, quotation process, and order fulfillment flow to architect a custom <strong>Lead & S-Order FMS Automation System</strong>.
+          We will audit your existing sales pipelines, quotation process, advance verification, and dispatch flow to architect a custom <strong>Sales Order FMS System</strong>.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
-          <Link href="/contact?service=CRM%20%26%20Lead%20Management%20System" className="btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}>
-            Schedule a Sales FMS Consultation <Send size={18} />
+          <Link href="/contact?service=Sales%20%26%20Order%20Management%20System" className="btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}>
+            Schedule an S-Order FMS Consultation <Send size={18} />
           </Link>
           <a 
-            href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20I%20want%20to%20automate%20my%20Lead%20Management%20and%20Sales%20Order%20Flow." 
+            href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20I%20want%20to%20automate%20my%20Sales%20Order%20and%20Dispatch%20Flow." 
             target="_blank" 
             rel="noreferrer"
             className="btn-secondary" 

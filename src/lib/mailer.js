@@ -27,12 +27,17 @@ export async function sendLeadEmailNotification(lead) {
       }
     });
 
+    const leadRefId = lead.lead_id || lead.leadId || `SPC-${new Date().toISOString().slice(0,10).replace(/-/g, '')}-000001`;
+
     // 1. HTML Email for Admin (SuPuja Team)
     const adminEmailHtml = `
       <div style="font-family: Arial, sans-serif; background-color: #06070a; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #d4af37;">
         
         <!-- Header -->
         <div style="text-align: center; margin-bottom: 25px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 15px;">
+          <div style="background: rgba(212, 175, 55, 0.15); border: 1px solid #d4af37; color: #f5d77f; display: inline-block; padding: 4px 12px; border-radius: 6px; font-family: monospace; font-size: 13px; font-weight: bold; margin-bottom: 8px;">
+            LEAD ID: ${leadRefId}
+          </div>
           <h2 style="color: #f5d77f; margin: 0 0 5px 0; font-size: 22px;">⚡ New Website Lead Inquiry Received</h2>
           <p style="color: #a1a1aa; margin: 0; font-size: 13px;">SuPuja Creations Website (supujacreations.com)</p>
         </div>
@@ -40,7 +45,11 @@ export async function sendLeadEmailNotification(lead) {
         <!-- Lead Details Table -->
         <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
           <tr>
-            <td style="padding: 10px 0; color: #f5d77f; font-weight: bold; width: 140px; border-bottom: 1px solid #1e2230;">Client Name:</td>
+            <td style="padding: 10px 0; color: #f5d77f; font-weight: bold; width: 150px; border-bottom: 1px solid #1e2230;">Lead Reference:</td>
+            <td style="padding: 10px 0; color: #fde68a; font-family: monospace; font-size: 15px; font-weight: bold; border-bottom: 1px solid #1e2230;">${leadRefId}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px 0; color: #f5d77f; font-weight: bold; width: 150px; border-bottom: 1px solid #1e2230;">Client Name:</td>
             <td style="padding: 10px 0; color: #ffffff; font-size: 15px; font-weight: 600; border-bottom: 1px solid #1e2230;">${lead.name}</td>
           </tr>
           <tr>
@@ -73,9 +82,9 @@ export async function sendLeadEmailNotification(lead) {
 
         <!-- Quick Actions -->
         <div style="text-align: center; margin-top: 25px;">
-          <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(lead.name)},%20thank%20you%20for%20contacting%20SuPuja%20Creations.%20Regarding%20your%20inquiry%20for%20${encodeURIComponent(lead.service)}:" 
+          <a href="https://wa.me/${lead.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(lead.name)},%20thank%20you%20for%20contacting%20SuPuja%20Creations%20(Ref:%20${leadRefId}).%20Regarding%20your%20inquiry%20for%20${encodeURIComponent(lead.service)}:" 
              style="background: #22c55e; color: #ffffff; text-decoration: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 14px;">
-            Reply on WhatsApp
+            Reply on WhatsApp (${leadRefId})
           </a>
         </div>
 
@@ -92,7 +101,7 @@ export async function sendLeadEmailNotification(lead) {
     const adminInfo = await transporter.sendMail({
       from: `"SuPuja Creations Leads" <${smtpUser}>`,
       to: ADMIN_RECIPIENTS,
-      subject: `🔥 New Lead: ${lead.name} (${lead.service})`,
+      subject: `🔥 [Lead #${leadRefId}] ${lead.name} - ${lead.service}`,
       html: adminEmailHtml
     });
 
@@ -104,6 +113,9 @@ export async function sendLeadEmailNotification(lead) {
         const clientEmailHtml = `
           <div style="font-family: Arial, sans-serif; background-color: #06070a; color: #f8fafc; padding: 25px; border-radius: 12px; max-width: 600px; margin: 0 auto; border: 1px solid #d4af37;">
             <div style="text-align: center; margin-bottom: 20px; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 15px;">
+              <div style="background: rgba(212, 175, 55, 0.15); border: 1px solid #d4af37; color: #f5d77f; display: inline-block; padding: 4px 12px; border-radius: 6px; font-family: monospace; font-size: 13px; font-weight: bold; margin-bottom: 8px;">
+                REFERENCE ID: ${leadRefId}
+              </div>
               <h2 style="color: #f5d77f; margin: 0 0 5px 0;">Thank You for Contacting SuPuja Creations</h2>
               <p style="color: #a1a1aa; margin: 0; font-size: 13px;">Business Automation & MIS Solutions</p>
             </div>
@@ -111,7 +123,7 @@ export async function sendLeadEmailNotification(lead) {
               Hello <strong>${lead.name}</strong>,
             </p>
             <p style="color: #cbd5e1; font-size: 14px; line-height: 1.6;">
-              We have successfully received your inquiry regarding <strong>${lead.service}</strong>. Our senior technical consultant will review your requirement and reach out to you within 4 business hours.
+              We have successfully received your inquiry (<strong>Ref ID: ${leadRefId}</strong>) regarding <strong>${lead.service}</strong>. Our senior technical consultant will review your requirement and reach out to you within 4 business hours.
             </p>
             <div style="background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 8px; padding: 15px; margin: 20px 0;">
               <div style="color: #f5d77f; font-weight: bold; font-size: 12px; text-transform: uppercase;">Your Submitted Requirement:</div>
@@ -121,9 +133,9 @@ export async function sendLeadEmailNotification(lead) {
               If you need immediate assistance, feel free to chat with us directly on WhatsApp:
             </p>
             <div style="text-align: center; margin: 20px 0;">
-              <a href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20following%20up%20on%20my%20inquiry%20for%20${encodeURIComponent(lead.service)}" 
+              <a href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20following%20up%20on%20my%20inquiry%20(Ref:%20${leadRefId})%20for%20${encodeURIComponent(lead.service)}" 
                  style="background: #d4af37; color: #000000; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; display: inline-block; font-size: 13px;">
-                Chat on WhatsApp (+91 99881 19276)
+                Chat on WhatsApp (Ref: ${leadRefId})
               </a>
             </div>
             <div style="margin-top: 25px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 12px; font-size: 11px; color: #71717a;">
@@ -135,7 +147,7 @@ export async function sendLeadEmailNotification(lead) {
         await transporter.sendMail({
           from: `"SuPuja Creations" <${smtpUser}>`,
           to: lead.email,
-          subject: `We Received Your Inquiry - SuPuja Creations (${lead.service})`,
+          subject: `[Ref #${leadRefId}] We Received Your Inquiry - SuPuja Creations`,
           html: clientEmailHtml
         });
         console.log('📧 Client auto-confirmation email sent to:', lead.email);

@@ -87,8 +87,8 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
 
     setFormSubmitting(true);
     setFormError('');
-    setFormSuccess(false);
 
+    const now = new Date();
     const payload = {
       ...formData,
       service: selectedServices.join(', '),
@@ -101,13 +101,16 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
+
       const data = await res.json();
+
       if (res.ok && data.success) {
         setSubmittedData({
+          leadId: data.leadId,
           name: formData.name,
           phone: formData.phone,
           services: selectedServices.join(', '),
-          timestamp: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
+          timestamp: now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' })
         });
         setFormSuccess(true);
         setFormData({
@@ -138,7 +141,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
           left: 0,
           width: '100vw',
           height: '100vh',
-          background: 'rgba(0, 0, 0, 0.86)',
+          background: 'rgba(0, 0, 0, 0.88)',
           backdropFilter: 'blur(14px)',
           display: 'flex',
           alignItems: 'center',
@@ -150,7 +153,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
             background: 'linear-gradient(145deg, #0e121b 0%, #151a27 100%)',
             border: '2px solid #f5d77f',
             borderRadius: '24px',
-            padding: '2.8rem 2rem',
+            padding: '2.5rem 1.85rem',
             maxWidth: '520px',
             width: '100%',
             boxShadow: '0 30px 90px rgba(0, 0, 0, 0.98), 0 0 50px rgba(212, 175, 55, 0.35)',
@@ -196,8 +199,8 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
 
             {/* 5D Glowing Green Checkmark */}
             <div style={{
-              width: '80px',
-              height: '80px',
+              width: '72px',
+              height: '72px',
               borderRadius: '50%',
               background: 'rgba(34, 197, 94, 0.15)',
               border: '2.5px solid #22c55e',
@@ -205,21 +208,37 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              margin: '0 auto 1.5rem auto'
+              margin: '0 auto 1.15rem auto'
             }}>
-              <CheckCircle2 size={46} color="#22c55e" />
+              <CheckCircle2 size={42} color="#22c55e" />
             </div>
 
-            {/* Badge & Headline */}
-            <div style={{ fontSize: '0.78rem', color: '#86efac', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: '0.4rem' }}>
-              ✓ 100% Submission Confirmed
+            {/* PROMINENT GLOWING LEAD REFERENCE ID CARD */}
+            <div style={{
+              background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(184, 134, 11, 0.15) 100%)',
+              border: '2px solid #f5d77f',
+              boxShadow: '0 0 25px rgba(212, 175, 55, 0.35)',
+              borderRadius: '12px',
+              padding: '0.65rem 1.25rem',
+              margin: '0 auto 1.15rem auto',
+              display: 'inline-flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '0.15rem'
+            }}>
+              <span style={{ fontSize: '0.72rem', color: '#f5d77f', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.08em' }}>
+                Official Lead Reference ID
+              </span>
+              <span style={{ fontSize: '1.28rem', fontWeight: 900, color: '#ffffff', fontFamily: 'JetBrains Mono, monospace', letterSpacing: '0.06em' }}>
+                {submittedData?.leadId || 'SPC-20260817-000001'}
+              </span>
             </div>
 
-            <h3 style={{ fontSize: '1.65rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.65rem 0', lineHeight: 1.25 }}>
+            <h3 style={{ fontSize: '1.55rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0', lineHeight: 1.25 }}>
               Inquiry Received Successfully!
             </h3>
 
-            <p style={{ fontSize: '0.92rem', color: '#e4e4e7', lineHeight: 1.6, margin: '0 0 1.5rem 0' }}>
+            <p style={{ fontSize: '0.9rem', color: '#e4e4e7', lineHeight: 1.55, margin: '0 0 1.25rem 0' }}>
               Thank you, <strong style={{ color: '#f5d77f' }}>{submittedData?.name || 'Customer'}</strong>! Sujit Kumar Gupta and the SuPuja Creations team will review your requirements and reach out within <strong>15 minutes</strong>.
             </p>
 
@@ -228,15 +247,19 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
               background: 'rgba(5, 7, 12, 0.85)',
               border: '1px solid rgba(212, 175, 55, 0.25)',
               borderRadius: '12px',
-              padding: '1.1rem',
+              padding: '1rem 1.1rem',
               textAlign: 'left',
-              marginBottom: '1.75rem',
+              marginBottom: '1.4rem',
               fontSize: '0.82rem',
               color: '#a1a1aa'
             }}>
               <div style={{ marginBottom: '0.45rem' }}>
+                <span style={{ color: '#71717a' }}>Lead Reference: </span>
+                <span style={{ color: '#f5d77f', fontWeight: 800, fontFamily: 'monospace' }}>{submittedData?.leadId}</span>
+              </div>
+              <div style={{ marginBottom: '0.45rem' }}>
                 <span style={{ color: '#71717a' }}>Required Services: </span>
-                <span style={{ color: '#f5d77f', fontWeight: 700 }}>{submittedData?.services || 'Selected Automations'}</span>
+                <span style={{ color: '#ffffff', fontWeight: 700 }}>{submittedData?.services || 'Selected Automations'}</span>
               </div>
               {submittedData?.phone && (
                 <div style={{ marginBottom: '0.45rem' }}>
@@ -251,15 +274,15 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
             </div>
 
             {/* 2 CTA Buttons */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <a 
                 href={`https://wa.me/919988119276?text=${encodeURIComponent(
-                  `Hi Sujit, I just submitted an inquiry on SuPuja Creations for: ${submittedData?.services || 'Automation Services'}. Name: ${submittedData?.name || ''}, Phone: ${submittedData?.phone || ''}. Please connect.`
+                  `Hi Sujit, I just submitted an inquiry on SuPuja Creations (Ref: ${submittedData?.leadId || ''}) for: ${submittedData?.services || 'Automation Services'}. Name: ${submittedData?.name || ''}, Phone: ${submittedData?.phone || ''}. Please connect.`
                 )}`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-primary"
-                style={{ width: '100%', padding: '0.9rem', fontSize: '0.95rem' }}
+                style={{ width: '100%', padding: '0.85rem', fontSize: '0.95rem' }}
               >
                 <MessageCircle size={19} />
                 <span>Chat Instantly on WhatsApp</span>
@@ -269,7 +292,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
                 type="button"
                 onClick={() => setFormSuccess(false)}
                 className="btn-secondary"
-                style={{ width: '100%', padding: '0.75rem', fontSize: '0.88rem' }}
+                style={{ width: '100%', padding: '0.7rem', fontSize: '0.88rem' }}
               >
                 Close & Continue Browsing
               </button>

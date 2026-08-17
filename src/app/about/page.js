@@ -71,7 +71,7 @@ export default function AboutPage() {
       </div>
 
       {/* DETAILED BIO & STORY */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'start', marginBottom: '5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3.5rem', alignItems: 'start', marginBottom: '5rem' }}>
         
         <div>
           <h2 style={{ fontSize: '2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 1.5rem 0' }}>
@@ -166,7 +166,7 @@ export default function AboutPage() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
           {milestones.map((m, idx) => (
             <div key={idx} className="glass-card" style={{ padding: '2.2rem 2rem' }}>
               <div style={{ fontSize: '0.8rem', fontWeight: 700, color: '#f5d77f', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '0.5rem' }}>

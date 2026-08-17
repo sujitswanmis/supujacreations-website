@@ -309,7 +309,7 @@ export default function FMSWorkflowsPage() {
         </div>
 
         {/* 10-Step Visual Cards Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem', marginBottom: '3rem' }}>
           {salesOrderLifecycle.map((item, idx) => (
             <div 
               key={idx} 
@@ -397,7 +397,7 @@ export default function FMSWorkflowsPage() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '2rem' }}>
           {otherFmsFlows.map((flow, fIdx) => (
             <div 
               key={fIdx} 
@@ -405,7 +405,7 @@ export default function FMSWorkflowsPage() {
               style={{ 
                 padding: '2rem 1.75rem', 
                 display: 'flex', 
-                flexDirection: 'column',
+                flexDirection: 'column', 
                 background: 'rgba(14, 17, 24, 0.92)',
                 borderTop: '3px solid #f5d77f'
               }}
@@ -479,8 +479,8 @@ export default function FMSWorkflowsPage() {
           </div>
 
           {/* Live Orders Flow Table */}
-          <div style={{ overflowX: 'auto' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.84rem' }}>
+          <div style={{ overflowX: 'auto', width: '100%', WebkitOverflowScrolling: 'touch' }}>
+            <table style={{ minWidth: '720px', width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.84rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(212, 175, 55, 0.2)', color: '#f5d77f', textTransform: 'uppercase', fontSize: '0.74rem', letterSpacing: '0.04em' }}>
                   <th style={{ padding: '0.75rem 0.5rem' }}>Sales Order ID</th>

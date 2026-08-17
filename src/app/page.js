@@ -145,7 +145,7 @@ export default function Home() {
           {/* Quick Stats Grid */}
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))',
             gap: '1.25rem',
             width: '100%',
             maxWidth: '1020px'
@@ -216,7 +216,7 @@ export default function Home() {
 
       {/* ABOUT SNAPSHOT SECTION */}
       <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', maxWidth: '1240px', margin: '0 auto' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'center' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'center' }}>
           
           <div>
             <div className="page-badge">About SuPuja Creations</div>
@@ -310,7 +310,7 @@ export default function Home() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '1.75rem'
           }}>
             {services.slice(0, 8).map((srv) => (
@@ -459,7 +459,7 @@ export default function Home() {
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
             gap: '2rem'
           }}>
             {projects.slice(0, 3).map((p) => (
@@ -502,7 +502,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem', alignItems: 'flex-start' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem', alignItems: 'flex-start' }}>
           
           {/* Quick Connect details */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>

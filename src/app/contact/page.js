@@ -54,7 +54,7 @@ function ContactContent() {
       </div>
 
       {/* MAIN CONTENT: DETAILS + FORM */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3.5rem', alignItems: 'start', marginBottom: '5.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3.5rem', alignItems: 'start', marginBottom: '5.5rem' }}>
         
         {/* Left Column: Direct Contacts */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -190,7 +190,7 @@ function ContactContent() {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
           {faqs.map((faq, idx) => (
             <div key={idx} className="glass-card" style={{ padding: '2.2rem 2rem' }}>
               <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>

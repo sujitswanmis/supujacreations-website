@@ -48,34 +48,34 @@ export default function Navbar() {
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid rgba(212, 175, 55, 0.18)',
       transition: 'all 0.3s ease',
-      padding: '0.75rem 1.5rem',
+      padding: '0.65rem 1rem',
       boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.08)' : 'none'
     }}>
-      <div style={{ maxWidth: '1360px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'nowrap' }}>
+      <div style={{ maxWidth: '1360px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem', flexWrap: 'nowrap', width: '100%' }}>
         
         {/* Brand Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.6rem', whiteSpace: 'nowrap', flexShrink: 1, minWidth: 0, overflow: 'hidden' }}>
           <img 
             src="/supuja-logo.png" 
             alt="SuPuja Creations Logo" 
             style={{
-              height: '44px',
+              height: '38px',
               width: 'auto',
-              maxHeight: '44px',
+              maxHeight: '38px',
               objectFit: 'contain',
               flexShrink: 0,
               filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.5))'
             }} 
           />
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
-              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>SuPuja</span>
-              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#f5d77f', letterSpacing: '-0.02em' }}>Creations</span>
-              <span style={{ fontSize: '0.65rem', background: 'rgba(212, 175, 55, 0.15)', color: '#fde68a', border: '1px solid rgba(212, 175, 55, 0.35)', padding: '0.1rem 0.45rem', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 700, marginLeft: '0.2rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', whiteSpace: 'nowrap' }}>
+              <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>SuPuja</span>
+              <span style={{ fontSize: '1.1rem', fontWeight: 800, color: '#f5d77f', letterSpacing: '-0.02em' }}>Creations</span>
+              <span style={{ fontSize: '0.6rem', background: 'rgba(212, 175, 55, 0.15)', color: '#fde68a', border: '1px solid rgba(212, 175, 55, 0.35)', padding: '0.1rem 0.35rem', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 700, marginLeft: '0.15rem' }}>
                 Automation
               </span>
             </div>
-            <div style={{ fontSize: '0.72rem', color: '#a1a1aa', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.68rem', color: '#a1a1aa', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               Business Automation & MIS Solutions
             </div>
           </div>

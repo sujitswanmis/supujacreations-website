@@ -145,7 +145,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
       <form onSubmit={handleFormSubmit}>
         
         {/* Name & Phone */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
           <div>
             <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
               Your Name <span style={{ color: '#ef4444' }}>*</span>
@@ -175,7 +175,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
         </div>
 
         {/* Email & Company */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
           <div>
             <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
               Email Address

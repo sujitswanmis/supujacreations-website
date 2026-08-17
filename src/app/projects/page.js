@@ -37,7 +37,7 @@ export default function ProjectsPage() {
       </div>
 
       {/* FILTER BUTTONS */}
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem', marginBottom: '3.5rem' }}>
+      <div className="filter-bar-container" style={{ display: 'flex', flexWrap: 'wrap', gap: '0.55rem', marginBottom: '3.5rem' }}>
         <button 
           className={`filter-btn ${activeTab === 'all' ? 'active' : ''}`} 
           onClick={() => setActiveTab('all')}
@@ -85,7 +85,7 @@ export default function ProjectsPage() {
       {/* PROJECTS GRID */}
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(360px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
         gap: '2.5rem',
         marginBottom: '5.5rem'
       }}>

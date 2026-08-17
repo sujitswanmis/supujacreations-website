@@ -25,12 +25,23 @@ export const services = [
     id: 'whatsapp-marketing',
     title: 'WhatsApp Marketing & Business API Automation',
     cost: '₹4,999',
-    costNote: 'Starting from • Bulk Campaigns & API Integration',
-    popularBadge: '⚡ High ROI',
-    desc: 'Official Meta WhatsApp Business API setup, personalized bulk broadcast campaigns, automated lead generation funnels, interactive quick-reply buttons, dynamic variables, and real-time click/delivery tracking.',
+    costNote: 'Starting from • Bulk Broadcasts, Click-to-WhatsApp Ads & Chatbots',
+    popularBadge: '⚡ High ROI & Direct Sales',
+    desc: 'Direct high-response customer outreach and marketing on WhatsApp. Personalized Bulk Broadcast Messaging (promotional offers, product catalogs, festival discounts), Click-to-WhatsApp Ads (direct lead chats from Meta Ads into WhatsApp), and 24/7 Chatbot Funnel Automation (interactive quick-reply buttons, dynamic order status updates, automated payment links, and lead nurturing).',
     iconName: 'MessageSquare',
     accentColor: '#22c55e',
-    tags: ['WhatsApp API', 'Broadcasts', 'Chatbot Funnels', 'Interactive CTAs', 'AiSensy / Meta']
+    tags: ['Bulk WhatsApp', 'Click-to-WhatsApp Ads', 'Chatbot Funnels', 'Product Catalogs', 'Order Alerts', 'AiSensy / Meta API']
+  },
+  {
+    id: 'meta-ads',
+    title: 'Meta Ads (Facebook & Instagram Marketing)',
+    cost: '₹7,999',
+    costNote: 'Starting from • Brand Awareness, Website Traffic & Lead Gen',
+    popularBadge: '🎯 Top Sales Growth',
+    desc: 'Targeted high-converting ad campaigns across Facebook & Instagram tailored for your exact business goals: Brand Awareness (maximum reach and visibility in your target market), Website Traffic & Store Visits (driving active buyer traffic), and Lead Generation (capturing high-intent customer inquiries for rapid sales growth). Includes custom audience retargeting, creative ad copy design, Meta Pixel & Conversions API integration, and real-time ROAS optimization.',
+    iconName: 'Megaphone',
+    accentColor: '#38bdf8',
+    tags: ['Facebook Ads', 'Instagram Ads', 'Brand Awareness', 'Website Traffic', 'Lead Gen for Sales', 'ROAS Optimization']
   },
   {
     id: 'mis',
@@ -42,17 +53,6 @@ export const services = [
     iconName: 'FileSpreadsheet',
     accentColor: '#34d399',
     tags: ['Google Sheets', 'QUERY', 'MIS Reports', 'Master Data']
-  },
-  {
-    id: 'meta-ads',
-    title: 'Meta Ads (Facebook & Instagram Marketing)',
-    cost: '₹7,999',
-    costNote: 'Starting from • Monthly Campaign Management & Setup',
-    popularBadge: '🎯 Top Lead Gen',
-    desc: 'Targeted high-ROI lead generation and sales campaigns on Facebook & Instagram. Includes Meta Pixel & Conversions API integration, custom audience retargeting, creative A/B testing, copy design, and real-time ROAS optimization.',
-    iconName: 'Megaphone',
-    accentColor: '#38bdf8',
-    tags: ['Facebook Ads', 'Instagram Ads', 'Meta Pixel', 'Lead Gen', 'ROAS Optimization']
   },
   {
     id: 'production-management',

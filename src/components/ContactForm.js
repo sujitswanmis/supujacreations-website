@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Send, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Send, CheckCircle2, AlertCircle, Sparkles } from 'lucide-react';
 
 export default function ContactForm({ defaultService = 'Google Sheets & MIS Automation' }) {
   const [formData, setFormData] = useState({
@@ -50,17 +50,17 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
   };
 
   return (
-    <div className="glass-card" style={{ padding: '2.5rem 2rem' }}>
-      <h3 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', margin: '0 0 0.5rem 0' }}>
+    <div className="glass-card" style={{ padding: '2.5rem 2rem', background: 'rgba(16, 18, 25, 0.9)' }}>
+      <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.5rem 0' }}>
         Send a Project Inquiry
       </h3>
-      <p style={{ fontSize: '0.88rem', color: '#94a3b8', margin: '0 0 1.75rem 0' }}>
+      <p style={{ fontSize: '0.88rem', color: '#a1a1aa', margin: '0 0 1.75rem 0' }}>
         Fill in your requirement details below. Your inquiry is recorded directly in our system.
       </p>
 
       {formSuccess && (
-        <div style={{ background: 'rgba(34, 197, 94, 0.15)', border: '1px solid #22c55e', color: '#86efac', padding: '1rem 1.25rem', borderRadius: '10px', marginBottom: '1.5rem', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-          <CheckCircle2 size={22} color="#22c55e" style={{ flexShrink: 0 }} />
+        <div style={{ background: 'rgba(212, 175, 55, 0.15)', border: '1px solid #d4af37', color: '#fef3c7', padding: '1rem 1.25rem', borderRadius: '12px', marginBottom: '1.5rem', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+          <CheckCircle2 size={22} color="#f5d77f" style={{ flexShrink: 0 }} />
           <div>
             <strong>Inquiry Received!</strong> The SuPuja Creations team will review your requirements and connect with you shortly.
           </div>
@@ -68,7 +68,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
       )}
 
       {formError && (
-        <div style={{ background: 'rgba(239, 68, 68, 0.15)', border: '1px solid #ef4444', color: '#fca5a5', padding: '1rem 1.25rem', borderRadius: '10px', marginBottom: '1.5rem', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
+        <div style={{ background: 'rgba(239, 68, 68, 0.15)', border: '1px solid #ef4444', color: '#fca5a5', padding: '1rem 1.25rem', borderRadius: '12px', marginBottom: '1.5rem', fontSize: '0.92rem', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
           <AlertCircle size={22} color="#ef4444" style={{ flexShrink: 0 }} />
           <div>{formError}</div>
         </div>
@@ -78,7 +78,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
         
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '0.4rem' }}>
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
               Your Name <span style={{ color: '#ef4444' }}>*</span>
             </label>
             <input 
@@ -91,7 +91,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '0.4rem' }}>
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
               Phone / WhatsApp <span style={{ color: '#ef4444' }}>*</span>
             </label>
             <input 
@@ -107,7 +107,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.25rem', marginBottom: '1.25rem' }}>
           <div>
-            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '0.4rem' }}>
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
               Email Address
             </label>
             <input 
@@ -119,7 +119,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
             />
           </div>
           <div>
-            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '0.4rem' }}>
+            <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
               Company / Business Name
             </label>
             <input 
@@ -133,7 +133,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
         </div>
 
         <div style={{ marginBottom: '1.25rem' }}>
-          <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '0.4rem' }}>
+          <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
             Service or Solution Area
           </label>
           <select 
@@ -156,7 +156,7 @@ export default function ContactForm({ defaultService = 'Google Sheets & MIS Auto
         </div>
 
         <div style={{ marginBottom: '1.75rem' }}>
-          <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 600, color: '#cbd5e1', marginBottom: '0.4rem' }}>
+          <label style={{ display: 'block', fontSize: '0.82rem', fontWeight: 700, color: '#f5d77f', marginBottom: '0.4rem' }}>
             Project Requirements & Current Pain Points
           </label>
           <textarea 

@@ -4,43 +4,46 @@ import React from 'react';
 import Link from 'next/link';
 import { 
   FileSpreadsheet, Cpu, Globe, Link2, GitBranch, Factory, 
-  MapPin, MessageSquare, BarChart3, MessageCircle, Send, ArrowRight, Zap, Tag, Megaphone, Share2, Target
+  MapPin, MessageSquare, BarChart3, MessageCircle, Send, ArrowRight, Zap, Tag, Megaphone, Share2, Target, Sparkles
 } from 'lucide-react';
 import { services } from '../../data/servicesData';
 
 export default function ServicesPage() {
-  const getIcon = (iconName, color) => {
+  const getIcon = (iconName) => {
     switch (iconName) {
-      case 'Megaphone': return <Megaphone size={28} color={color} />;
-      case 'Target': return <Target size={28} color={color} />;
-      case 'FileSpreadsheet': return <FileSpreadsheet size={28} color={color} />;
-      case 'Cpu': return <Cpu size={28} color={color} />;
-      case 'Globe': return <Globe size={28} color={color} />;
-      case 'Link2': return <Link2 size={28} color={color} />;
-      case 'GitBranch': return <GitBranch size={28} color={color} />;
-      case 'Factory': return <Factory size={28} color={color} />;
-      case 'MapPin': return <MapPin size={28} color={color} />;
-      case 'MessageSquare': return <MessageSquare size={28} color={color} />;
-      case 'BarChart3': return <BarChart3 size={28} color={color} />;
-      default: return <Zap size={28} color={color} />;
+      case 'Megaphone': return <Megaphone size={26} color="#f5d77f" />;
+      case 'Target': return <Target size={26} color="#f5d77f" />;
+      case 'FileSpreadsheet': return <FileSpreadsheet size={26} color="#f5d77f" />;
+      case 'Cpu': return <Cpu size={26} color="#f5d77f" />;
+      case 'Globe': return <Globe size={26} color="#f5d77f" />;
+      case 'Link2': return <Link2 size={26} color="#f5d77f" />;
+      case 'GitBranch': return <GitBranch size={26} color="#f5d77f" />;
+      case 'Factory': return <Factory size={26} color="#f5d77f" />;
+      case 'MapPin': return <MapPin size={26} color="#f5d77f" />;
+      case 'MessageSquare': return <MessageSquare size={26} color="#f5d77f" />;
+      case 'BarChart3': return <BarChart3 size={26} color="#f5d77f" />;
+      default: return <Zap size={26} color="#f5d77f" />;
     }
   };
 
   return (
-    <div style={{ position: 'relative', padding: '4rem 1.5rem 6rem 1.5rem', maxWidth: '1240px', margin: '0 auto' }}>
+    <div style={{ position: 'relative', padding: '4.5rem 1.5rem 6.5rem 1.5rem', maxWidth: '1240px', margin: '0 auto' }}>
       
-      {/* AMBIENT GLOWS */}
-      <div className="ambient-glow" style={{ top: '8%', right: '10%', width: '420px', height: '420px', background: 'rgba(37, 99, 235, 0.12)' }} />
-      <div className="ambient-glow" style={{ top: '45%', left: '5%', width: '450px', height: '450px', background: 'rgba(6, 182, 212, 0.1)' }} />
+      {/* AMBIENT GOLD GLOWS */}
+      <div className="ambient-glow" style={{ top: '8%', right: '10%', width: '420px', height: '420px', background: 'rgba(212, 175, 55, 0.12)' }} />
+      <div className="ambient-glow" style={{ top: '45%', left: '5%', width: '450px', height: '450px', background: 'rgba(245, 215, 127, 0.09)' }} />
 
       {/* HEADER SECTION */}
       <div style={{ maxWidth: '850px', marginBottom: '3.5rem' }}>
-        <div className="page-badge">Services & Transparent Pricing</div>
+        <div className="page-badge">
+          <Sparkles size={14} color="#f5d77f" />
+          <span>Services & Transparent Pricing</span>
+        </div>
         <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1.25rem 0' }}>
-          Services & Estimated Costs
+          Services & <span className="gold-gradient-text">Estimated Costs</span>
         </h1>
-        <p style={{ fontSize: '1.15rem', color: '#cbd5e1', lineHeight: 1.7, margin: 0 }}>
-          Clear, transparent pricing for all our specialized automation and digitization services.
+        <p style={{ fontSize: '1.15rem', color: '#e4e4e7', lineHeight: 1.7, margin: 0 }}>
+          Clear, transparent pricing for all our specialized automation, MIS architecture, and digitization services.
         </p>
       </div>
 
@@ -60,8 +63,8 @@ export default function ServicesPage() {
               padding: '2.2rem 2rem', 
               display: 'flex', 
               flexDirection: 'column',
-              background: 'rgba(15, 23, 42, 0.85)',
-              borderTop: `4px solid ${srv.accentColor}`
+              background: 'rgba(16, 18, 25, 0.88)',
+              borderTop: '4px solid #d4af37'
             }}
           >
             
@@ -71,29 +74,29 @@ export default function ServicesPage() {
                 width: '48px',
                 height: '48px',
                 borderRadius: '10px',
-                background: `${srv.accentColor}18`,
-                border: `1px solid ${srv.accentColor}40`,
+                background: 'rgba(212, 175, 55, 0.14)',
+                border: '1px solid rgba(212, 175, 55, 0.35)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 flexShrink: 0
               }}>
-                {getIcon(srv.iconName, srv.accentColor)}
+                {getIcon(srv.iconName)}
               </div>
-              <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: '#ffffff', margin: 0, lineHeight: 1.25 }}>
+              <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', margin: 0, lineHeight: 1.25 }}>
                 {srv.title}
               </h2>
             </div>
 
             {/* Description */}
-            <p style={{ color: '#cbd5e1', fontSize: '0.94rem', lineHeight: 1.65, marginBottom: '1.75rem', flexGrow: 1 }}>
+            <p style={{ color: '#a1a1aa', fontSize: '0.94rem', lineHeight: 1.65, marginBottom: '1.75rem', flexGrow: 1 }}>
               {srv.desc}
             </p>
 
             {/* Cost Box */}
             <div style={{
-              background: 'rgba(255, 255, 255, 0.04)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
+              background: 'rgba(212, 175, 55, 0.07)',
+              border: '1px solid rgba(212, 175, 55, 0.22)',
               borderRadius: '12px',
               padding: '1.1rem 1.25rem',
               marginBottom: '1.5rem',
@@ -102,15 +105,15 @@ export default function ServicesPage() {
               alignItems: 'center'
             }}>
               <div>
-                <div style={{ fontSize: '0.75rem', color: '#94a3b8', textTransform: 'uppercase', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
-                  <Tag size={13} color={srv.accentColor} />
+                <div style={{ fontSize: '0.75rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, display: 'flex', alignItems: 'center', gap: '0.35rem', letterSpacing: '0.04em' }}>
+                  <Tag size={13} color="#f5d77f" />
                   Service Cost
                 </div>
-                <div style={{ fontSize: '0.78rem', color: '#64748b', marginTop: '0.15rem' }}>
+                <div style={{ fontSize: '0.78rem', color: '#71717a', marginTop: '0.15rem' }}>
                   {srv.costNote}
                 </div>
               </div>
-              <div style={{ fontSize: '1.65rem', fontWeight: 800, color: srv.accentColor }}>
+              <div className="gold-gradient-text" style={{ fontSize: '1.75rem', fontWeight: 900 }}>
                 {srv.cost}
               </div>
             </div>
@@ -133,7 +136,7 @@ export default function ServicesPage() {
                 style={{ fontSize: '0.86rem', padding: '0.65rem 1rem' }}
                 title="Send Inquiry"
               >
-                <Send size={15} />
+                <Send size={15} color="#f5d77f" />
               </Link>
             </div>
 
@@ -142,12 +145,12 @@ export default function ServicesPage() {
       </div>
 
       {/* BOTTOM ACTION */}
-      <div className="glass-card" style={{ padding: '3rem 2rem', textAlign: 'center', background: 'rgba(15, 23, 42, 0.9)' }}>
-        <h3 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
+      <div className="glass-card" style={{ padding: '3.2rem 2rem', textAlign: 'center', background: 'rgba(16, 18, 25, 0.92)' }}>
+        <h3 style={{ fontSize: '1.6rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
           Need a Custom Multi-Department Automation Package?
         </h3>
-        <p style={{ color: '#94a3b8', fontSize: '0.98rem', maxWidth: '650px', margin: '0 auto 1.75rem auto' }}>
-          Contact us for custom enterprise requirements, plant-wide FMS digitization, or monthly retainer plans.
+        <p style={{ color: '#a1a1aa', fontSize: '0.98rem', maxWidth: '650px', margin: '0 auto 1.75rem auto' }}>
+          Contact us for custom enterprise requirements, plant-wide FMS digitization, or monthly retainer automation plans.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
           <Link href="/contact" className="btn-primary">

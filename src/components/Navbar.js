@@ -3,7 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X, Building2, Send, ChevronRight } from 'lucide-react';
+import { 
+  Building2, Send, Menu, X, ChevronRight, Sparkles
+} from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,6 +24,7 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on page transition
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [pathname]);
@@ -41,11 +44,12 @@ export default function Navbar() {
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      background: scrolled ? 'rgba(7, 12, 24, 0.95)' : 'rgba(7, 12, 24, 0.85)',
-      backdropFilter: 'blur(18px)',
-      borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+      background: scrolled ? 'rgba(6, 7, 10, 0.96)' : 'rgba(8, 9, 13, 0.88)',
+      backdropFilter: 'blur(20px)',
+      borderBottom: '1px solid rgba(212, 175, 55, 0.16)',
       transition: 'all 0.3s ease',
-      padding: '0.9rem 1.5rem'
+      padding: '0.9rem 1.5rem',
+      boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.08)' : 'none'
     }}>
       <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
         
@@ -55,22 +59,22 @@ export default function Navbar() {
             src="/supuja-logo.png" 
             alt="SuPuja Creations Logo" 
             style={{
-              height: '44px',
+              height: '46px',
               width: 'auto',
-              maxHeight: '44px',
+              maxHeight: '46px',
               objectFit: 'contain',
               flexShrink: 0,
-              filter: 'drop-shadow(0 2px 8px rgba(56, 189, 248, 0.4))'
+              filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.5))'
             }} 
           />
           <div>
-            <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
-              SuPuja Creations
-              <span style={{ fontSize: '0.65rem', background: 'rgba(56, 189, 248, 0.15)', color: '#38bdf8', border: '1px solid rgba(56, 189, 248, 0.3)', padding: '0.1rem 0.45rem', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 700 }}>
+            <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
+              SuPuja <span className="gold-gradient-text">Creations</span>
+              <span style={{ fontSize: '0.65rem', background: 'rgba(212, 175, 55, 0.14)', color: '#f5d77f', border: '1px solid rgba(212, 175, 55, 0.35)', padding: '0.1rem 0.45rem', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.04em' }}>
                 Automation
               </span>
             </div>
-            <div style={{ fontSize: '0.75rem', color: '#94a3b8' }}>
+            <div style={{ fontSize: '0.74rem', color: '#a1a1aa', letterSpacing: '0.01em' }}>
               Business Automation & MIS Solutions
             </div>
           </div>
@@ -86,9 +90,10 @@ export default function Navbar() {
                 href={link.href} 
                 className={`nav-link ${isActive ? 'active' : ''}`}
                 style={{
-                  color: isActive ? '#38bdf8' : undefined,
-                  background: isActive ? 'rgba(56, 189, 248, 0.12)' : undefined,
-                  fontWeight: isActive ? 600 : 500
+                  color: isActive ? '#f5d77f' : undefined,
+                  background: isActive ? 'rgba(212, 175, 55, 0.12)' : undefined,
+                  fontWeight: isActive ? 700 : 500,
+                  border: isActive ? '1px solid rgba(212, 175, 55, 0.25)' : '1px solid transparent'
                 }}
               >
                 {link.name}
@@ -106,7 +111,7 @@ export default function Navbar() {
             className="btn-secondary desktop-cta" 
             style={{ padding: '0.52rem 1.05rem', fontSize: '0.86rem' }}
           >
-            <Building2 size={15} />
+            <Building2 size={15} color="#f5d77f" />
             CRM Workplace
           </a>
           <Link 
@@ -114,7 +119,7 @@ export default function Navbar() {
             className="btn-primary desktop-cta" 
             style={{ padding: '0.52rem 1.2rem', fontSize: '0.86rem' }}
           >
-            <Send size={14} />
+            <Sparkles size={14} />
             Hire / Consult
           </Link>
 
@@ -125,11 +130,11 @@ export default function Navbar() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle navigation menu"
             style={{
-              background: 'rgba(30, 41, 59, 0.8)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
+              background: 'rgba(20, 23, 31, 0.9)',
+              border: '1px solid rgba(212, 175, 55, 0.3)',
               borderRadius: '8px',
               padding: '0.5rem',
-              color: '#ffffff',
+              color: '#f5d77f',
               cursor: 'pointer',
               display: 'none',
               alignItems: 'center',
@@ -149,14 +154,15 @@ export default function Navbar() {
           top: '70px',
           left: 0,
           right: 0,
-          background: 'rgba(7, 12, 24, 0.98)',
-          backdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+          background: 'rgba(8, 10, 15, 0.98)',
+          backdropFilter: 'blur(22px)',
+          borderBottom: '1px solid rgba(212, 175, 55, 0.25)',
           padding: '1.5rem',
           display: 'flex',
           flexDirection: 'column',
           gap: '0.75rem',
-          zIndex: 99
+          zIndex: 99,
+          boxShadow: '0 20px 40px rgba(0, 0, 0, 0.8)'
         }}>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -167,46 +173,46 @@ export default function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   textDecoration: 'none',
-                  color: isActive ? '#38bdf8' : '#cbd5e1',
-                  background: isActive ? 'rgba(56, 189, 248, 0.15)' : 'rgba(255, 255, 255, 0.03)',
-                  padding: '0.75rem 1rem',
-                  borderRadius: '8px',
-                  fontWeight: isActive ? 600 : 500,
+                  color: isActive ? '#f5d77f' : '#e4e4e7',
+                  background: isActive ? 'rgba(212, 175, 55, 0.15)' : 'rgba(255, 255, 255, 0.03)',
+                  padding: '0.8rem 1rem',
+                  borderRadius: '10px',
+                  fontWeight: isActive ? 700 : 500,
                   display: 'flex',
                   alignItems: 'center',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  border: isActive ? '1px solid rgba(212, 175, 55, 0.35)' : '1px solid transparent'
                 }}
               >
                 <span>{link.name}</span>
-                <ChevronRight size={16} color={isActive ? '#38bdf8' : '#64748b'} />
+                <ChevronRight size={16} color={isActive ? '#f5d77f' : '#71717a'} />
               </Link>
             );
           })}
 
-          <div style={{ borderTop: '1px solid rgba(255, 255, 255, 0.1)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
+          <div style={{ borderTop: '1px solid rgba(212, 175, 55, 0.15)', paddingTop: '1rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', marginTop: '0.5rem' }}>
             <a 
               href="https://app.supujacreations.com" 
               target="_blank"
               rel="noreferrer"
               className="btn-secondary" 
-              style={{ justifyContent: 'center' }}
+              style={{ width: '100%', justifyContent: 'center' }}
             >
               <Building2 size={16} />
-              Open CRM Workplace
+              CRM Workplace Portal
             </a>
             <Link 
               href="/contact" 
-              onClick={() => setMobileMenuOpen(false)}
               className="btn-primary" 
-              style={{ justifyContent: 'center' }}
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ width: '100%', justifyContent: 'center' }}
             >
               <Send size={16} />
-              Hire / Consult SuPuja Creations
+              Start Consultation
             </Link>
           </div>
         </div>
       )}
-
     </header>
   );
 }

@@ -1,17 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import { 
-  FileSpreadsheet, Cpu, Globe, Link2, GitBranch, Factory, 
-  MapPin, MessageSquare, Mail, Building2, ArrowUpRight, ShieldCheck
+  MapPin, MessageSquare, Mail, Building2, ArrowUpRight, ShieldCheck, Sparkles
 } from 'lucide-react';
 
 export default function Footer() {
   return (
     <footer style={{
-      background: '#04070e',
-      borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+      background: '#050608',
+      borderTop: '1px solid rgba(212, 175, 55, 0.16)',
       padding: '4.5rem 1.5rem 2.5rem 1.5rem',
-      color: '#94a3b8',
+      color: '#a1a1aa',
       fontSize: '0.88rem',
       position: 'relative',
       zIndex: 10
@@ -32,26 +31,28 @@ export default function Footer() {
                 src="/supuja-logo.png" 
                 alt="SuPuja Creations Logo" 
                 style={{
-                  height: '42px',
+                  height: '46px',
                   width: 'auto',
-                  maxHeight: '42px',
+                  maxHeight: '46px',
                   objectFit: 'contain',
                   flexShrink: 0,
-                  filter: 'drop-shadow(0 2px 8px rgba(56, 189, 248, 0.35))'
+                  filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.4))'
                 }} 
               />
               <div>
-                <div style={{ fontWeight: 700, color: '#f8fafc', fontSize: '1.1rem' }}>SuPuja Creations</div>
-                <div style={{ fontSize: '0.72rem', color: '#64748b' }}>Business Automation & MIS Solutions</div>
+                <div style={{ fontWeight: 800, color: '#ffffff', fontSize: '1.15rem' }}>
+                  SuPuja <span className="gold-gradient-text">Creations</span>
+                </div>
+                <div style={{ fontSize: '0.74rem', color: '#71717a' }}>Business Automation & MIS Solutions</div>
               </div>
             </Link>
             
-            <p style={{ fontSize: '0.86rem', color: '#94a3b8', lineHeight: 1.6, margin: 0 }}>
+            <p style={{ fontSize: '0.86rem', color: '#a1a1aa', lineHeight: 1.6, margin: 0 }}>
               Practical business automation systems, Google Workspace architecture, REST API pipelines, and multi-step manufacturing flow systems (FMS).
             </p>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: '#38bdf8', fontSize: '0.82rem' }}>
-              <ShieldCheck size={16} color="#22c55e" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.45rem', color: '#f5d77f', fontSize: '0.82rem', fontWeight: 600 }}>
+              <ShieldCheck size={16} color="#d4af37" />
               <span>100% Practical • Zero Fluff Guarantee</span>
             </div>
           </div>
@@ -63,37 +64,37 @@ export default function Footer() {
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               <li>
-                <Link href="/" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.2s' }} className="footer-link">
+                <Link href="/" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/about" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.2s' }} className="footer-link">
+                <Link href="/about" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   About SuPuja Creations
                 </Link>
               </li>
               <li>
-                <Link href="/services" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.2s' }} className="footer-link">
-                  Specialized Services
+                <Link href="/services" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
+                  Specialized Services & Pricing
                 </Link>
               </li>
               <li>
-                <Link href="/fms" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.2s' }} className="footer-link">
+                <Link href="/fms" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   FMS & Manufacturing Workflows
                 </Link>
               </li>
               <li>
-                <Link href="/projects" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.2s' }} className="footer-link">
+                <Link href="/projects" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Case Studies & Projects
                 </Link>
               </li>
               <li>
-                <Link href="/skills" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.2s' }} className="footer-link">
+                <Link href="/skills" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Skills Matrix & Formulas
                 </Link>
               </li>
               <li>
-                <Link href="/contact" style={{ color: '#94a3b8', textDecoration: 'none', transition: 'color 0.2s' }} className="footer-link">
+                <Link href="/contact" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Contact & Consultation
                 </Link>
               </li>
@@ -107,32 +108,32 @@ export default function Footer() {
             </div>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.86rem' }}>
               <li>
-                <Link href="/services#meta-ads" style={{ color: '#94a3b8', textDecoration: 'none' }} className="footer-link">
+                <Link href="/services#meta-ads" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Meta Ads (Facebook & Instagram)
                 </Link>
               </li>
               <li>
-                <Link href="/services#whatsapp-marketing" style={{ color: '#94a3b8', textDecoration: 'none' }} className="footer-link">
+                <Link href="/services#whatsapp-marketing" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   WhatsApp Marketing & Business API
                 </Link>
               </li>
               <li>
-                <Link href="/services#mis" style={{ color: '#94a3b8', textDecoration: 'none' }} className="footer-link">
+                <Link href="/services#mis" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Google Sheets & MIS Automation
                 </Link>
               </li>
               <li>
-                <Link href="/services#gas" style={{ color: '#94a3b8', textDecoration: 'none' }} className="footer-link">
+                <Link href="/services#gas" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Google Apps Script & Triggers
                 </Link>
               </li>
               <li>
-                <Link href="/fms" style={{ color: '#94a3b8', textDecoration: 'none' }} className="footer-link">
+                <Link href="/fms" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   85-Step Manufacturing Flow (FMS)
                 </Link>
               </li>
               <li>
-                <Link href="/services#dashboards" style={{ color: '#94a3b8', textDecoration: 'none' }} className="footer-link">
+                <Link href="/services#dashboards" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
                   Looker Studio KPI Dashboards
                 </Link>
               </li>
@@ -145,16 +146,16 @@ export default function Footer() {
               Get in Touch
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.85rem' }}>
-              <a href="mailto:sales@supujacreations.com" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.88rem' }}>
-                <Mail size={16} color="#38bdf8" />
+              <a href="mailto:sales@supujacreations.com" style={{ color: '#e4e4e7', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.88rem' }}>
+                <Mail size={16} color="#f5d77f" />
                 sales@supujacreations.com
               </a>
-              <a href="tel:+919988119276" style={{ color: '#cbd5e1', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.88rem' }}>
-                <MessageSquare size={16} color="#34d399" />
+              <a href="tel:+919988119276" style={{ color: '#e4e4e7', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.88rem' }}>
+                <MessageSquare size={16} color="#d4af37" />
                 +91 99881 19276
               </a>
-              <div style={{ color: '#94a3b8', display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.88rem' }}>
-                <MapPin size={16} color="#c084fc" />
+              <div style={{ color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '0.55rem', fontSize: '0.88rem' }}>
+                <MapPin size={16} color="#e5b842" />
                 India (Remote & On-Site)
               </div>
               <a 
@@ -167,23 +168,24 @@ export default function Footer() {
                 Chat on WhatsApp
               </a>
 
-              <div style={{ marginTop: '0.5rem', paddingTop: '0.85rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <div style={{ marginTop: '0.5rem', paddingTop: '0.85rem', borderTop: '1px solid rgba(212, 175, 55, 0.15)' }}>
                 <a 
                   href="https://app.supujacreations.com" 
                   target="_blank" 
                   rel="noreferrer"
                   style={{
-                    color: '#38bdf8',
+                    color: '#f5d77f',
                     textDecoration: 'none',
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '0.45rem',
-                    fontWeight: 600,
+                    fontWeight: 700,
                     fontSize: '0.88rem',
-                    background: 'rgba(56, 189, 248, 0.1)',
-                    padding: '0.45rem 0.85rem',
-                    borderRadius: '6px',
-                    border: '1px solid rgba(56, 189, 248, 0.25)'
+                    background: 'rgba(212, 175, 55, 0.12)',
+                    padding: '0.55rem 0.95rem',
+                    borderRadius: '8px',
+                    border: '1px solid rgba(212, 175, 55, 0.35)',
+                    transition: 'all 0.2s ease'
                   }}
                 >
                   <Building2 size={15} />
@@ -198,7 +200,7 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div style={{
-          borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+          borderTop: '1px solid rgba(212, 175, 55, 0.12)',
           paddingTop: '1.75rem',
           display: 'flex',
           flexWrap: 'wrap',
@@ -206,7 +208,7 @@ export default function Footer() {
           alignItems: 'center',
           gap: '1rem',
           fontSize: '0.82rem',
-          color: '#64748b'
+          color: '#71717a'
         }}>
           <div>
             &copy; {new Date().getFullYear()} <strong>SuPuja Creations</strong> (supujacreations.com). All rights reserved.

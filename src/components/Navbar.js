@@ -224,6 +224,10 @@ export default function Navbar() {
               <Sparkles size={16} />
               Start Consultation
             </Link>
+            
+            <div style={{ fontSize: '0.7rem', color: '#71717a', textAlign: 'center', marginTop: '0.4rem', fontFamily: 'JetBrains Mono, monospace' }}>
+              SuPuja Automation Platform • <span style={{ color: '#f5d77f' }}>v2.5.0</span>
+            </div>
           </div>
         </div>
       )}

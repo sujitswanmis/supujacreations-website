@@ -265,15 +265,28 @@ export default function Footer() {
           fontSize: '0.82rem',
           color: '#71717a'
         }}>
-          <div>
-            &copy; {new Date().getFullYear()} <strong>SuPuja Creations</strong> (supujacreations.com). All rights reserved.
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
+            <span>&copy; {new Date().getFullYear()} <strong>SuPuja Creations</strong> (supujacreations.com). All rights reserved.</span>
+            <span style={{
+              fontSize: '0.72rem',
+              fontWeight: 800,
+              color: '#f5d77f',
+              background: 'rgba(212, 175, 55, 0.12)',
+              border: '1px solid rgba(212, 175, 55, 0.35)',
+              padding: '0.15rem 0.55rem',
+              borderRadius: '6px',
+              letterSpacing: '0.03em',
+              fontFamily: 'JetBrains Mono, monospace'
+            }}>
+              v2.5.0 • Live
+            </span>
           </div>
 
           <div>
             <LanguageSelector direction="up" />
           </div>
 
-          <div>
+          <div style={{ fontSize: '0.78rem' }}>
             Practical Business Automation • Google Workspace • REST APIs • FMS Architecture
           </div>
         </div>

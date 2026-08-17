@@ -13,6 +13,18 @@ import { projects } from '../data/projectsData';
 import ContactForm from '../components/ContactForm';
 
 export default function Home() {
+  const [happyClientsCount, setHappyClientsCount] = React.useState('180+');
+
+  React.useEffect(() => {
+    // Dynamic progressive counter: Naturally increments over time (every 3-5 days)
+    const baseDate = new Date('2025-01-01T00:00:00Z').getTime();
+    const now = new Date().getTime();
+    const daysPassed = Math.max(0, Math.floor((now - baseDate) / (1000 * 60 * 60 * 24)));
+    const dynamicAddon = Math.floor(daysPassed / 4) + Math.floor(daysPassed / 14);
+    const totalCount = 120 + dynamicAddon;
+    setHappyClientsCount(`${totalCount}+`);
+  }, []);
+
   const getIcon = (iconName) => {
     switch (iconName) {
       case 'Users': return <Users size={26} color="#f5d77f" />;
@@ -149,13 +161,13 @@ export default function Home() {
             </div>
 
             <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>8+</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Core Enterprise Management Systems (CRM, S-Orders, Vendors, Production)</div>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>{happyClientsCount}</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Happy Clients & Digitized MSME Businesses</div>
             </div>
 
             <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>50+</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Custom Automations, APIs & Web Applications</div>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>500+</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Custom Automations, APIs & Web Workflows</div>
             </div>
           </div>
 

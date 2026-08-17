@@ -185,20 +185,36 @@ export default function LanguageSelector({ isMobile = false, direction = 'auto' 
             top: opensUp ? 'auto' : 'calc(100% + 8px)',
             right: 0,
             left: isMobile ? 0 : 'auto',
-            background: '#0a0d14',
-            border: '1px solid rgba(212, 175, 55, 0.4)',
+            background: '#0d1017',
+            border: '1px solid rgba(212, 175, 55, 0.45)',
             borderRadius: '12px',
-            padding: '0.5rem',
-            width: isMobile ? '100%' : '210px',
+            padding: '0.6rem 0.5rem',
+            width: isMobile ? '100%' : '245px',
+            minWidth: isMobile ? '100%' : '245px',
             maxHeight: '340px',
             overflowY: 'auto',
+            overflowX: 'hidden',
             zIndex: 99999,
-            boxShadow: '0 20px 45px rgba(0, 0, 0, 0.95), 0 0 20px rgba(212, 175, 55, 0.15)',
+            boxShadow: '0 20px 45px rgba(0, 0, 0, 0.95), 0 0 25px rgba(212, 175, 55, 0.15)',
             backdropFilter: 'blur(20px)'
           }}
         >
-          <div style={{ padding: '0.35rem 0.5rem', fontSize: '0.72rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.05em', borderBottom: '1px solid rgba(212, 175, 55, 0.18)', marginBottom: '0.35rem' }}>
-            🌐 Select Language / भाषा
+          <div style={{ 
+            padding: '0.4rem 0.6rem', 
+            fontSize: '0.74rem', 
+            color: '#f5d77f', 
+            textTransform: 'uppercase', 
+            fontWeight: 800, 
+            letterSpacing: '0.04em', 
+            borderBottom: '1px solid rgba(212, 175, 55, 0.2)', 
+            marginBottom: '0.45rem',
+            whiteSpace: 'nowrap',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.4rem'
+          }}>
+            <Globe size={13} color="#f5d77f" />
+            <span>Select Language / भाषा</span>
           </div>
 
           {LANGUAGES.map((lang) => {
@@ -218,21 +234,31 @@ export default function LanguageSelector({ isMobile = false, direction = 'auto' 
                   background: isSelected ? 'rgba(212, 175, 55, 0.18)' : 'transparent',
                   color: isSelected ? '#f5d77f' : '#e4e4e7',
                   border: isSelected ? '1px solid rgba(212, 175, 55, 0.35)' : '1px solid transparent',
-                  padding: '0.55rem 0.7rem',
-                  borderRadius: '6px',
-                  fontSize: '0.84rem',
+                  padding: '0.55rem 0.75rem',
+                  borderRadius: '8px',
+                  fontSize: '0.86rem',
                   fontWeight: isSelected ? 700 : 500,
                   cursor: 'pointer',
                   textAlign: 'left',
-                  transition: 'all 0.15s',
-                  whiteSpace: 'nowrap'
+                  transition: 'all 0.15s ease',
+                  whiteSpace: 'nowrap',
+                  marginBottom: '0.15rem'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isSelected) e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
+                }}
+                onMouseLeave={(e) => {
+                  if (!isSelected) e.currentTarget.style.background = 'transparent';
                 }}
               >
-                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span>{lang.flag}</span>
-                  <span>{lang.nativeName}</span>
+                <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.65rem' }}>
+                  <span style={{ fontSize: '1rem' }}>{lang.flag}</span>
+                  <span style={{ fontSize: '0.86rem' }}>{lang.nativeName}</span>
+                  {lang.name !== lang.nativeName && (
+                    <span style={{ fontSize: '0.72rem', color: '#71717a' }}>({lang.name})</span>
+                  )}
                 </span>
-                {isSelected && <Check size={14} color="#f5d77f" />}
+                {isSelected && <Check size={14} color="#f5d77f" strokeWidth={3} />}
               </button>
             );
           })}

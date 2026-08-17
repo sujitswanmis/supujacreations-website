@@ -49,6 +49,25 @@ body {
   background-attachment: fixed;
 }
 
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(10, 12, 18, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.8);
+}
+
 img, svg, video, canvas, audio, iframe, embed, object {
   display: block;
   max-width: 100%;

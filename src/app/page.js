@@ -11,6 +11,7 @@ import {
 import { services } from '../data/servicesData';
 import { projects } from '../data/projectsData';
 import ContactForm from '../components/ContactForm';
+import RoiCalculator from '../components/RoiCalculator';
 
 export default function Home() {
   const [happyClientsCount, setHappyClientsCount] = React.useState('31+');
@@ -567,6 +568,13 @@ export default function Home() {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* INTERACTIVE ROI & TIME-SAVINGS CALCULATOR */}
+      <section style={{ position: 'relative', zIndex: 1, padding: '2rem 1.5rem 5.5rem 1.5rem', background: 'rgba(8, 10, 15, 0.98)' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          <RoiCalculator />
         </div>
       </section>
 

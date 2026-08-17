@@ -278,7 +278,7 @@ export default function Footer() {
               letterSpacing: '0.03em',
               fontFamily: 'JetBrains Mono, monospace'
             }}>
-              v2.6.0 • Live
+              v2.7.0 • Live
             </span>
           </div>
 

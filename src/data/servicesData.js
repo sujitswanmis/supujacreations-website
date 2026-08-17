@@ -169,5 +169,16 @@ export const services = [
     iconName: 'Link2',
     accentColor: '#818cf8',
     tags: ['REST API', 'Webhooks', 'TrackOlap', 'JSON Sync']
+  },
+  {
+    id: 'recruitment',
+    title: 'Recruitment & HR Talent Pipeline (RMS)',
+    cost: '₹8,999',
+    billingType: 'One-Time Setup',
+    costNote: 'One-Time Implementation • Full ATS & Onboarding Flow',
+    desc: 'Applicant Tracking System (ATS) with candidate resume intake forms, interview stage scorecards, automated WhatsApp interview reminders, 1-click Offer Letter PDF generation, and Day-1 onboarding checklist.',
+    iconName: 'Users',
+    accentColor: '#38bdf8',
+    tags: ['HR & Hiring', 'ATS Pipeline', 'Offer Letters', 'Candidate MIS']
   }
 ];

@@ -148,6 +148,22 @@ export default function FMSWorkflowsPage() {
         '4. Digital service report & customer signature capture',
         '5. Automated NPS (Net Promoter Score) survey & feedback loop'
       ]
+    },
+    {
+      flowName: 'Flow 5: Recruitment & HR Talent Pipeline (RMS)',
+      icon: <Users size={22} color="#f5d77f" />,
+      badge: 'HR & Hiring',
+      summary: 'From Job Requisition to Day-1 Onboarding Handover',
+      steps: [
+        '1. S00: Job Requisition & Job Spec HOD Approval',
+        '2. S01: Mobile Candidate Intake Form & Auto Resume Indexing',
+        '3. S02: Initial HR Telephonic Screening & Candidate Shortlisting',
+        '4. S03: Technical Interview Scheduling & Automated WhatsApp Alerts',
+        '5. S04: HOD Scorecard Evaluation & Compensation Approval',
+        '6. S05: 1-Click Offer Letter PDF Generation & WhatsApp Dispatch',
+        '7. S06: Candidate Acceptance & Joining Document Collection Checklist',
+        '8. S07: Day-1 Asset Handover, Biometric Registration & Employee Master Sync'
+      ]
     }
   ];
 

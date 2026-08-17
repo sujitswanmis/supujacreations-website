@@ -32,36 +32,85 @@ export default function AboutPage() {
     }
   ];
 
+  const methodologySteps = [
+    {
+      num: '01',
+      phase: 'Discovery',
+      title: 'Gemba Walk & Ground Reality Audit',
+      desc: 'We observe the actual ground-level behavior of operators, clerks, and field staff to pinpoint real operational friction.'
+    },
+    {
+      num: '02',
+      phase: 'Mapping',
+      title: 'Granular Step Deconstruction',
+      desc: 'We break down the entire manual workflow into sequential, numbered milestones (S00, S01, S02... S-Final).'
+    },
+    {
+      num: '03',
+      phase: 'Ownership',
+      title: 'Single-Owner Accountability Lock',
+      desc: 'Every single workflow step is assigned to one designated employee. When completed, timestamps are locked with zero ambiguity.'
+    },
+    {
+      num: '04',
+      phase: 'SLA & TAT',
+      title: 'Target Turnaround Time (TAT) Rules',
+      desc: 'Formulas calculate the planned start and completion deadline for every task the moment a process initiates.'
+    },
+    {
+      num: '05',
+      phase: 'Database',
+      title: 'Master Data Centralization',
+      desc: 'We build single-source-of-truth master registers for items, BOM components, vendors, dealers, and staff.'
+    },
+    {
+      num: '06',
+      phase: 'Integrity',
+      title: 'Point-of-Entry Data Validation',
+      desc: 'We block bad or duplicate data at the input stage (mobile regex, duplicate PO block, positive quantities) instead of cleaning it later.'
+    },
+    {
+      num: '07',
+      phase: 'Automation',
+      title: 'Apps Script, APIs & Cloud Triggers',
+      desc: 'We engineer automated background data sync, dynamic PDF generation, instant email alerts, and WhatsApp messaging.'
+    },
+    {
+      num: '08',
+      phase: 'Resilience',
+      title: 'Edge-Case & Failure Testing',
+      desc: 'We stress-test batch timeout limits, API network dropouts, retry queues, and missing data scenarios for rock-solid stability.'
+    },
+    {
+      num: '09',
+      phase: 'Enablement',
+      title: 'Hands-on Staff Training & SOPs',
+      desc: 'We conduct team training with simple, non-disruptive mobile web forms and step-by-step Standard Operating Procedures.'
+    },
+    {
+      num: '10',
+      phase: 'Visibility',
+      title: 'Live Executive Control & Escalations',
+      desc: 'We deploy real-time Looker Studio KPI dashboards and automated WhatsApp delay alerts directly to management.'
+    }
+  ];
+
   return (
     <div style={{ position: 'relative', padding: '4.5rem 1.5rem 6.5rem 1.5rem', maxWidth: '1240px', margin: '0 auto' }}>
       
-      {/* AMBIENT GOLD GLOWS */}
-      <div className="ambient-glow" style={{ top: '5%', left: '10%', width: '420px', height: '420px', background: 'rgba(212, 175, 55, 0.12)' }} />
-      <div className="ambient-glow" style={{ top: '40%', right: '8%', width: '450px', height: '450px', background: 'rgba(245, 215, 127, 0.08)' }} />
+      {/* AMBIENT GLOWS */}
+      <div className="ambient-glow" style={{ top: '6%', left: '8%', width: '450px', height: '450px', background: 'rgba(212, 175, 55, 0.12)' }} />
+      <div className="ambient-glow" style={{ top: '40%', right: '5%', width: '420px', height: '420px', background: 'rgba(245, 215, 127, 0.08)' }} />
 
-      {/* HEADER SECTION */}
+      {/* HEADER */}
       <div style={{ maxWidth: '850px', marginBottom: '4rem' }}>
         <div className="page-badge">
           <Sparkles size={14} color="#f5d77f" />
           <span>About SuPuja Creations</span>
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'nowrap', gap: '1.25rem', marginBottom: '0.75rem' }}>
-          <img 
-            src="/supuja-logo.png" 
-            alt="SuPuja Creations Logo" 
-            style={{
-              height: '56px',
-              width: 'auto',
-              objectFit: 'contain',
-              flexShrink: 0,
-              filter: 'drop-shadow(0 4px 16px rgba(212, 175, 55, 0.45))'
-            }} 
-          />
-          <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 3.8rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.1, margin: 0, whiteSpace: 'nowrap', display: 'inline-flex', alignItems: 'center', gap: '0.55rem' }}>
-            <span>SuPuja</span>
-            <span className="gold-gradient-text">Creations</span>
-          </h1>
-        </div>
+        <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1rem 0' }}>
+          10+ Years of Turning Messy Operations into <span className="gold-gradient-text">Automated Flow</span>
+        </h1>
         <div style={{ fontSize: '1.4rem', fontWeight: 700, color: '#f5d77f', marginBottom: '1.5rem' }}>
           Senior MIS & Business Automation Agency
         </div>
@@ -180,6 +229,64 @@ export default function AboutPage() {
               </div>
               <p style={{ color: '#a1a1aa', fontSize: '0.92rem', lineHeight: 1.65, margin: 0 }}>
                 {m.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* 10-STEP PROJECT EXECUTION METHODOLOGY */}
+      <div className="glass-card" style={{ padding: '3.5rem 2rem', marginBottom: '5.5rem', border: '1px solid rgba(212, 175, 55, 0.35)' }}>
+        <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3rem auto' }}>
+          <div className="page-badge">
+            <Clock size={14} color="#f5d77f" />
+            <span>Consulting & Implementation Blueprint</span>
+          </div>
+          <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
+            Our 10-Step <span className="gold-gradient-text">Gemba-to-Dashboard</span> Methodology
+          </h2>
+          <p style={{ color: '#a1a1aa', fontSize: '0.96rem', lineHeight: 1.6 }}>
+            How we systematically transform chaotic, uncoordinated operations into disciplined, self-running digital systems:
+          </p>
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
+          gap: '1.25rem'
+        }}>
+          {methodologySteps.map((step, sIdx) => (
+            <div 
+              key={sIdx}
+              style={{
+                background: 'rgba(20, 24, 34, 0.65)',
+                border: '1px solid rgba(212, 175, 55, 0.18)',
+                borderRadius: '12px',
+                padding: '1.4rem 1.25rem',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative'
+              }}
+            >
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.65rem' }}>
+                <span style={{
+                  fontSize: '0.74rem',
+                  fontWeight: 900,
+                  background: 'rgba(212, 175, 55, 0.15)',
+                  color: '#f5d77f',
+                  padding: '0.15rem 0.5rem',
+                  borderRadius: '4px',
+                  border: '1px solid rgba(212, 175, 55, 0.3)'
+                }}>
+                  STEP {step.num}
+                </span>
+                <span style={{ fontSize: '0.72rem', color: '#71717a', fontWeight: 600 }}>{step.phase}</span>
+              </div>
+              <h4 style={{ color: '#ffffff', fontSize: '1.05rem', fontWeight: 700, margin: '0 0 0.4rem 0' }}>
+                {step.title}
+              </h4>
+              <p style={{ color: '#a1a1aa', fontSize: '0.85rem', lineHeight: 1.55, margin: 0 }}>
+                {step.desc}
               </p>
             </div>
           ))}

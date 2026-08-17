@@ -9,37 +9,35 @@ import {
 } from 'lucide-react';
 
 export default function FMSWorkflowsPage() {
-  const [activeTab, setActiveTab] = useState('all');
-
   // Real-life problem flows where businesses suffer massive hidden losses
   const problemFlows = [
     {
-      title: 'Problem Flow 1: Sales to Production Handover Chaos',
+      title: 'Problem Scenario 1: Sales to Production Handover Disconnect',
       dept: 'Sales ➡️ Factory Floor',
-      realExample: 'Client ne ₹5 Lakh ka custom machinery order confirm kar diya aur token payment de di. Lekin 6 din tak factory ko pata hi nahi chala ki kaun si specification ka model banana hai. Production team purani sheet dekh rahi thi aur Sales team WhatsApp par alag hi commit kar rahi thi.',
-      hiddenLoss: 'Delivery 12 din delay ho gayi, client ne ₹50,000 penalty deduct kar li aur repeat orders cancel kar diye.',
-      solution: 'SuPuja FMS mein jaise hi Sales Order submit hota hai, Step S01 par auto-trigger lagta hai. Store, Production aur Accounts ko instant verified BOM aur Planned TAT mil jata hai.'
+      realExample: 'A client confirms a ₹5 Lakh custom machinery order and pays the advance deposit. However, for 6 whole days, the production plant remains unaware of the exact configuration to build because Sales communicated only in informal WhatsApp chats without updating the centralized ERP or master sheet.',
+      hiddenLoss: 'Order delivery delayed by 12 days, resulting in ₹50,000 late penalties and the loss of repeat client contracts.',
+      solution: 'SuPuja FMS automatically locks the verified BOM and generates a digital Work Order with defined Planned TAT the instant an order is approved by Sales and Finance.'
     },
     {
-      title: 'Problem Flow 2: Store & Material Requisition Hold-up',
+      title: 'Problem Scenario 2: Store Requisition & Material Availability Bottlenecks',
       dept: 'Store ➡️ Machine Shop',
-      realExample: 'Laser cutting machine aur 4 karigar subah 9 baje se khade hain, lekin unhe 12mm raw steel sheet nahi mili. Store keeper bolta hai ki "Manager ka sign nahi hua tha", jabki manager audit meeting mein busy tha.',
-      hiddenLoss: 'Daily ₹15,000 ka labor & idle machine loss, aur pure din ka schedule disturb ho gaya.',
-      solution: 'Planned vs Actual timer chalu hota hai. Agar 45 minutes mein Material Issue Slip (MIS) approve nahi hui, to system automatic bypass ya emergency green alert deta hai.'
+      realExample: 'The CNC fiber laser cutter and 4 operators remain idle since 9:00 AM because raw steel plates have not been issued by the warehouse. The storekeeper claims the physical requisition slip lacked the Plant Head’s signature, who was caught in an offsite meeting.',
+      hiddenLoss: 'Daily losses of over ₹15,000 in idle labor and machine downtime, causing cascading schedule delays across all workstations.',
+      solution: 'Automated Planned vs. Actual countdown timers trigger instant digital approvals on mobile, with auto-escalation to management if requisitions remain pending beyond 30 minutes.'
     },
     {
-      title: 'Problem Flow 3: Vendor Job-Work & Hardening Black Hole',
+      title: 'Problem Scenario 3: Vendor Job-Work & External Processing Black Hole',
       dept: 'Vendor Procurement ➡️ Inward QC',
-      realExample: 'Rotavator ke 50 gear shafts bahar vendor ke paas induction hardening ke liye bheje gaye. Vendor ne bola tha 2 din mein wapas de dega. Lekin 11 din tak kisi ne follow-up nahi kiya kyuki diary mein entry dab gayi thi.',
-      hiddenLoss: 'Pure 50 units ka final assembly hold par chala gaya aur plant manager ko tab pata chala jab client gaadi lekar factory gate par khada ho gaya.',
-      solution: 'FMS har vendor outward challan par Planned Return TAT assign karta hai. 48 ghante pure hote hi Vendor aur Purchase Manager ko automatic WhatsApp reminder alert chala jata hai.'
+      realExample: '50 heavy-duty gear shafts were dispatched to a third-party vendor for induction hardening with an agreed 2-day return. However, 11 days passed without any follow-up because the outward entry was buried in a paper register.',
+      hiddenLoss: 'Final assembly line ground to a halt, and management only discovered the shortage when the client arrived with freight trucks for loading.',
+      solution: 'The FMS assigns strict Planned Return SLAs to every outward challan, dispatching automatic WhatsApp reminders to vendors and procurement managers before breaches occur.'
     },
     {
-      title: 'Problem Flow 4: The Department Blame Game (Kisi Ki Accountability Nahi)',
-      dept: 'All Departments',
-      realExample: 'Jab owner puchte hain ki "Order time par dispatch kyu nahi hua?", to Sales bolta hai Production ne late banaya, Production bolta hai Store ne maal late diya, Store bolta hai Accounts ne PO nahi diya, aur Accounts bolta hai Sales ne advance proof nahi diya.',
-      hiddenLoss: 'Company Owner ka daily 3 ghante sirf ladai suljhane aur investigation mein barbad ho jaate hain.',
-      solution: 'Owner ke live executive dashboard par ek click mein dikh jata hai ki exactly kis department aur kis employee ke paas file kitne ghante ruki thi.'
+      title: 'Problem Scenario 4: Inter-Departmental Blame Game & Zero Accountability',
+      dept: 'All Departments (Sales, Store, Production, Accounts)',
+      realExample: 'When the Managing Director demands an explanation for delayed shipments, Sales blames Production, Production blames Store for late raw material, Store blames Accounts for pending PO approval, and Accounts blames Sales for missing payment receipts.',
+      hiddenLoss: 'Owners spend 3+ hours daily resolving internal disputes instead of focusing on business growth, market expansion, and profitability.',
+      solution: 'The Owner’s Live Executive Dashboard tracks the exact timestamp, responsible individual, and delay variance at every workstation with zero ambiguity.'
     }
   ];
 
@@ -47,27 +45,27 @@ export default function FMSWorkflowsPage() {
   const liveDashboardData = [
     {
       soNumber: 'SO-2026-089',
-      item: 'Rotavator 7-Feet Heavy Duty (Batch of 20 Units)',
+      item: 'Heavy Duty Rotary Tiller (Batch of 20 Units)',
       currentStage: 'S40: Induction Hardening (Vendor Job-Work)',
-      responsiblePerson: 'Manoj Sharma (Purchase / Vendor Head)',
+      responsiblePerson: 'Manoj Sharma (Purchase & Vendor Lead)',
       plannedStart: '14 Aug, 10:00 AM',
       plannedFinish: '15 Aug, 06:00 PM',
       actualStart: '14 Aug, 11:30 AM',
       actualStatus: 'Delayed (+36.5 Hrs)',
       statusType: 'danger',
-      escalation: '🚨 WhatsApp Escalation Triggered to Director'
+      escalation: '🚨 WhatsApp Escalation Dispatched to Director'
     },
     {
       soNumber: 'SO-2026-092',
-      item: 'Seed Drill 9-Tyne Automatic Hopper',
+      item: 'Automatic 9-Tyne Seed Drill Unit',
       currentStage: 'S15: CNC Press Brake Multi-Angle Bending',
-      responsiblePerson: 'Rajesh Verma (Shop Floor CNC Operator)',
+      responsiblePerson: 'Rajesh Verma (CNC Machine Incharge)',
       plannedStart: '16 Aug, 09:00 AM',
       plannedFinish: '16 Aug, 02:00 PM',
       actualStart: '16 Aug, 09:15 AM',
       actualStatus: 'On-Track (95% Done)',
       statusType: 'success',
-      escalation: '🟢 SLA Healthy • Auto-Moving to S18'
+      escalation: '🟢 SLA Healthy • Auto-Handoff to S18'
     },
     {
       soNumber: 'SO-2026-094',
@@ -79,96 +77,96 @@ export default function FMSWorkflowsPage() {
       actualStart: '16 Aug, 11:45 AM',
       actualStatus: 'Approaching SLA (45 Mins Left)',
       statusType: 'warning',
-      escalation: '🟡 Pre-Alert Dispatched to Supervisor'
+      escalation: '🟡 Pre-Alert Sent to Plant Head'
     },
     {
       soNumber: 'SO-2026-097',
-      item: 'Laser Cut Flange Brackets (500 Pcs OEM Order)',
+      item: 'Precision Laser Cut Flange Brackets (500 Pcs OEM)',
       currentStage: 'S84: Invoicing, LR Entry & Transporter Loading',
       responsiblePerson: 'Amit Patil (Logistics & Dispatch)',
       plannedStart: '16 Aug, 03:00 PM',
       plannedFinish: '16 Aug, 05:30 PM',
       actualStart: '16 Aug, 03:00 PM',
-      actualStatus: 'Completed 15 Mins Ahead',
+      actualStatus: 'Completed 15 Mins Early',
       statusType: 'success',
-      escalation: '🟢 Transporter Bilty Auto-Shared with Client'
+      escalation: '🟢 Transporter LR Auto-Shared with Client'
     }
   ];
 
   const fmsStages = [
     {
-      range: 'S01 - S10',
-      title: 'Requisition, Verified BOM & Store Allocation',
-      tat: 'Standard TAT: 4 - 8 Hours',
-      owner: 'Sales Coordinator & Store Manager',
-      desc: 'Bill of Materials (BOM) explosion, checking raw material stock availability, automated Material Issue Slip (MIS), and zero-delay work order release.',
+      range: 'Stage Group 1: Requisition & Planning',
+      title: 'Sales Order Validation, BOM Lock & Store Requisition',
+      tat: 'Standard Target TAT: 4 - 8 Hours',
+      owner: 'Sales Coordinator & Warehouse Manager',
+      desc: 'Automatic Bill of Materials (BOM) explosion, raw steel and component stock reservation, digital store issue slips, and immediate work order dispatch.',
       steps: [
-        'S01: Sales Order Validation & Exact Spec Lock',
-        'S02: Automated BOM Generation & Stock Reservation',
-        'S03: Digital Store Issue Slip with Barcode Batch',
-        'S05: Raw Steel Plates Allocation to CNC/Laser Shop',
-        'S08: Job Card Generation with QR Tracking',
-        'S10: Inward Raw Material Thickness & Grade QC'
+        'Validation of Sales Order specifications & customer drawing sign-off',
+        'Automated BOM generation & raw material reservation in ERP / Master Sheet',
+        'Digital Store Issue Slip (MIS) generation with barcode tracking',
+        'Raw material plate allocation to CNC Laser cutting bays',
+        'Job Card generation with unique QR code for workstation tracking',
+        'Raw material thickness, alloy grade, and inward QC verification'
       ]
     },
     {
-      range: 'S11 - S35',
-      title: 'In-House Machining, CNC, Laser & Welding Workstations',
-      tat: 'Standard TAT: 24 - 48 Hours',
-      owner: 'Production Head & Shop Floor Incharge',
-      desc: 'High precision laser cutting, CNC press brake bending, rotor shaft turning on lathe, robotic/manual side frame welding, and in-process dimensional QC.',
+      range: 'Stage Group 2: In-House Fabrication',
+      title: 'Machining, CNC Bending, Lathe Turning & Welding Bays',
+      tat: 'Standard Target TAT: 24 - 48 Hours',
+      owner: 'Production Manager & Shop-Floor Supervisors',
+      desc: 'Fiber laser plate profiling, multi-angle CNC press brake bending, rotor shaft turning, robotic/manual chassis welding, and in-process dimensional audits.',
       steps: [
-        'S12: Fiber Laser Cutting of Side End Plates',
-        'S15: CNC Press Brake Multi-Angle Bending',
-        'S18: Rotor Shaft Turning & Keyway Slot Milling',
-        'S22: Flange Fitment & Precision Fixture Clamping',
-        'S28: Main Chassis Frame Robotic / MIG Welding',
-        'S34: In-Process Weld Penetration & Alignment Check'
+        'Fiber laser cutting of side structural plates & brackets',
+        'CNC press brake precision bending with angle gauge validation',
+        'Rotor shaft lathe turning, keyway milling, and spline cutting',
+        'Flange fitment, hydraulic clamping, and fixture alignment',
+        'Robotic MIG welding of heavy-duty main chassis frames',
+        'In-process weld penetration inspection & dimensional tolerance sign-off'
       ]
     },
     {
-      range: 'S36 - S60',
-      title: 'Vendor Job-Work, Heat Treatment & External Machining',
-      tat: 'Standard TAT: 48 - 72 Hours (Strict SLA)',
-      owner: 'Purchase Executive & Vendor QC Auditor',
-      desc: 'Outward Delivery Challan generation, sending crown pinions and gears for induction hardening/gas carburizing, vendor turnaround tracking, and hardness inspection.',
+      range: 'Stage Group 3: External Processing',
+      title: 'Vendor Job-Work, Heat Treatment & Precision Grinding',
+      tat: 'Standard Target TAT: 48 - 72 Hours (Strict SLA)',
+      owner: 'Procurement Executive & Vendor Quality Auditor',
+      desc: 'Automated outward delivery challans, sending crown pinions and drive gears for induction hardening/carburizing, vendor SLA tracking, and hardness testing.',
       steps: [
-        'S37: Vendor Job-Work Outward Delivery Challan',
-        'S40: Induction Hardening / Gas Carburizing (Crown Pinion)',
-        'S44: External Gear Grinding & Spline Hobbing',
-        'S48: Vendor Turnaround Time (TAT) SLA Countdown Timer',
-        'S53: Inward Rockwell Hardness (HRC) & Crack Testing',
-        'S59: Job-Work Bill Verification & Cost Ledger Posting'
+        'Outward delivery challan generation with vendor SLA lock',
+        'Induction hardening & gas carburizing of critical drive gears',
+        'External cylindrical grinding & spline hobbing operations',
+        'Live Vendor Turnaround Time (TAT) countdown monitoring',
+        'Inward Rockwell Hardness (HRC) testing & crack detection audit',
+        'Vendor job-work bill reconciliation & ledger posting'
       ]
     },
     {
-      range: 'S61 - S75',
-      title: 'Sub-Assembly, 7-Tank Chemical Pretreatment & Paint Shop',
-      tat: 'Standard TAT: 12 - 24 Hours',
-      owner: 'Assembly Incharge & Paint Shop Supervisor',
-      desc: 'Bevel gearbox assembly with oil seal pressure testing, rotavator boron blade fitment with torque wrench, 7-tank anti-rust pretreatment, and electrostatic powder coating.',
+      range: 'Stage Group 4: Treatment & Assembly',
+      title: 'Chemical Pretreatment, Powder Coating & Sub-Assembly',
+      tat: 'Standard Target TAT: 12 - 24 Hours',
+      owner: 'Assembly Line Incharge & Paint Shop Supervisor',
+      desc: 'Bevel gearbox assembly with pressurized oil seal tests, boron steel blade fitment with calibrated torque wrenches, 7-tank anti-rust pretreatment, and oven baking.',
       steps: [
-        'S62: Heavy-Duty Bevel Gearbox Sub-Assembly',
-        'S65: Oil Seal Leakage Pressure Testing (Zero Leakage)',
-        'S68: 7-Tank Chemical Pretreatment (Degreasing/Phosphating)',
-        'S70: Automated Electrostatic Powder Coating & Oven Baking',
-        'S72: Boron Steel Blade Fitment with Calibrated Torque Wrench',
-        'S75: Safety Guard & PTO Drive Shaft Integration'
+        'Precision bevel gearbox sub-assembly & bearing seating',
+        'Pressurized oil seal leakage testing (Zero Leakage Standard)',
+        '7-Tank chemical surface pretreatment (Degreasing, Derusting, Phosphating)',
+        'Automated electrostatic powder coating & continuous oven baking',
+        'Boron steel blade fitment with calibrated torque wrenches',
+        'Safety guard fitment & PTO drive shaft alignment'
       ]
     },
     {
-      range: 'S76 - S85',
-      title: 'Dynamic Testing Rig, Laser Tagging, Invoicing & Dispatch',
-      tat: 'Standard TAT: 4 - 8 Hours',
-      owner: 'Final QC Inspector & Logistics Dispatch Head',
-      desc: '15-minute dynamic run on test bench, vibration audit, laser serial plate riveting, warranty booklet attachment, tax invoicing, and transporter LR entry.',
+      range: 'Stage Group 5: Quality Audit & Dispatch',
+      title: 'Dynamic Load Testing, Serial Tagging, Invoicing & Freight',
+      tat: 'Standard Target TAT: 4 - 8 Hours',
+      owner: 'Final QC Lead & Logistics Dispatch Executive',
+      desc: '15-minute dynamic run on powered test rigs, laser-etched serial plate riveting, digital tax invoicing, e-way bill generation, and transporter LR entry.',
       steps: [
-        'S77: 15-Minute Dynamic Load Test Run on Test Bench',
-        'S79: Final QC Pass Hologram & Serial Riveting',
-        'S81: Export-Grade Protective Packaging & User Manual',
-        'S83: Instant Tax Invoice & E-Way Bill Generation',
-        'S84: Transporter Assignment, Vehicle Loading & LR Entry',
-        'S85: Automated WhatsApp Delivery Notification & O2D Closure'
+        '15-Minute dynamic load & vibration test on test rig',
+        'Final QC Pass hologram application & laser serial plate riveting',
+        'Protective export packaging & warranty documentation bundling',
+        'Instant Tax Invoice & E-Way Bill generation',
+        'Transporter allocation, freight loading, and LR/Bilty entry',
+        'Automated WhatsApp shipment tracking notification sent to client'
       ]
     }
   ];
@@ -184,28 +182,28 @@ export default function FMSWorkflowsPage() {
       <div style={{ maxWidth: '920px', marginBottom: '4.5rem' }}>
         <div className="page-badge">
           <Sparkles size={14} color="#f5d77f" />
-          <span>Practical Workflow Digitization</span>
+          <span>Workflow Digitization & Flow Control</span>
         </div>
         <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1.25rem 0' }}>
-          85-Step Manufacturing Flow (<span className="gold-gradient-text">FMS</span>) & Planned vs Actual Control
+          Multi-Stage Process & Manufacturing Flow (<span className="gold-gradient-text">FMS</span>)
         </h1>
         <p style={{ fontSize: '1.15rem', color: '#e4e4e7', lineHeight: 1.7, margin: 0 }}>
-          Factories don't fail due to lack of machinery—they fail due to hidden operational delays, missing accountability, and lack of real-time visibility. We engineer automated FMS workflows that track every single stage from <strong>Planned vs Actual</strong> with instant Director-level bottleneck dashboards.
+          Factories and enterprises do not fail due to lack of machinery—they fail due to hidden operational bottlenecks, missing accountability, and lack of real-time visibility. We engineer automated Flow Management Systems (FMS) that monitor every single workstation against <strong>Planned vs. Actual SLAs</strong> with live Executive Delay Dashboards for management.
         </p>
       </div>
 
-      {/* SECTION 1: REAL-LIFE BOTTLENECKS WHERE COMPANIES SUFFER MOST */}
+      {/* SECTION 1: REAL-LIFE BOTTLENECKS WHERE ENTERPRISES LOSE TIME & MONEY */}
       <div style={{ marginBottom: '5rem' }}>
         <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3rem auto' }}>
           <div className="page-badge">
             <AlertTriangle size={14} color="#f5d77f" />
-            <span>The Reality of Factory Operations</span>
+            <span>Root-Cause Operational Analysis</span>
           </div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            Kis Flow Mein Sabse Zyada Delays & Hidden Losses Hote Hain?
+            Where Do Most Production Delays & Hidden Costs Occur?
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.96rem', lineHeight: 1.6 }}>
-            Yeh 4 real-life factory problem scenarios hain jahan har mahine lakhon rupaye ka nuksan aur client ka trust khota hai:
+            Here are the 4 most common real-world operational breakdowns that cost manufacturing and trading businesses millions in delays and lost client trust:
           </p>
         </div>
 
@@ -236,7 +234,7 @@ export default function FMSWorkflowsPage() {
               <div style={{ background: 'rgba(255, 255, 255, 0.03)', padding: '1rem', borderRadius: '8px', marginBottom: '1rem', border: '1px solid rgba(255, 255, 255, 0.06)' }}>
                 <div style={{ fontSize: '0.78rem', color: '#f87171', fontWeight: 700, marginBottom: '0.35rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}>
                   <AlertCircle size={14} />
-                  Actual Ground Reality / Problem:
+                  Ground Reality & Operational Bottleneck:
                 </div>
                 <p style={{ color: '#d4d4d8', fontSize: '0.86rem', lineHeight: 1.55, margin: 0 }}>
                   &ldquo;{flow.realExample}&rdquo;
@@ -244,14 +242,14 @@ export default function FMSWorkflowsPage() {
               </div>
 
               <div style={{ background: 'rgba(239, 68, 68, 0.08)', padding: '0.85rem 1rem', borderRadius: '8px', marginBottom: '1.25rem', border: '1px solid rgba(239, 68, 68, 0.2)' }}>
-                <div style={{ fontSize: '0.75rem', color: '#fca5a5', fontWeight: 700, textTransform: 'uppercase' }}>Hidden Business Loss:</div>
+                <div style={{ fontSize: '0.75rem', color: '#fca5a5', fontWeight: 700, textTransform: 'uppercase' }}>Measurable Business Impact:</div>
                 <div style={{ fontSize: '0.84rem', color: '#fecaca', fontWeight: 500 }}>{flow.hiddenLoss}</div>
               </div>
 
               <div style={{ marginTop: 'auto', background: 'rgba(212, 175, 55, 0.1)', padding: '0.9rem 1rem', borderRadius: '8px', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
                 <div style={{ fontSize: '0.75rem', color: '#f5d77f', fontWeight: 700, textTransform: 'uppercase', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.25rem' }}>
                   <ShieldCheck size={14} color="#f5d77f" />
-                  SuPuja FMS Automated Solution:
+                  SuPuja FMS Automated Architecture:
                 </div>
                 <div style={{ fontSize: '0.84rem', color: '#fef3c7', lineHeight: 1.5 }}>
                   {flow.solution}
@@ -268,35 +266,35 @@ export default function FMSWorkflowsPage() {
         <div style={{ maxWidth: '850px', margin: '0 auto', textAlign: 'center', marginBottom: '2.5rem' }}>
           <div className="page-badge">
             <Clock size={14} color="#f5d77f" />
-            <span>The Mathematical Solution</span>
+            <span>The Mathematical Foundation</span>
           </div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            Kaise Kaam Karta Hai <span className="gold-gradient-text">Planned vs Actual FMS Architecture?</span>
+            How Does the <span className="gold-gradient-text">Planned vs. Actual FMS Engine</span> Work?
           </h2>
           <p style={{ color: '#e4e4e7', fontSize: '0.98rem', lineHeight: 1.7 }}>
-            Har manufacturing unit mein har step ka ek Target Turnaround Time (TAT) hota hai. Hum har stage par 4 critical data points lock karte hain:
+            Every successful production line requires fixed Turnaround Times (TAT). We capture and enforce 4 core mathematical parameters at every workstation:
           </p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.5rem', marginBottom: '2.5rem' }}>
           <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '1.5rem 1.25rem', borderRadius: '12px', textAlign: 'center' }}>
-            <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#f5d77f', marginBottom: '0.35rem' }}>1. Planned Date/Time</div>
-            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Order aate hi har workstation ka target start & completion time auto-calculate hota hai.</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f5d77f', marginBottom: '0.35rem' }}>1. Planned Target TAT</div>
+            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Target start and completion timestamps are computed automatically when the order is registered.</div>
           </div>
 
           <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '1.5rem 1.25rem', borderRadius: '12px', textAlign: 'center' }}>
-            <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#f5d77f', marginBottom: '0.35rem' }}>2. Actual Entry Timestamp</div>
-            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Operator ya Supervisor mobile/web form se jaise hi Done karta hai, exact time stamp lock ho jata hai.</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f5d77f', marginBottom: '0.35rem' }}>2. Actual Timestamp Locking</div>
+            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Operators submit completion via QR code or mobile web form, instantly locking the immutable server timestamp.</div>
           </div>
 
           <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '1.5rem 1.25rem', borderRadius: '12px', textAlign: 'center' }}>
-            <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#f5d77f', marginBottom: '0.35rem' }}>3. Variance (Delay Formula)</div>
-            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}><code>Variance = Actual Time - Planned TAT</code>. Formula delay ko minute-to-minute calculate karta hai.</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f5d77f', marginBottom: '0.35rem' }}>3. Real-Time Delay Variance</div>
+            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Formula calculates: <code>Variance = Actual Time - Planned TAT</code> down to the exact minute.</div>
           </div>
 
           <div style={{ background: 'rgba(212, 175, 55, 0.08)', border: '1px solid rgba(212, 175, 55, 0.25)', padding: '1.5rem 1.25rem', borderRadius: '12px', textAlign: 'center' }}>
-            <div style={{ fontSize: '1.8rem', fontWeight: 900, color: '#f5d77f', marginBottom: '0.35rem' }}>4. Responsible Owner</div>
-            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Har stage par 1 specific employee ka naam lock hota hai. Koi department doosre par ilzam nahi laga sakta.</div>
+            <div style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f5d77f', marginBottom: '0.35rem' }}>4. Single-Owner Accountability</div>
+            <div style={{ fontSize: '0.85rem', color: '#a1a1aa' }}>Every single stage is tied to one designated employee. Inter-departmental blame games are permanently eliminated.</div>
           </div>
         </div>
 
@@ -304,28 +302,28 @@ export default function FMSWorkflowsPage() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
             <Bell size={22} color="#f5d77f" />
             <div>
-              <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem' }}>Automated Multi-Level Escalation Alert</div>
-              <div style={{ color: '#a1a1aa', fontSize: '0.84rem' }}>Jaise hi koi stage Planned TAT se exceed hoti hai, system 30 mins ke andar Plant Head aur 2 Hrs ke andar Director ko alert bhej deta hai.</div>
+              <div style={{ color: '#ffffff', fontWeight: 700, fontSize: '0.95rem' }}>Automated Multi-Tier WhatsApp Escalation Matrix</div>
+              <div style={{ color: '#a1a1aa', fontSize: '0.84rem' }}>When a workstation exceeds its target SLA, automatic WhatsApp alerts notify the Supervisor within 30 minutes and the Director within 2 hours.</div>
             </div>
           </div>
           <Link href="/contact" className="btn-primary" style={{ padding: '0.55rem 1.25rem', fontSize: '0.86rem' }}>
-            Architect FMS for Your Factory <ArrowRight size={14} />
+            Request an FMS Architecture Audit <ArrowRight size={14} />
           </Link>
         </div>
       </div>
 
-      {/* SECTION 3: LIVE EXECUTIVE DASHBOARD SIMULATOR FOR COMPANY OWNER */}
+      {/* SECTION 3: LIVE EXECUTIVE DASHBOARD SIMULATOR FOR DIRECTORS & OWNERS */}
       <div style={{ marginBottom: '5.5rem' }}>
         <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem auto' }}>
           <div className="page-badge">
             <Eye size={14} color="#f5d77f" />
-            <span>Director's Single-Screen Visibility</span>
+            <span>Executive Single-Screen Visibility</span>
           </div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            Company Owner Ke Dashboard Par Kya Dikhta Hai?
+            What Does the Company Owner See on Their Screen?
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.96rem', lineHeight: 1.6 }}>
-            Owner ko factory floor par ghoomne ya phone par chikne ki zaroorat nahi padti. Live screen par saaf dikhta hai ki <strong>KAHA PAR</strong> kaun sa order ruka hai aur <strong>KAUN</strong> delay kar raha hai:
+            Company directors no longer need to walk the factory floor or make dozens of follow-up phone calls. The live control center shows exactly <strong>WHERE</strong> every order is stationed and <strong>WHO</strong> is responsible for any delay:
           </p>
         </div>
 
@@ -344,9 +342,9 @@ export default function FMSWorkflowsPage() {
               </span>
             </div>
             <div style={{ display: 'flex', gap: '1rem', fontSize: '0.82rem', color: '#a1a1aa' }}>
-              <span>Total Active Orders: <strong style={{ color: '#ffffff' }}>42</strong></span>
+              <span>Active Orders: <strong style={{ color: '#ffffff' }}>42</strong></span>
               <span>On-Time: <strong style={{ color: '#4ade80' }}>37 (88%)</strong></span>
-              <span>Bottlenecks / Delayed: <strong style={{ color: '#f87171' }}>5 (12%)</strong></span>
+              <span>Delayed / Escalated: <strong style={{ color: '#f87171' }}>5 (12%)</strong></span>
             </div>
           </div>
 
@@ -355,10 +353,10 @@ export default function FMSWorkflowsPage() {
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.84rem' }}>
               <thead>
                 <tr style={{ borderBottom: '1px solid rgba(212, 175, 55, 0.2)', color: '#f5d77f', textTransform: 'uppercase', fontSize: '0.74rem', letterSpacing: '0.04em' }}>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Order / Item</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Current FMS Stage</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Responsible Person</th>
-                  <th style={{ padding: '0.75rem 0.5rem' }}>Planned Target</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Order / Product</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Current Workstation Stage</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Responsible Owner</th>
+                  <th style={{ padding: '0.75rem 0.5rem' }}>Planned Schedule</th>
                   <th style={{ padding: '0.75rem 0.5rem' }}>Live Variance / Status</th>
                   <th style={{ padding: '0.75rem 0.5rem' }}>Automated Action</th>
                 </tr>
@@ -413,34 +411,34 @@ export default function FMSWorkflowsPage() {
           <div style={{ marginTop: '1.5rem', paddingTop: '1.25rem', borderTop: '1px solid rgba(212, 175, 55, 0.15)', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
               <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Store & Requisition</div>
-              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#4ade80' }}>0.4 Hrs Avg Delay (98% On-Time)</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>0.4 Hrs Avg Delay (98% On-Time)</div>
             </div>
             <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>In-House CNC / Laser</div>
-              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#4ade80' }}>1.1 Hrs Avg Delay (94% On-Time)</div>
+              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>In-House CNC & Laser</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>1.1 Hrs Avg Delay (94% On-Time)</div>
             </div>
             <div style={{ background: 'rgba(239, 68, 68, 0.08)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(239, 68, 68, 0.25)' }}>
               <div style={{ fontSize: '0.72rem', color: '#f87171', textTransform: 'uppercase', fontWeight: 700 }}>🚨 Vendor Job-Work (Bottleneck)</div>
-              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#fca5a5' }}>26.8 Hrs Avg Delay (Action Required)</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#fca5a5' }}>26.8 Hrs Avg Delay (Action Required)</div>
             </div>
             <div style={{ background: 'rgba(255, 255, 255, 0.02)', padding: '0.85rem 1rem', borderRadius: '8px', border: '1px solid rgba(255, 255, 255, 0.05)' }}>
-              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Assembly & Dispatch</div>
-              <div style={{ fontSize: '1.1rem', fontWeight: 800, color: '#4ade80' }}>0.8 Hrs Avg Delay (96% On-Time)</div>
+              <div style={{ fontSize: '0.72rem', color: '#a1a1aa', textTransform: 'uppercase' }}>Assembly & Logistics</div>
+              <div style={{ fontSize: '1.05rem', fontWeight: 800, color: '#4ade80' }}>0.8 Hrs Avg Delay (96% On-Time)</div>
             </div>
           </div>
 
         </div>
       </div>
 
-      {/* SECTION 4: THE FULL 85-STEP PIPELINE BREAKDOWN */}
+      {/* SECTION 4: THE MULTI-STAGE PROCESS FLOW BLUEPRINT */}
       <div style={{ marginBottom: '5.5rem' }}>
         <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3.5rem auto' }}>
-          <div className="page-badge">Complete Blueprint</div>
+          <div className="page-badge">Modular Process Blueprint</div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            The 85-Step Manufacturing FMS Architecture
+            Comprehensive Multi-Tier Flow Architecture
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '0.96rem' }}>
-            De-constructed into 5 interconnected operational tiers with defined TATs and department ownership:
+            Engineered into 5 interconnected operational tiers with defined Target SLAs and workstation ownership:
           </p>
         </div>
 
@@ -479,7 +477,7 @@ export default function FMSWorkflowsPage() {
               <div style={{ background: 'rgba(20, 24, 34, 0.6)', padding: '1.25rem', borderRadius: '10px', border: '1px solid rgba(212, 175, 55, 0.15)' }}>
                 <div style={{ fontSize: '0.82rem', color: '#f5d77f', textTransform: 'uppercase', fontWeight: 700, marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
                   <CheckSquare size={15} color="#f5d77f" />
-                  Key Workstation Checkpoints:
+                  Key Operational Workstation Checkpoints:
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '0.65rem' }}>
                   {stg.steps.map((stp, sIdx) => (
@@ -496,38 +494,38 @@ export default function FMSWorkflowsPage() {
         </div>
       </div>
 
-      {/* SECTION 5: MEASURABLE IMPACT OF PLANNED VS ACTUAL FMS */}
+      {/* SECTION 5: MEASURABLE BUSINESS IMPACT */}
       <div className="glass-card" style={{ padding: '3.5rem 2rem', background: 'linear-gradient(135deg, rgba(20, 24, 34, 0.95) 0%, rgba(14, 17, 24, 0.95) 100%)', marginBottom: '5rem', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
         <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem auto' }}>
-          <div className="page-badge">Proven Results</div>
+          <div className="page-badge">Proven Industry Outcomes</div>
           <h2 style={{ fontSize: '2.2rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-            FMS Implementation Se Factory Mein Kya Badlav Aata Hai?
+            Measurable Operational Transformation with SuPuja FMS
           </h2>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1.5rem', textAlign: 'center' }}>
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
             <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#4ade80' }}>62% ⬇</div>
-            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Order-to-Delivery Lead Time</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>24 din ka manufacturing cycle घटकर 9 din mein pura hota hai.</div>
+            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Lead Time Reduction</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Manufacturing cycles cut down from 24 days to under 9 days.</div>
           </div>
 
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
             <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#f5d77f' }}>100% 🎯</div>
             <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Zero Blame Game</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Har step ka timestamp aur responsible person lock hone se koi bahana nahi chalta.</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Complete accountability with immutable workstation timestamps.</div>
           </div>
 
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
             <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#38bdf8' }}>0% 🛑</div>
-            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Vendor Job-Work Delay Hold</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Automated countdown SLA aur WhatsApp reminders se vendors time par delivery dete hain.</div>
+            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Vendor Job-Work Stoppages</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Automated WhatsApp countdown alerts ensure vendors return material on schedule.</div>
           </div>
 
           <div style={{ padding: '1.5rem', background: 'rgba(212, 175, 55, 0.06)', borderRadius: '12px', border: '1px solid rgba(212, 175, 55, 0.2)' }}>
-            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#c084fc' }}>3 Hrs ⏰</div>
-            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Owner Daily Time Saved</div>
-            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Owner ko daily investigation karne ke badle 1 screen par poora plant live dikhta hai.</div>
+            <div style={{ fontSize: '2.4rem', fontWeight: 900, color: '#c084fc' }}>3+ Hours ⏰</div>
+            <div style={{ fontWeight: 700, color: '#ffffff', marginTop: '0.5rem', fontSize: '1rem' }}>Daily Director Time Reclaimed</div>
+            <div style={{ fontSize: '0.84rem', color: '#a1a1aa', marginTop: '0.25rem' }}>Plant status and bottleneck hotspots visible on a single unified screen.</div>
           </div>
         </div>
       </div>
@@ -535,14 +533,14 @@ export default function FMSWorkflowsPage() {
       {/* BOTTOM ACTION CTA */}
       <div className="glass-card" style={{ padding: '3.5rem 2rem', textAlign: 'center', background: 'linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(14, 17, 24, 0.95) 100%)', border: '1px solid #d4af37' }}>
         <h3 style={{ fontSize: '1.8rem', fontWeight: 800, color: '#ffffff', margin: '0 0 0.75rem 0' }}>
-          Kya Aapki Factory Mein Bhi Orders Delay Ho Rahe Hain?
+          Are Hidden Bottlenecks Delaying Orders in Your Plant?
         </h3>
         <p style={{ color: '#e4e4e7', fontSize: '1.05rem', maxWidth: '700px', margin: '0 auto 2rem auto', lineHeight: 1.65 }}>
-          Hum aapke factory floor ka complete Gemba walk audit karke aapke liye <strong>Planned vs Actual FMS Architecture</strong> design aur deploy karenge.
+          We conduct in-depth operational audits to map, architect, and deploy a custom <strong>Planned vs. Actual FMS Flow Control System</strong> tailored to your facility.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center' }}>
           <Link href="/contact?service=Business%20Workflow%20%26%20FMS%20Systems" className="btn-primary" style={{ padding: '0.75rem 1.75rem', fontSize: '1rem' }}>
-            Book Plant FMS Audit & Consultation <Send size={18} />
+            Book a Plant FMS Audit & Consultation <Send size={18} />
           </Link>
           <a 
             href="https://wa.me/919988119276?text=Hello%20SuPuja%20Creations,%20I%20want%20to%20implement%20Planned%20vs%20Actual%20FMS%20Workflow%20for%20my%20plant."

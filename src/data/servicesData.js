@@ -58,12 +58,12 @@ export const services = [
     id: 'production-management',
     title: 'Production Management System (FMS & Shop Floor)',
     cost: '₹19,999',
-    costNote: 'Starting from • 85-Step Manufacturing Flow Control',
+    costNote: 'Starting from • Multi-Stage Shop-Floor Flow Control',
     popularBadge: '🏭 Factory Flow',
     desc: 'Digital manufacturing control from raw material to finished goods. Bill of Materials (BOM) explosion, material issue slips, machine workstation WIP tracking (Laser, CNC, Bending, Welding, Paint, Assembly), daily production logs, and rejection root-cause analysis.',
     iconName: 'Factory',
     accentColor: '#fb7185',
-    tags: ['85-Step FMS', 'BOM Tracking', 'Workstation WIP', 'Job-Work', 'QC & Rejection']
+    tags: ['Manufacturing FMS', 'Planned vs Actual', 'Workstation WIP', 'Job-Work', 'QC & Rejection']
   },
   {
     id: 'vendor-management',

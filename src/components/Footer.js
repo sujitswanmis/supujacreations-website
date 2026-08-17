@@ -184,7 +184,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/fms" style={{ color: '#a1a1aa', textDecoration: 'none' }} className="footer-link">
-                  85-Step Manufacturing Flow (FMS)
+                  Process & Manufacturing Flow (FMS)
                 </Link>
               </li>
               <li>

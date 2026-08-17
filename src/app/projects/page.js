@@ -191,7 +191,7 @@ export default function ProjectsPage() {
           Have a Similar System You Want to Build?
         </h3>
         <p style={{ color: '#a1a1aa', fontSize: '1rem', maxWidth: '650px', margin: '0 auto 2rem auto' }}>
-          Whether it is biometric attendance sync, automated client & customer WhatsApp campaigns, or an 85-step manufacturing flow — let us engineer it for you.
+          Whether it is biometric attendance sync, automated client WhatsApp campaigns, or plant-wide manufacturing FMS flow control — let us engineer it for you.
         </p>
         <Link href="/contact" className="btn-primary">
           Discuss Your Project with SuPuja Creations <Send size={16} />

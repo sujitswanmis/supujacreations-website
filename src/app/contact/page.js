@@ -20,7 +20,7 @@ function ContactContent() {
     },
     {
       q: 'How long does a typical FMS or automation project take to implement?',
-      a: 'Most standard automations (such as attendance sync, web forms, or report automation) take 3 to 7 days. Large-scale 85-step manufacturing FMS systems typically take 2 to 4 weeks including staff training.'
+      a: 'Most standard automations (such as attendance sync, web forms, or report automation) take 3 to 7 days. Plant-wide multi-stage manufacturing FMS systems typically take 2 to 4 weeks including staff training.'
     },
     {
       q: 'Do you provide on-site consulting or remote deployment?',

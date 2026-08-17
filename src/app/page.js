@@ -122,7 +122,7 @@ export default function Home() {
             </Link>
             <Link href="/fms" className="btn-secondary">
               <Layers size={18} color="#f5d77f" />
-              85-Step FMS Workflows
+              Multi-Stage FMS Workflows
             </Link>
             <Link href="/contact" className="btn-secondary">
               <MessageSquare size={18} color="#f5d77f" />
@@ -144,8 +144,8 @@ export default function Home() {
             </div>
 
             <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
-              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>85-Step</div>
-              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Complex Manufacturing FMS Workflows Digitized</div>
+              <div style={{ fontSize: '2.6rem', fontWeight: 800, color: '#f5d77f', lineHeight: 1 }}>100%</div>
+              <div style={{ fontSize: '0.86rem', color: '#a1a1aa', marginTop: '0.5rem', fontWeight: 500 }}>Planned vs. Actual Real-Time Delay Visibility (FMS)</div>
             </div>
 
             <div className="glass-card" style={{ padding: '1.75rem 1.25rem', textAlign: 'center' }}>
@@ -365,10 +365,10 @@ export default function Home() {
         <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3.5rem auto' }}>
           <div className="page-badge">Engineering Flow Control</div>
           <h2 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#ffffff', margin: '0 0 1rem 0' }}>
-            85-Step Manufacturing Process Digitization (FMS)
+            Multi-Stage Business & Manufacturing Flow Control (FMS)
           </h2>
           <p style={{ color: '#a1a1aa', fontSize: '1rem', lineHeight: 1.6 }}>
-            Eliminating shop-floor confusion with granular stage tracking, SLA turnaround times, and automated delay escalation matrices.
+            Eliminating shop-floor confusion with granular Planned vs. Actual tracking, defined Target TATs, and automated delay escalation matrices.
           </p>
         </div>
 
@@ -379,31 +379,31 @@ export default function Home() {
           marginBottom: '2.5rem'
         }}>
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S01-S10</span>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE GROUP 1</span>
             <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Requisition & Material Issue</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
-              BOM verification, raw steel allocation, store issue slips, and stock reservation.
+              BOM verification, raw material allocation, digital store issue slips, and stock reservation.
             </p>
           </div>
 
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S11-S35</span>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE GROUP 2</span>
             <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Machining & Fabrication</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
-              Laser cutting, CNC bending, side plate welding, rotor shaft machining, and flange fitment.
+              Laser cutting, CNC bending, rotor lathe turning, precision welding, and fixture alignment.
             </p>
           </div>
 
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S36-S60</span>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE GROUP 3</span>
             <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Vendor Job-Work & Heat Treat</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
-              Outward challan, external heat treatment, gear hardening, vendor TAT, and inward QC.
+              Outward challan, external heat treatment, gear hardening, vendor SLA timer, and inward QC.
             </p>
           </div>
 
           <div className="fms-step">
-            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE S61-S85</span>
+            <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#f5d77f', background: 'rgba(212, 175, 55, 0.15)', border: '1px solid rgba(212, 175, 55, 0.3)', padding: '0.2rem 0.5rem', borderRadius: '4px' }}>STAGE GROUP 4</span>
             <h4 style={{ margin: '0.75rem 0 0.4rem 0', color: '#ffffff', fontSize: '1.05rem' }}>Assembly, Paint & Dispatch</h4>
             <p style={{ margin: 0, fontSize: '0.85rem', color: '#a1a1aa', lineHeight: 1.5 }}>
               Gearbox fitment, blade mounting, powder coating, final QC testing, and serial dispatch.
@@ -413,7 +413,7 @@ export default function Home() {
 
         <div style={{ textAlign: 'center' }}>
           <Link href="/fms" className="btn-primary">
-            Explore Complete 85-Step FMS Architecture
+            Explore Complete FMS Architecture & Live Dashboard
             <ArrowRight size={16} />
           </Link>
         </div>

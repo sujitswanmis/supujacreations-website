@@ -23,21 +23,21 @@ export const projects = [
   {
     id: 'proj-2',
     category: 'fms',
-    title: 'Automated 85-Step Manufacturing & Purchase FMS',
-    subtitle: 'Multi-Stage Production Workflow & Bottleneck Escalation System',
+    title: 'Automated Multi-Stage Manufacturing & Purchase FMS',
+    subtitle: 'Shop-Floor Production Flow Control & Planned vs. Actual Bottleneck System',
     challenge: 'A heavy machinery manufacturing plant faced severe delivery delays, untracked component shortages, and zero visibility into job-work stages.',
-    solution: 'Mapped and digitized an 85-step multi-stage manufacturing & procurement FMS (S00 to S85) covering raw material requisition, BOM breakdown, machine shop stages, vendor job-work, assembly, testing, paint shop, and final dispatch with automated Turnaround Time (TAT) and escalation alerts.',
+    solution: 'Mapped and digitized a multi-stage manufacturing & procurement FMS covering raw material requisition, BOM breakdown, machine shop bays, vendor job-work, assembly, testing, paint shop, and final dispatch with automated Turnaround Time (TAT) and escalation alerts.',
     stack: ['Google Sheets Advanced', 'Google Apps Script', 'SOP Documentation', 'Automated Email Triggers', 'Status Dashboard'],
-    impact: 'Reduced production turnaround time by 32% and provided management with instant visibility into pending bottleneck stages.',
+    impact: 'Reduced production turnaround time by 62% and provided management with instant visibility into pending bottleneck stages.',
     metrics: [
-      { label: 'TAT Reduction', value: '32%' },
-      { label: 'Stages Digitized', value: '85 Steps' },
+      { label: 'TAT Reduction', value: '62%' },
+      { label: 'Stages Digitized', value: 'Complete Flow' },
       { label: 'Bottleneck Detection', value: 'Real-time' }
     ],
     highlights: [
-      'Granular S00 to S85 sequence mapping every machine and vendor stage',
+      'Granular sequence mapping every machine and vendor stage',
       'Dynamic planned vs actual TAT calculation in minutes',
-      'Automated email escalations sent when deadlines breach SLA',
+      'Automated email & WhatsApp escalations sent when deadlines breach SLA',
       'BOM-level material requirement and inventory status sync'
     ]
   },

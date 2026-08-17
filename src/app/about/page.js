@@ -16,19 +16,19 @@ export default function AboutPage() {
       period: '2014 - Present',
       role: 'Enterprise Business Automation & MIS Solutions',
       org: 'SuPuja Creations',
-      desc: 'Architecting custom business operating systems, 85-step manufacturing FMS, REST API pipelines, and interactive executive reporting tools across manufacturing, trading, education, and service industries.'
+      desc: 'Architecting custom business operating systems, multi-stage manufacturing and business FMS, REST API pipelines, and interactive executive reporting tools across manufacturing, trading, and service industries.'
     },
     {
       period: 'Key Achievement',
-      role: 'Large-Scale Govt & Skill Portals Data Operations',
-      org: 'Skill Development MIS Operations',
-      desc: 'Managed end-to-end data lifecycle for 6,500+ candidates across Skill India, HPKVN, Kaushal Bharat, Pragati, and Panjee portals with zero reconciliation errors.'
+      role: 'Enterprise Management Systems & CRM Architecture',
+      org: 'End-to-End Operational Systems',
+      desc: 'Architected and deployed full-suite CRM, Lead Management, Sales Orders, Vendor Procurement, and Production FMS across dozens of enterprises.'
     },
     {
       period: 'Core Specialization',
       role: 'Manufacturing Process Workflow Architecture',
-      org: 'Heavy Machinery & Agri Implements Sector',
-      desc: 'Digitized complex 85-step multi-department production workflows (Rotavator & Machinery lines) reducing turnaround time by 32%.'
+      org: 'Machinery, Fabrication & Industrial Sector',
+      desc: 'Digitized complex multi-stage production workflows with Planned vs. Actual SLA tracking, reducing manufacturing turnaround time by 62%.'
     }
   ];
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
           </p>
 
           <p style={{ color: '#a1a1aa', fontSize: '0.98rem', lineHeight: 1.75, marginBottom: '1.25rem' }}>
-            Over the last 10+ years, we have worked deeply with organizations that ran on manual registers, chaotic WhatsApp groups, and broken spreadsheets. We specialize in taking those messy workflows, mapping them down to individual steps (S00 to S85), establishing single-owner accountability, defining Turnaround Times (TAT), and engineering automated escalation matrices.
+            Over the last 10+ years, we have worked deeply with organizations that ran on manual registers, chaotic WhatsApp groups, and broken spreadsheets. We specialize in taking those messy workflows, mapping them down to individual workstation steps, establishing single-owner accountability, defining Turnaround Times (TAT), and engineering automated escalation matrices.
           </p>
 
           <p style={{ color: '#a1a1aa', fontSize: '0.98rem', lineHeight: 1.75, marginBottom: '2rem' }}>

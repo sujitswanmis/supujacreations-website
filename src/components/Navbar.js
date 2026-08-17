@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { 
   Building2, Send, Menu, X, ChevronRight, Sparkles
 } from 'lucide-react';
+import LanguageSelector from './LanguageSelector';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -47,20 +48,20 @@ export default function Navbar() {
       backdropFilter: 'blur(20px)',
       borderBottom: '1px solid rgba(212, 175, 55, 0.18)',
       transition: 'all 0.3s ease',
-      padding: '0.85rem 1.5rem',
+      padding: '0.75rem 1.5rem',
       boxShadow: scrolled ? '0 10px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(212, 175, 55, 0.08)' : 'none'
     }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
+      <div style={{ maxWidth: '1360px', margin: '0 auto', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'nowrap' }}>
         
         {/* Brand Logo */}
-        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.85rem', whiteSpace: 'nowrap' }}>
+        <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem', whiteSpace: 'nowrap', flexShrink: 0 }}>
           <img 
             src="/supuja-logo.png" 
             alt="SuPuja Creations Logo" 
             style={{
-              height: '46px',
+              height: '44px',
               width: 'auto',
-              maxHeight: '46px',
+              maxHeight: '44px',
               objectFit: 'contain',
               flexShrink: 0,
               filter: 'drop-shadow(0 2px 10px rgba(212, 175, 55, 0.5))'
@@ -68,20 +69,20 @@ export default function Navbar() {
           />
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', whiteSpace: 'nowrap' }}>
-              <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>SuPuja</span>
-              <span style={{ fontSize: '1.25rem', fontWeight: 800, color: '#f5d77f', letterSpacing: '-0.02em' }}>Creations</span>
+              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.02em' }}>SuPuja</span>
+              <span style={{ fontSize: '1.2rem', fontWeight: 800, color: '#f5d77f', letterSpacing: '-0.02em' }}>Creations</span>
               <span style={{ fontSize: '0.65rem', background: 'rgba(212, 175, 55, 0.15)', color: '#fde68a', border: '1px solid rgba(212, 175, 55, 0.35)', padding: '0.1rem 0.45rem', borderRadius: '4px', textTransform: 'uppercase', fontWeight: 700, marginLeft: '0.2rem' }}>
                 Automation
               </span>
             </div>
-            <div style={{ fontSize: '0.74rem', color: '#a1a1aa', whiteSpace: 'nowrap' }}>
+            <div style={{ fontSize: '0.72rem', color: '#a1a1aa', whiteSpace: 'nowrap' }}>
               Business Automation & MIS Solutions
             </div>
           </div>
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }} className="desktop-nav">
+        <nav style={{ display: 'flex', alignItems: 'center', gap: '0.15rem' }} className="desktop-nav">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -93,6 +94,8 @@ export default function Navbar() {
                   color: isActive ? '#f5d77f' : undefined,
                   background: isActive ? 'rgba(212, 175, 55, 0.14)' : undefined,
                   fontWeight: isActive ? 700 : 500,
+                  fontSize: '0.86rem',
+                  padding: '0.45rem 0.65rem',
                   border: isActive ? '1px solid rgba(212, 175, 55, 0.3)' : '1px solid transparent'
                 }}
               >
@@ -103,7 +106,13 @@ export default function Navbar() {
         </nav>
 
         {/* Action CTAs */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', flexShrink: 0, flexWrap: 'nowrap' }}>
+          
+          {/* Language Selector Dropdown (Desktop) */}
+          <div className="desktop-cta" style={{ flexShrink: 0 }}>
+            <LanguageSelector />
+          </div>
+
           <a 
             href="https://app.supujacreations.com" 
             target="_blank"
@@ -164,6 +173,11 @@ export default function Navbar() {
           zIndex: 99,
           boxShadow: '0 20px 40px rgba(0, 0, 0, 0.9)'
         }}>
+          {/* Language Selector in Mobile Menu */}
+          <div style={{ marginBottom: '0.5rem' }}>
+            <LanguageSelector isMobile={true} />
+          </div>
+
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (

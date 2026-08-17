@@ -1,9 +1,12 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 import { 
   MapPin, MessageSquare, Mail, Building2, ArrowUpRight, ShieldCheck, Sparkles
 } from 'lucide-react';
 import { FacebookIcon, InstagramIcon } from './SocialIcons';
+import LanguageSelector from './LanguageSelector';
 
 export default function Footer() {
   return (
@@ -258,13 +261,18 @@ export default function Footer() {
           flexWrap: 'wrap',
           justifyContent: 'space-between',
           alignItems: 'center',
-          gap: '1rem',
+          gap: '1.25rem',
           fontSize: '0.82rem',
           color: '#71717a'
         }}>
           <div>
             &copy; {new Date().getFullYear()} <strong>SuPuja Creations</strong> (supujacreations.com). All rights reserved.
           </div>
+
+          <div>
+            <LanguageSelector direction="up" />
+          </div>
+
           <div>
             Practical Business Automation • Google Workspace • REST APIs • FMS Architecture
           </div>

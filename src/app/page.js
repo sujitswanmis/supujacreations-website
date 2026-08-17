@@ -440,6 +440,136 @@ export default function Home() {
         </div>
       </section>
 
+      {/* BEFORE VS AFTER BUSINESS TRANSFORMATION */}
+      <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', background: 'linear-gradient(180deg, rgba(8, 10, 15, 0.9) 0%, rgba(14, 17, 24, 0.98) 100%)', borderTop: '1px solid rgba(212, 175, 55, 0.18)' }}>
+        <div style={{ maxWidth: '1240px', margin: '0 auto' }}>
+          
+          <div style={{ textAlign: 'center', maxWidth: '820px', margin: '0 auto 3.5rem auto' }}>
+            <div className="page-badge">
+              <Sparkles size={14} color="#f5d77f" />
+              <span>Measurable Operational Transformation</span>
+            </div>
+            <h2 style={{ fontSize: 'clamp(2rem, 5vw, 2.75rem)', fontWeight: 800, color: '#ffffff', margin: '0 0 1rem 0' }}>
+              Manual Chaos vs. <span className="gold-gradient-text">SuPuja Digital Flow</span>
+            </h2>
+            <p style={{ color: '#a1a1aa', fontSize: '1.02rem', lineHeight: 1.65 }}>
+              How structured Google Workspace, Apps Script, and FMS architecture systematically eliminates operational friction, stops revenue leakages, and enforces single-owner accountability:
+            </p>
+          </div>
+
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem'
+          }}>
+            {[
+              {
+                title: 'Sales & Lead Pipeline',
+                icon: 'Users',
+                before: 'Leads scattered in personal WhatsApp chats, registers, and diaries. No auto-assignment; follow-ups missed and conversion rates untracked.',
+                after: 'Centralized Multi-Channel CRM. Automatic round-robin salesperson assignment, follow-up scheduler, and daily conversion MIS.'
+              },
+              {
+                title: 'Sales Orders & Balance Collection',
+                icon: 'FileText',
+                before: 'Orders dispatched without verifying 70% balance payment. Manual PDF creation errors, payment delays, and bad-debt disputes.',
+                after: '10-Step S-Order Lifecycle. Dispatch strictly locked until 30% advance & 70% balance are verified, with automated WhatsApp reminders.'
+              },
+              {
+                title: 'Shop-Floor & Production Flow',
+                icon: 'Factory',
+                before: 'Owner must walk the factory floor or call supervisors to ask status. Bottlenecks and machine WIP delays discovered only after client complains.',
+                after: 'Multi-Stage Manufacturing FMS. Real-time stage-by-stage Planned vs. Actual tracking with automated WhatsApp delay escalation alerts.'
+              },
+              {
+                title: 'Purchase & Vendor Material Inward',
+                icon: 'Layers',
+                before: 'Vendor rate comparison on loose papers, duplicate POs created, and rejected materials entered into inventory without inspection.',
+                after: 'Standardized 1-Click PO Generator. Mandatory GRN quality checklist, duplicate prevention, and automated vendor payment aging reports.'
+              },
+              {
+                title: 'Employee Attendance & Field Tracking',
+                icon: 'MapPin',
+                before: 'Proxy attendance, buddy punch-ins, manual Excel timesheets, and zero location verification for field sales and plant staff.',
+                after: 'Smart GPS Geofenced Attendance. Device location radius check (Inside/Outside office) + mandatory camera selfie capture (Zero Proxy).'
+              },
+              {
+                title: 'Executive Management Visibility',
+                icon: 'BarChart3',
+                before: 'Reports prepared 2–3 days late with manual copy-paste formula errors. Owner lacks instant visibility into daily company bottlenecks.',
+                after: 'Live Executive Looker Studio Dashboard. Real-time single-screen view of active orders, payments locked, and department scorecards.'
+              }
+            ].map((item, idx) => (
+              <div 
+                key={idx} 
+                className="glass-card" 
+                style={{ 
+                  padding: '1.8rem 1.6rem', 
+                  display: 'flex', 
+                  flexDirection: 'column',
+                  background: 'rgba(14, 17, 24, 0.92)',
+                  border: '1px solid rgba(212, 175, 55, 0.22)',
+                  borderRadius: '14px'
+                }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '1.25rem', paddingBottom: '0.85rem', borderBottom: '1px solid rgba(212, 175, 55, 0.15)' }}>
+                  <div style={{ width: '38px', height: '38px', borderRadius: '8px', background: 'rgba(212, 175, 55, 0.14)', border: '1px solid rgba(212, 175, 55, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                    {getIcon(item.icon)}
+                  </div>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ffffff', margin: 0 }}>
+                    {item.title}
+                  </h3>
+                </div>
+
+                {/* Before Box */}
+                <div style={{ 
+                  background: 'rgba(239, 68, 68, 0.06)', 
+                  border: '1px solid rgba(239, 68, 68, 0.25)', 
+                  borderRadius: '10px', 
+                  padding: '1rem', 
+                  marginBottom: '1rem' 
+                }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#fca5a5', textTransform: 'uppercase', letterSpacing: '0.04em', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.35rem' }}>
+                    <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#ef4444', display: 'inline-block' }} />
+                    Before: Manual Chaos
+                  </div>
+                  <p style={{ fontSize: '0.86rem', color: '#d4d4d8', lineHeight: 1.55, margin: 0 }}>
+                    {item.before}
+                  </p>
+                </div>
+
+                {/* After Box */}
+                <div style={{ 
+                  background: 'rgba(34, 197, 94, 0.06)', 
+                  border: '1px solid rgba(34, 197, 94, 0.3)', 
+                  borderRadius: '10px', 
+                  padding: '1rem',
+                  marginTop: 'auto'
+                }}>
+                  <div style={{ fontSize: '0.72rem', fontWeight: 800, color: '#86efac', textTransform: 'uppercase', letterSpacing: '0.04em', display: 'flex', alignItems: 'center', gap: '0.35rem', marginBottom: '0.35rem' }}>
+                    <span style={{ width: '7px', height: '7px', borderRadius: '50%', background: '#22c55e', display: 'inline-block' }} />
+                    After: SuPuja Automated Flow
+                  </div>
+                  <p style={{ fontSize: '0.86rem', color: '#fef3c7', lineHeight: 1.55, margin: 0 }}>
+                    {item.after}
+                  </p>
+                </div>
+
+              </div>
+            ))}
+          </div>
+
+          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+            <Link href="/contact" className="btn-primary">
+              <Zap size={18} />
+              Transform Your Business Operations
+              <ArrowRight size={16} />
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
       {/* FEATURED PROJECTS PREVIEW */}
       <section style={{ position: 'relative', zIndex: 1, padding: '5.5rem 1.5rem', background: 'rgba(10, 12, 18, 0.6)', borderTop: '1px solid rgba(212, 175, 55, 0.15)' }}>
         <div style={{ maxWidth: '1240px', margin: '0 auto' }}>

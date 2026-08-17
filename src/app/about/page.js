@@ -42,9 +42,22 @@ export default function AboutPage() {
       {/* HEADER SECTION */}
       <div style={{ maxWidth: '850px', marginBottom: '4rem' }}>
         <div className="page-badge">About SuPuja Creations</div>
-        <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.15, margin: '0 0 1rem 0' }}>
-          SuPuja Creations
-        </h1>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '0.75rem' }}>
+          <img 
+            src="/supuja-logo.png" 
+            alt="SuPuja Creations Logo" 
+            style={{
+              height: '56px',
+              width: 'auto',
+              objectFit: 'contain',
+              flexShrink: 0,
+              filter: 'drop-shadow(0 4px 16px rgba(56, 189, 248, 0.4))'
+            }} 
+          />
+          <h1 style={{ fontSize: 'clamp(2.4rem, 5vw, 3.6rem)', fontWeight: 800, color: '#ffffff', lineHeight: 1.1, margin: 0 }}>
+            SuPuja Creations
+          </h1>
+        </div>
         <div style={{ fontSize: '1.4rem', fontWeight: 600, color: '#38bdf8', marginBottom: '1.5rem' }}>
           Senior MIS & Business Automation Agency
         </div>

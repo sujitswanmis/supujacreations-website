@@ -47,17 +47,30 @@ export default function Home() {
             Available for Business Automation, FMS & MIS Architecture
           </div>
 
-          {/* Brand Name & Title */}
-          <h1 style={{
-            fontSize: 'clamp(2.5rem, 5.5vw, 4rem)',
-            fontWeight: 800,
-            lineHeight: 1.15,
-            letterSpacing: '-0.03em',
-            margin: '0 0 0.85rem 0',
-            color: '#ffffff'
-          }}>
-            SuPuja Creations
-          </h1>
+          {/* Brand Name & Logo */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', marginBottom: '0.85rem' }}>
+            <img 
+              src="/supuja-logo.png" 
+              alt="SuPuja Creations Logo" 
+              style={{
+                height: '64px',
+                width: 'auto',
+                objectFit: 'contain',
+                flexShrink: 0,
+                filter: 'drop-shadow(0 4px 18px rgba(56, 189, 248, 0.45))'
+              }} 
+            />
+            <h1 style={{
+              fontSize: 'clamp(2.5rem, 5.5vw, 4rem)',
+              fontWeight: 800,
+              lineHeight: 1.1,
+              letterSpacing: '-0.03em',
+              margin: 0,
+              color: '#ffffff'
+            }}>
+              SuPuja Creations
+            </h1>
+          </div>
 
           <div style={{
             fontSize: 'clamp(1.2rem, 2.8vw, 1.7rem)',

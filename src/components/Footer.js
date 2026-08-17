@@ -28,20 +28,18 @@ export default function Footer() {
           {/* Col 1: Brand Info */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
             <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-              <div style={{
-                width: '38px',
-                height: '38px',
-                borderRadius: '10px',
-                background: 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#ffffff',
-                fontWeight: 800,
-                fontSize: '1.1rem'
-              }}>
-                SC
-              </div>
+              <img 
+                src="/supuja-logo.png" 
+                alt="SuPuja Creations Logo" 
+                style={{
+                  height: '42px',
+                  width: 'auto',
+                  maxHeight: '42px',
+                  objectFit: 'contain',
+                  flexShrink: 0,
+                  filter: 'drop-shadow(0 2px 8px rgba(56, 189, 248, 0.35))'
+                }} 
+              />
               <div>
                 <div style={{ fontWeight: 700, color: '#f8fafc', fontSize: '1.1rem' }}>SuPuja Creations</div>
                 <div style={{ fontSize: '0.72rem', color: '#64748b' }}>Business Automation & MIS Solutions</div>

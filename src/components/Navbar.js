@@ -51,22 +51,18 @@ export default function Navbar() {
         
         {/* Brand Logo */}
         <Link href="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-          <div style={{
-            width: '42px',
-            height: '42px',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #2563eb 0%, #06b6d4 100%)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            color: '#ffffff',
-            fontWeight: 800,
-            fontSize: '1.25rem',
-            boxShadow: '0 4px 14px rgba(37, 99, 235, 0.45)',
-            flexShrink: 0
-          }}>
-            SC
-          </div>
+          <img 
+            src="/supuja-logo.png" 
+            alt="SuPuja Creations Logo" 
+            style={{
+              height: '44px',
+              width: 'auto',
+              maxHeight: '44px',
+              objectFit: 'contain',
+              flexShrink: 0,
+              filter: 'drop-shadow(0 2px 8px rgba(56, 189, 248, 0.4))'
+            }} 
+          />
           <div>
             <div style={{ fontSize: '1.15rem', fontWeight: 700, color: '#f8fafc', letterSpacing: '-0.02em', display: 'flex', alignItems: 'center', gap: '0.45rem' }}>
               SuPuja Creations

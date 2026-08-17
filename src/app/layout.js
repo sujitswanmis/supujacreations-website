@@ -18,13 +18,25 @@ export const metadata = {
     'Looker Studio Dashboards'
   ],
   authors: [{ name: 'SuPuja Creations', url: 'https://supujacreations.com' }],
-  creator: 'SuPuja Creations',
   metadataBase: new URL('https://supujacreations.com'),
+  icons: {
+    icon: '/supuja-logo.png',
+    shortcut: '/supuja-logo.png',
+    apple: '/supuja-logo.png',
+  },
   openGraph: {
     title: 'SuPuja Creations | Senior MIS & Business Automation Solutions',
     description: 'Practical business automation systems, Google Workspace automation, REST API integration, and FMS workflows by SuPuja Creations.',
     url: 'https://supujacreations.com',
     siteName: 'SuPuja Creations',
+    images: [
+      {
+        url: '/supuja-logo.png',
+        width: 800,
+        height: 600,
+        alt: 'SuPuja Creations Logo',
+      },
+    ],
     locale: 'en_IN',
     type: 'website',
   },
@@ -32,6 +44,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'SuPuja Creations | Senior MIS & Business Automation Solutions',
     description: 'Practical business automation systems using Google Sheets, Apps Script, and APIs.',
+    images: ['/supuja-logo.png'],
   },
 };
 
